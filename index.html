@@ -45,13 +45,16 @@
         <div id="questionList" class="question-accordion"></div>
       </aside>
 
-      <!-- CENTER: Java Code (50%) -->
+      <!-- CENTER: Exam Info & Code (50%) -->
       <section class="panel code-panel">
-        <div class="panel-header">
-          <h2>Exam Java Code</h2>
-          <button id="copyCode" class="small-btn">Copy</button>
+        <div class="code-tabs" id="codeTabs">
+          <!-- Tabs generated dynamically -->
         </div>
-        <div class="code-wrapper">
+        <div class="code-tab-content" id="codeTabContent">
+          <!-- Tab content generated dynamically -->
+        </div>
+        <!-- Hidden legacy editor for CodeMirror -->
+        <div class="code-wrapper hidden" id="legacyCodeWrapper">
           <textarea id="examCode"></textarea>
         </div>
       </section>

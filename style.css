@@ -353,12 +353,268 @@ body {
   background: var(--bg-code);
 }
 
+.code-wrapper.hidden {
+  display: none;
+}
+
 .code-wrapper .CodeMirror {
   height: 100%;
   font-family: var(--font-mono);
   font-size: 13px;
   line-height: 1.6;
   background: var(--bg-code);
+}
+
+/* ===== CODE TABS ===== */
+.code-tabs {
+  display: flex;
+  gap: 2px;
+  padding: 8px 12px 0;
+  background: var(--bg-main);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.code-tab {
+  padding: 8px 16px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  position: relative;
+  top: 1px;
+}
+
+.code-tab:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.code-tab.active {
+  background: var(--bg-panel);
+  color: var(--accent);
+  border-color: var(--border);
+  border-bottom: 1px solid var(--bg-panel);
+  font-weight: 600;
+}
+
+.code-tab .tab-icon {
+  margin-right: 6px;
+}
+
+.code-tab-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-pane {
+  display: none;
+  flex: 1;
+  overflow: hidden;
+}
+
+.tab-pane.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Info Tab Content */
+.info-tab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: var(--bg-panel);
+}
+
+.info-section {
+  margin-bottom: 24px;
+}
+
+.info-section:last-child {
+  margin-bottom: 0;
+}
+
+.info-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-light);
+}
+
+.scenario-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.scenario-text p {
+  margin-bottom: 12px;
+}
+
+/* UML Diagram Styles */
+.uml-diagram {
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.uml-class-header {
+  background: var(--accent);
+  color: white;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+
+.uml-section {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.uml-section:last-child {
+  border-bottom: none;
+}
+
+.uml-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.uml-attr, .uml-method {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 3px 0;
+  color: var(--text-primary);
+}
+
+.uml-attr .visibility {
+  color: var(--warning);
+  font-weight: bold;
+}
+
+.uml-method .visibility {
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* Example Object */
+.example-object {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-top: 8px;
+}
+
+.example-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.example-values {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--accent-dark);
+}
+
+/* Data Table Styles */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.data-table th {
+  background: var(--accent);
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.data-table td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:nth-child(even) {
+  background: var(--bg-code);
+}
+
+/* Class Tab Content */
+.class-tab-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.class-tab-content .CodeMirror {
+  flex: 1;
+  height: 100% !important;
+}
+
+.class-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg-main);
+  border-bottom: 1px solid var(--border);
+}
+
+.class-name-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.copy-class-btn {
+  font-size: 11px;
+  padding: 4px 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.copy-class-btn:hover {
+  background: var(--bg-hover);
 }
 
 /* ===== ANSWER PANEL ===== */
