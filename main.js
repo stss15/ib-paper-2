@@ -6,6 +6,7 @@ const state = {
   currentSubQuestion: null,
   answers: {},
   examCode: '',
+  currentLevel: 'SL', // SL or HL
 };
 
 let codeAnswerEditor = null;
@@ -60,6 +61,28 @@ function wireEvents() {
   // Hide theme toggle since we're using clean white
   const themeBtn = document.getElementById('themeToggle');
   if (themeBtn) themeBtn.style.display = 'none';
+  
+  // Level toggle (SL/HL)
+  document.getElementById('slBtn').addEventListener('click', () => setLevel('SL'));
+  document.getElementById('hlBtn').addEventListener('click', () => setLevel('HL'));
+}
+
+function setLevel(level) {
+  state.currentLevel = level;
+  
+  // Update button states
+  document.getElementById('slBtn').classList.toggle('active', level === 'SL');
+  document.getElementById('hlBtn').classList.toggle('active', level === 'HL');
+  
+  // Repopulate exam select with filtered exams
+  populateExamSelect(state.exams);
+  
+  // Load first exam of this level
+  const filteredExams = state.exams.filter(e => e.level === level);
+  if (filteredExams.length) {
+    document.getElementById('examSelect').value = filteredExams[filteredExams.length - 1].id;
+    loadExam(filteredExams[filteredExams.length - 1].id);
+  }
 }
 
 function clearCurrentAnswer() {
@@ -96,9 +119,12 @@ async function loadManifest() {
     const exams = await res.json();
     state.exams = exams;
     populateExamSelect(exams);
-    if (exams.length) {
-      document.getElementById('examSelect').value = exams[exams.length - 1].id;
-      await loadExam(exams[exams.length - 1].id);
+    
+    // Load the most recent exam of the current level
+    const filteredExams = exams.filter(e => e.level === state.currentLevel);
+    if (filteredExams.length) {
+      document.getElementById('examSelect').value = filteredExams[filteredExams.length - 1].id;
+      await loadExam(filteredExams[filteredExams.length - 1].id);
     }
   } catch (err) {
     console.error('Failed to load manifest:', err);
@@ -107,14 +133,24 @@ async function loadManifest() {
 
 function populateExamSelect(exams) {
   const select = document.getElementById('examSelect');
+  const currentValue = select.value;
   select.innerHTML = '';
-  exams.forEach(exam => {
+  
+  // Filter by current level
+  const filteredExams = exams.filter(e => e.level === state.currentLevel);
+  
+  filteredExams.forEach(exam => {
     const opt = document.createElement('option');
     opt.value = exam.id;
     opt.textContent = exam.label;
     select.appendChild(opt);
   });
-  select.addEventListener('change', e => loadExam(e.target.value));
+  
+  // Only add event listener once
+  if (!select.dataset.listenerAdded) {
+    select.addEventListener('change', e => loadExam(e.target.value));
+    select.dataset.listenerAdded = 'true';
+  }
 }
 
 async function loadExam(examId) {

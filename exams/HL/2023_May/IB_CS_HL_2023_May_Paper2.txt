@@ -1,0 +1,355 @@
+Option D - Object-oriented programming
+13.
+
+A real estate business maintains an unsorted database of houses and apartments that it tries
+to sell for the property owners.
+The following UML diagram describes the objects in the current system.
+Property
+
+Owner
+- name: String
+
+address: String
+phone: String
+< ... more attributes >
+
+- ID: String
+-
+
+String
+v - address:
+city: String
+
++ constructor
+accessor and
+mutator methods
+
+- price: int
+... more
+
+attributes >
+
++ constructor
++ accessor and
+mutator methods
+
+House
+
+/�
+
+Apartment
+
+< attributes >
+
+< attributes >
+
+< methods >
+
+< methods >
+
+(a)
+
+Define the term primitive data type.
+
+(b)
+
+State an additional attribute in the class Property that would have data type
+
+(c)
+
+I1 I
+
+(i)
+
+Boolean
+
+11 l
+
+(ii)
+
+integer.
+
+[1 J
+
+State the relationship between
+(i)
+
+Owner and Property
+
+11 I
+
+0i)
+
+HouseandProperty.
+
+11 l
+
+(d)
+
+Distinguish between a class and an instantiation in this scenario.
+
+[2]
+
+(e)
+
+Outline how the modifier static affects how a variable is used.
+
+[2]
+
+(f)
+
+Describe how the modifier static could be used to access the total number of both
+Houseand Apartment objects that have been created in this system.
+
+[2]
+
+(Option D continues on the following page)
+
+-15-
+
+2223-7012
+
+(Option D, question 13 continued)
+The object-oriented software solution that implements this system for the real estate
+business allows a customer to select a maximum of 10 houses that he or she is interested in.
+These houses are stored in an array wishList of type House.
+
+14.
+
+(g)
+
+Construct the code needed to instantiate an array wishList that can store a maximum
+of 10 House objects.
+
+[3]
+
+(a)
+
+Define the term encapsulation.
+
+I1 l
+
+(b)
+
+Explain one benefit provided by encapsulation.
+
+[3]
+
+The real estate business is planning to expand its database to include student housing.
+These "houses" are usually single rooms in a privately owned house.
+(c)
+
+Explain one benefit of using inheritance to create a new class Room.
+
+[3]
+
+Many of the prospective students have an international background.
+(d)
+
+Explain one feature of modern programming languages that allows for internationalization. [3]
+
+(Option D continues on the following page)
+
+Turn over
+
+-16-
+
+2223-7012
+
+(Option D continued)
+15.
+
+All the unsorted House objects in the database have been copied to a sufficiently large array
+allHouses. This array is not completely filled with House objects.
+The array allHouses and all methods in this question are declared in the main program class.
+All methods can access the array allHouses directly.
+Consider the following method.
+public void unknown(String x)
+{
+for (int i=O; i<allHouses.length; i++)
+{
+if ( allHouses [ i] . getCi ty () . equals (x) )
+{
+output (allHouses[i] .getAddress());
+
+(a)
+
+Define the term method signature.
+
+(b)
+
+Describe how the original String variable, passed to a method as a parameter,
+can be assigned a new value by that method.
+
+( c)
+
+State the intended purpose of the method unknown.
+
+(d)
+
+(i)
+
+Outline the runtime error that is likely to occur if this method is called.
+
+[2]
+
+(ii)
+
+Outline how this error can be corrected.
+
+[2]
+
+(e)
+
+Construct the code for the method house sort that will sort the array allHouses in
+ascending order of price.
+
+[2]
+
+[2]
+(1 J
+
+[5]
+
+A method is needed to select from the original unsorted array allHouses the three most
+expensive houses below or equal to a given price.
+(f)
+
+Construct the code for the method select Three that will take an integer parameter
+budget. It must return a sorted array of size 3 that contains the three most expensive
+House objects (in ascending order of price) with a price that is less than or equal
+to budget.
+You may assume that the array allHouses contains at least three House objects
+with a price less than or equal to budget. As part of your answer you should use the
+method houseSort I I as developed in part (e).
+
+(Option D continues on the following page)
+
+[7]
+
+-17-
+
+2223-7012
+
+(Option D continued)
+16.
+
+Once a month the real estate business organizes an open day for a particular house.
+Interested clients can sign up by giving their name and phone number to the real estate business.
+This information is stored in a list node ClientNode as follows.
+public class ClientNode
+{
+private String name;
+private String phone;
+private boolean attended;
+private ClientNode next;
+public ClientNode (String aName, String aPhone)
+(
+this.name = aName;
+this.phone = aPhone;
+this.attended= false;
+this.next = null;
+public String getName()
+{
+return this.name;
+public String getClient()
+{
+return this.name+" "+this.phone;
+public void setAttended()
+{
+attended= true;
+public ClientNode getNext()
+{
+return this.next;
+public void setNext(ClientNode nextNode)
+{
+this.next = nextNode;
+
+(a)
+
+Identify two features of an abstract data type (ADT).
+
+[2]
+
+(Option D continues on the following page)
+
+Turn over
+
+-18-
+
+2223-7012
+
+(Option D, question 16 continued)
+A new class ClientList is implemented as outlined below.
+public class ClientList
+{
+ClientNode root;
+// default constructor
+void enList(ClientNode visitor)
+{
+... adds visitor to the end of the list - missing code _
+boolean isEmpty()
+return (root==null);
+... more methods ...
+A list openDay has been instantiated of the type ClientList.
+openDay
+
+(b)
+
+John Belaka
+071112223
+
+Emma Kim
+071135322
+
+Describe the meaning of the following statement.
+
+[3)
+
+open Day. enList (new ClientNode ("Sophie Bella", "072 456721") ) ;
+(c)
+
+By using object references, construct the method enList that allows a client to be
+added to the end of the list open Day.
+
+[5]
+
+The attendance of potential buyers is tracked during the open day by changing the at tended
+variable to true when a potential buyer arrives.
+At the end of the day, the list open Day is processed so that every potential buyer that
+attended is added to new list hasAttended and every potential buyer that did not attend is
+added to a new list notAttended.
+(d)
+
+Without writing code, outline the steps involved in splitting the list openDay into a list
+hasAttended and a list notAttended.
+
+(Option D continues on the following page)
+
+[4]
+
+-19-
+
+2223-7012
+
+(Option D, question 16 continued)
+The real estate business keeps the data of all past owners in a file for future reference.
+This file is sorted by owner name. When needed, this file is read into a LinkedList called
+contacts, which has been instantiated as follows.
+private LinkedList<Owner> contacts = new LinkedList<Owner>();
+(e)
+
+Construct a recursive binary search method given as
+public Owner binSearch(String name, int low, int high)
+where name is the search term.
+You may assume that contacts is accessible to binSearch and that it has been filled
+with many objects.
+You may use the following standard LinkedList method.
+. get(int index)
+This returns the object located in the LinkedList at index.
+
+End of Option D
+
+[6]
+
+

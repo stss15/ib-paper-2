@@ -107,6 +107,35 @@ body {
   color: var(--text-muted);
 }
 
+.level-toggle {
+  display: flex;
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.level-btn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.level-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.level-btn.active {
+  background: var(--accent);
+  color: white;
+}
+
 .exam-select {
   background: var(--bg-panel);
   border: 1px solid var(--border);

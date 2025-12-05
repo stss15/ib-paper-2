@@ -1,0 +1,506 @@
+Option D — Object-oriented programming
+
+A small health clinic with three doctors operates in a village. All clients of the clinic have their
+details stored in the clinic’s database. Patients that visit the clinic during the day are given a
+priority rating (1–3) and are seated in a waiting room to wait for the next available doctor. When it
+is their turn, the patients are taken from the waiting room to have a consultation with their assigned
+doctor, who makes a diagnosis, provides treatment and writes a prescription.
+The clinic’s system is coded in Java. There are many objects in this system and some of them are
+listed below.
+Object
+
+Description
+
+Doctor
+
+A licensed professional who treats patients in the clinic.
+
+Patient
+
+A sick person who requires a consultation with a doctor.
+
+WaitingRoom
+
+A place where patients wait for their consultations.
+
+Consultation
+
+A dated meeting between a doctor and a patient which results in a
+diagnosis, treatment and a prescription for medication.
+
+Treatment
+
+A dated record of all actions and medication prescribed to treat the
+patient’s diagnosed condition.
+
+The three objects Patient, WaitingRoom and Treatment have been defined in the following
+UML diagrams:
+Patient
+
+Integer id
+String name
+Integer priority
+String doctor
+
+setId (Integer id)
+setName (String name)
+setPriority (Integer priority)
+setDoctor (String doctor)
+Integer getID()
+String getName()
+Integer getPriority()
+String getDoctor()
+String toString()
+WaitingRoom
+
+Patient[10]patients
+
+Treatment
+
+String date
+Integer patientId
+String doctor
+String actions
+String medication
+
+setDate (String date)
+setPatientId (Integer id)
+setDoctor (String doctor)
+setActions (String actions)
+setMedication (String medication)
+String getDate()
+Integer getPatientID()
+String getDoctor()
+String getActions()
+String getMedication()
+String toString()
+
+add(Patient newPatient)
+void callNextPatient()
+Integer findNextPatientIndex()
+remove(Integer n)
+
+(Option D continues on the following page)
+Turn over
+
+– 14 –
+
+N15/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option D continued)
+The Patient and WaitingRoom objects are implemented as follows:
+public class Patient
+{
+private int id;
+private String name;
+private int priority;
+private String doctor;
+public Patient(int i, String n, int p)
+{
+		 id = i;
+		 name = n;
+		 priority = p;
+		 doctor = null;
+}
+public void setId(int i) { id = i; }
+public void setName(String n) { name = n; }
+public void setPriority(int p) { priority = p; }
+public void setDoctor(String d) { doctor = d; }
+public int getId() { return id; }
+public String getName() { return name; }
+public int getPriority() { return priority; }
+public String getDoctor() { return doctor; }
+public String toString() { return id+" "+name+" "+priority+" "+doctor; }
+}
+public class WaitingRoom
+{
+private Patient[] patients = new Patients[10];
+// uses default constructor
+public void add(Patient newPatient)
+// adds the new patient in the next empty array location
+{
+		int i = 0;
+		while ((patients[i] != null) && (i < 10))
+		{
+			i=i+1;
+		}
+		if (i==10) { System.out.println("No more space in the waiting room."); }
+		else { patients[i] = newPatient; }
+}
+
+(Option D continues on the following page)
+
+– 15 –
+
+N15/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option D continued)
+public void callNextPatient()
+// finds the next patient, outputs their details
+// and removes the patient from the array
+{
+		int index = 0;
+		if (patients[0]==null)
+		{
+			System.out.println("The waiting room is empty.");
+		}
+		else
+		{
+			 index = findNextPatientIndex();
+			remove(index);
+		}
+}
+private int findNextPatientIndex()
+// returns the index of the first patient with the
+// highest priority in the array patients
+{
+		int max = 0;
+		 //... code missing ...
+		return max;
+}
+private void remove(int n)
+// outputs the data of the patient instance at array index n
+// and removes that patient by shifting all remaining patients
+// by one index towards the front of the array
+{
+		 //... code missing ...
+}
+}
+
+(Option D continues on the following page)
+
+Turn over
+
+– 16 –
+
+N15/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option D continued)
+14.
+
+(a)
+
+Define the term constructor, using an example from the code on pages 14 and 15.
+
+[2]
+
+(b)
+
+Describe one additional field that might have been included in the Patient class.
+Include a data type and sample data in your answer.
+
+[2]
+
+(c)
+
+Describe the relationship between the Patient object and the WaitingRoom object.
+
+[2]
+
+Consider the WaitingRoom class as presented on pages 14 and 15.
+(d)
+
+Construct the missing lines of code in the findNextPatientIndex() method to return
+the index of the first patient with the highest priority in the patients array.
+Note: the highest possible priority is 3.
+
+[3]
+
+Construct the remove(int n) method which outputs the data of the patient object at
+index n and then removes that patient object by moving all remaining patient objects
+one index towards the front of the patients array.
+You may assume that n is a valid index between 0 and 9, and that an instance of
+Patient exists at that index.
+
+[6]
+
+(a)
+
+In relation to the Patient class, outline one advantage of encapsulation.
+
+[2]
+
+(b)
+
+In relation to the Treatment object, discuss one ethical consideration when designing
+software that stores patients and their illnesses.
+
+[4]
+
+(e)
+		
+
+15.
+
+The clinic would like to start storing details in a Doctor object, including full name, telephone
+number and whether the doctor is present or not. For example:
+name:
+
+Dr Henriëtte Mănescu-Raţa
+
+phone:
+
+0734511122
+
+present:
+
+true
+
+(c)
+
+Design the Doctor object using a UML diagram.
+
+[3]
+
+(d)
+
+In relation to the Doctor object, outline the need for extended character sets as used
+by modern programming languages.
+
+[3]
+
+(Option D continues on the following page)
+
+– 17 –
+
+N15/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option D continued)
+16.
+
+Treatment objects are being instantiated throughout the day and added to a collection. The
+object treatmentFile contains the following methods which act on that collection:
+
+• getNext() which reads the next treatment from the collection and returns it
+• hasNext() which returns false when there are no more treatments in the collection.
+Construct the method showMedicationByDoctor(), which will take the name of a doctor
+as a parameter and output the medication for each treatment in the collection that has been
+provided by that doctor. You may assume that treatmentFile has been declared as a
+global variable, that it is open for reading, and that the first time getNext() is called it will
+return the first treatment from the collection.
+
+17.
+
+[6]
+
+The Treatment object needs to be developed further. There are three possible types of
+treatment and this is to now be recorded.
+• ambulatory – the patient is treated and goes home afterwards
+• in-patient – the patient spends one or more nights in the clinic
+• referral – the patient is sent to a hospital in a nearby city.
+All treatments have common fields such as ID of the patient, date and a doctor object, but
+other fields are different. For example, ambulatory and in-patient treatments include
+medication while referral does not. On the other hand, referral includes the name of
+the hospital that the patient was sent to and whether or not ambulance transportation was
+used. In-patient treatment includes a room number.
+(a)
+
+Construct diagrams to show how inheritance can be used to re-design the Treatment
+class.
+
+[6]
+
+(b)
+
+Describe three advantages of modularity in program development.
+
+[6]
+
+(Option D continues on the following page)
+
+Turn over
+
+– 18 –
+
+N15/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option D continued)
+18.
+
+Due to the growth of the village, more people have been using the clinic and the current
+static implementation of the waiting room is no longer suitable. The waiting room needs to
+be implemented dynamically with a structure that preserves the order that the patients have
+come into the clinic.
+(a)
+
+(i)
+
+		(ii)
+
+State why a stack is not suitable for this purpose.
+
+[1]
+
+Outline one typical application of a stack.
+
+[2]
+
+It has been decided that a linked-list will be used to hold the individual Patient objects.
+An object of the LinkedList class will be used to instantiate a dynamic list of patients to
+implement the WaitingRoom as follows.
+public class WaitingRoom
+{
+private LinkedList<Patient> PatientList = new LinkedList<Patient>();
+// methods
+public void add(Patient P)
+// adds a patient at the end of the list
+{
+		PatientList.addLast(P);
+}
+public void remove()
+// outputs the name of the next patient to see a doctor and
+// removes this patient instance from the list
+{
+		int index = findNextPatientIndex();
+		System.out.println(PatientList.get(index).getName());
+		PatientList.remove(index);
+}
+private int findNextPatientIndex()
+{
+		int i = 0, result = 0;		
+		 Patient current, firstup;
+		 firstup = new Patient();
+		 firstup.setPriority(0);
+		while (i < PatientList.size())
+		{
+			current = PatientList.get(i);
+			if (current.getPriority() > firstup.getPriority())
+			{
+				 firstup = current;
+				result = i;
+			}
+			i=i+1;
+		}
+		return result;
+}
+}
+
+(Option D continues on the following page)
+
+N15/4/COMSC/HP2/ENG/TZ0/XX
+
+– 19 –
+(Option D, question 18 continued)
+(b)
+
+The remove method could cause a run-time error. State the pre-condition for the
+findNextPatientIndex method, in order to avoid this error.
+
+(c)
+
+Consider the following list:
+
+PatientList
+
+20070203
+Abdul Hashim
+2
+
+19991609
+Iris Gotenberg
+1
+
+[1]
+
+20042112
+Anh Nguyen
+3
+
+Copy and complete the table below to trace a call to the findNextPatientIndex
+method for this list. Note: the initialization is given in the first row.
+i
+
+current.name
+
+firstup.name
+
+result
+
+0
+
+–
+
+null
+
+0
+
+0
+
+[3]
+(d)
+
+State the purpose of the findNextPatientIndex method.
+
+[1]
+
+(e)
+
+Outline the changes needed to improve the findNextPatientIndex method with an
+early exit from the loop.
+
+[3]
+
+(Option D continues on the following page)
+
+Turn over
+
+– 20 –
+
+N15/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option D continued)
+19.
+
+Consider the following fragment of code that implements the method result(), where x and
+y are non-negative numbers.
+public int result(int x, int y)
+{
+if (x==0)
+{
+		return 0;
+}
+else if (y == 0)
+{
+		return 1;
+}
+else
+{
+		return (x+y)*result(x, y-1)
+}
+}
+
+(a)
+
+Define recursion.
+
+[1]
+
+(b)
+
+Trace the method result(3, 4) showing the intermediate steps and the final
+evaluation of this call.
+
+[4]
+
+An electronic amplifier uses a variant of result(), to produce distorted special effects
+whilst a music instrument is being played.
+The method result4(), with the signature
+double result4(double x, int y, double z, int v),
+
+produces these special effects, taking four non-negative signals in input, and obeying the
+following specification:
+• if the first three inputs (x, y and z) have a combined value that is more than 12 times the
+value of v, then the method behaves as result(v, y)
+• otherwise, and if the value of y is less than half the value of x, the method result4()
+is called again, only now with y and v decremented by 3, unless this would make their
+values invalid
+• if none of these actions are possible, result4() behaves as result(0, 0).
+(c)
+
+Construct the method result4(), according to the given specification.
+
+End of option D
+
+[4]
+
+

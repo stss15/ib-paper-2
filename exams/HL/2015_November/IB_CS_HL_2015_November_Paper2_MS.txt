@@ -1,0 +1,372 @@
+Option D — Object-oriented programming
+14.
+
+(a)
+
+(b)
+
+(c)
+
+Award [1] for a definition, such as:
+A (special) method (with the same name as the class) that instantiates an object of
+that class;
+Award [1] for the example:
+public Patient(String i, String n, int p)
+
+[2]
+
+Award [1] for a field and its data type.
+For example:
+String phoneNumber;
+
+[2]
+
+Award [1] for any indication of aggregation.
+Award an additional [1] for a full description.
+Example answer:
+The WaitingRoom object stores up to 10 instances of the Patient object;
+The WaitingRoom has a Patient;
+Accept a correctly labelled diagram.
+
+(d)
+
+Award marks as follows up to [3 max].
+Award [2] for correct loop, award [1] for loop with one condition.
+Award [1] for correct test.
+Award [1] for assigning max.
+Example answer:
+int i=1;
+while ((i<10) && (patients[i]!=null))
+{
+if (patients[i].priority > patients[max].priority)
+{
+max = i;
+}
+i = i+1;
+}
+
+(e)
+
+[2]
+
+[3]
+
+Award marks as follows up to [6 max].
+Award [1] for including the correct signature.
+Award [1] for correct output of patient details.
+Award [1] for any loop.
+Award [1] for correct loop.
+Award [1] for correct assignment to shift a patient instance.
+Award [1] for assigning null.
+Example answer:
+public void remove(int n)
+{
+System.out.println(patients[n].toString());
+for (int i=n; i<9; i=i+1)
+{
+patients[i] = patients[i+1];
+}
+patients[9] = null;
+}
+
+[6]
+
+–
+15.
+
+(a)
+
+–
+
+N15/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award [1] for a suitable definition, for example:
+Encapsulation means having private variables;
+Variables not directly accessible from outside the class;
+Methods and variables are all included in the class definition;
+Award [1] for relating an advantage to the Patient class, such as:
+So that patient data cannot be accessed/modified accidentally;
+So that patient data is more secure;
+
+(b)
+
+Award [1] for identifying an ethical issue and [1] for an elaboration.
+Award [1] for relating this issue to the Treatment class and [1] for an elaboration.
+Example answer:
+Sensitive information should be separated from identity data;
+In order to avoid information misuse;
+The consultation object does not include the patient's name (only an ID);
+So that a sensitive diagnosis (like AIDS) is not directly linked to a name;
+
+(c)
+
+[4]
+
+Award marks as follows up to [3 max].
+Award [1] for including String name with correct getter and setter methods.
+Award [1] for including String phone with correct getter and setter methods.
+Award [1] for including Boolean present with correct getter and setter methods;
+Example answer:
+Doctor
+String name
+String phone
+Boolean present
+setName(String name)
+setPhone(String phone)
+setPresent(Boolean present)
+String getName()
+String getPhone()
+Boolean getPresent()
+String toString() //optional
+
+(d)
+
+[2]
+
+[3]
+
+Award [1] for identifying an appropriate need for extended character sets and an
+additional [1] for an elaboration of this need. Award [1] for relating to the Doctor
+object.
+Example answer:
+Different languages use different characters, which are not included in the basic 8-bit
+ASCII character set;
+Extended character sets (like Unicode) include all possible characters from all
+languages;
+For example, the doctor’s name could not be spelled correctly in ASCII;
+
+[3]
+
+–2 –
+16.
+
+N15/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award marks as follows up to [6 max].
+Award [1] for correctly initialized method.
+Award [1] for creating a new Treatment object.
+Award [1] for loop through treatment file.
+Award [1] for setting current equal to next in file.
+Award [2] for correct if statement that checks names.
+Award [1] for correct output statement.
+void showMedicationByDoctor(String name)
+{
+Treatment current;
+while (treatmentFile.hasNext())
+{
+current = treatmentFile.getNext();
+if (current.getDoctor().equals(name))
+{
+output(current.getMedication());
+}
+}
+}
+
+[6]
+
+–2 –
+17.
+
+(a)
+
+N15/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award marks as follows up to [6 max].
+Award [1] for a common super-class.
+Award [1] for all common fields: id field (integer) date field (String) doctor field
+(String).
+Award [1] for three sub-classes and award [1] for arrows with correct direction.
+Award [1] for the medication fields in Ambulatory and InPatient, but not in
+Referral.
+Award [1] for the additional fields (Hospital and Ambulance) in Referral.
+Award [1] for the additional fields (RoomNumber and ReleaseDate) in InPatient.
+Example diagram:
+
+Treatment
+private int id;
+private String date;
+private Doctor doctor;
+
+Ambulatory
+
+Referral
+
+private String medication;
+
+private String hospital;
+private Boolean ambulance;
+
+InPatient
+private String medication;
+private String roomNumber;
+
+Do not penalize if data types are not specified.
+(b)
+
+[6]
+
+Award [1] for identifying each advantage and an additional [1] for an elaboration of this
+advantage, up to [6 max].
+Example answer:
+Faster development;
+Because different programming teams can work on different modules;
+Easier to debug;
+Because the smaller modules will have fewer mistakes than one big program;
+Easier to update (in the future);
+Because it is easier to update a module than the full program;
+Re-usability;
+Modules can be stored in libraries and reused for different programs;
+
+[6]
+
+–2 –
+18.
+
+(a)
+
+N15/4/COMSC/HP2/ENG/TZ0/XX/M
+
+(i)
+
+A stack is a LIFO structure;
+
+[1]
+
+(ii)
+
+Award [1] for stating an application and [1] for an elaboration.
+Example answer:
+The system stack stores return data of interrupted processes;
+The last interrupted process is the first to resume;
+
+[2]
+
+(b)
+
+Pre-condition: there is at least one patient instance in the list;
+
+(c)
+
+Award [1] for each row filled correctly.
+
+(d)
+(e)
+
+[1]
+
+i
+
+current.name
+
+firstup.name
+
+result
+
+0
+0
+1
+2
+
+Abdul Hashim
+Iris Gotenberg
+Anh Nguyen
+
+null
+Abdul Hashim
+Abdul Hashim
+Anh Nguyen
+
+0
+0
+0
+2
+
+findNextPatientIndex returns the index of the first patient with the highest priority
+in the list/find the next patient with the highest priority;
+
+[3]
+
+[1]
+
+Award marks as follows up to [3 max].
+Award [1] for introducing and initializing a Boolean done.
+Award [1] for adding !done to the loop condition.
+Award [1] for testing for early exit (current.priority==3).
+Example answers:
+Add a boolean done and set it to false before the loop;
+Add &&(!done) to the loop condition;
+if current.priority equals 3 then make done true;
+boolean done = false;
+while ((i < PatientList.size()) && (!done))
+{
+current = PatientList.get(i);
+if (current.getPriority() > firstup.getPriority())
+{
+firstup = current;
+result = i;
+}
+if (current.getPriority()==3) { done = true; }
+i=i+1;
+}
+while ((i < PatientList.size()) && (current.getPriority()!=3))
+
+[3]
+
+– 23 –
+19.
+
+N15/4/COMSC/HP2/ENG/TZ0/XX/M
+
+(a)
+
+A programming technique where a method calls on itself;
+
+(b)
+
+Award up to [4 max].
+Award [1] for correct result, 840.
+Award [1] for applying base case to result(3,0) =1.
+Award [1] for showing at least 2 recursive calls of result(), even if the final
+calculation is incorrect.
+Award [1] for presentation, showing the alternation of + and *.
+result(3,4)
+(3+4)* result (3,3)
+(3+4)* (3+3)* result (3,2)
+(3+4)* (3+3)*(3+2)* result (3,1)
+(3+4)* (3+3)*(3+2)*(3+1)* result (3,0)
+(3+4)* (3+3)*(3+2)*(3+1)*1 = 840
+
+(c)
+
+[1]
+
+[4]
+
+Award up to [4 max]
+Award [1] for having a return call for each branch
+Award [1] for both cases returning a call to result().
+Award [1] for checking the condition on x, y being non-negative.
+Award [1] for correct recursive call on result4().
+public double result4(double x, int y, double z, int v)
+{
+double sum = x + y + z;
+if (sum > 12*v)
+{
+return result(v,y);
+}
+else
+{
+if ((y<x/2)&& (v-3>=0 && y-3 >=0))
+{
+return result4(x,y-3,z,v-3);
+}
+else
+{
+return result(0,0);
+}
+}
+}
+
+[4]
+
+

@@ -1,0 +1,489 @@
+Option D — Object-oriented programming
+14.
+
+A company that manufactures a children’s card game, Monster Battle, wants to create a
+software version. Figure 9 shows three sample cards from the game.
+Figure 9: Three sample cards from Monster Battle
+
+NAME: SPLASHY
+
+NAME: SQUISHY
+
+TYPE: WATER MONSTER
+
+TYPE: WATER MONSTER
+
+TYPE:
+
+HEALTH POINTS:
+
+HEALTH POINTS:
+
+HEALTH POINTS:
+
+25
+
+SPECIAL ABILITIES:
+
+20
+
+NAME: FLAMEY
+
+SPECIAL ABILITIES:
+
+FIRE MONSTER
+40
+
+SPECIAL ABILITIES:
+
+1.
+
+HEAL A FRIEND
+
+1.
+
+HEAL A FRIEND
+
+1.
+
+HEAL A FRIEND
+
+2.
+
+PUT OUT FIRE
+
+2.
+
+PUT OUT FIRE
+
+2.
+
+HEAT WATER
+
+3.
+
+SOAK
+
+3.
+
+CLEAN
+
+3.
+
+BURN
+
+Each monster begins the game with a number of health points, which are stated on the card,
+and leaves the game when it has no remaining health points. During a battle between two
+monsters, players take turns to roll the dice. The results determine how much each monster’s
+attack will reduce the defending monster’s health points.
+Some initial classes have been created to model this scenario.
+public class Monster {
+public static final int ICE_MONSTER_TYPE = 1;
+public static final int WATER_MONSTER_TYPE = 2;
+public static final int FIRE_MONSTER_TYPE = 3;
+public String name = "Unknown";
+public int health = 100;
+public int strength = 10;
+public int monsterType = 0;
+public Monster(String name, int health, int monsterType) {
+this.name = name;
+this.health = health;
+this.monsterType = monsterType;
+}
+public void attack(Monster defender) {
+//to be written
+}
+
+(Option D continues on the following page)
+
+– 19 –
+
+8823 – 7012
+
+(Option D, question 14 continued)
+private static int rollDice() {
+//returns a random integer between 1 and 12
+return new java.util.Random().nextInt(12)+1;
+}
+public static void output(String message) {
+System.out.println(message);
+}
+
+}
+public class WaterMonster extends Monster {
+public WaterMonster(String name, int health) {
+super(name,health, Monster.WATER_MONSTER_TYPE);
+}
+}
+public class FireMonster extends Monster {
+public FireMonster(String name, int health){
+super(name, health, Monster.FIRE_MONSTER_TYPE);
+}
+}
+
+(a)
+
+Define the term static as used in the declaration ICE_MONSTER_TYPE in the
+Monster class.
+
+[1]
+
+(b)
+
+(i)	Outline one advantage of making all instance variables in the Monster
+class private.
+
+[2]
+
+Some instance variables may need to be retrieved and changed from outside the
+class even though they will be declared private.
+(ii)
+(c)
+
+State two types of method that would allow this to happen.
+
+[2]
+
+Outline why the keyword super is used in the constructor of the WaterMonster class.
+
+[2]
+
+The finished game may include some open source software.
+(d)
+
+Identify two aims of the open source movement.
+
+[2]
+
+(e)
+
+Construct code that creates an instance of a fire-type monster called Flamey with
+40 health points.
+
+[2]
+
+(Option D continues on the following page)
+
+Turn over
+
+– 20 –
+
+8823 – 7012
+
+(Option D continued)
+15.
+
+The Monster class contains the method attack(Monster defender). This is used when
+a monster attacks another monster (the defender).
+This method:
+y decreases the health variable of the defending monster by the amount returned by the
+rollDice method
+y uses the output method to display a defending monster’s name, damage and health
+points if its health variable is greater than zero
+y sets the defending monster’s health variable to zero if it is less than zero
+y outputs the defending monster’s name followed by “must leave the game” if its health
+variable is zero.
+(a)
+
+Construct the method attack(Monster defender), using any existing static
+methods in the Monster class that might be useful.
+
+(b)
+
+Outline two differences between the FireMonster class and an instance of
+FireMonster.[4]
+
+The programmer has created a class named Arena to model the place in which the
+monsters will battle.
+public class Arena {
+public Monster[] monsters = new Monster[10];
+int monsterCount = 0; //the number of monsters currently
+in array
+public void addMonster(Monster M) {
+// to be written
+}
+public void removeMonster(Monster M) {
+//to be written
+}
+public void doOneOnOneBattle(Monster A, Monster B) {
+while (A.health > 0 && B.health > 0) {
+gameLog(A.attack(B));
+gameLog(B.attack(A));
+}
+if (A.health > B.health) {
+output(A.name + " WINS!");
+removeMonster(B);
+} else if (B.health > A.health) {
+output(B.name + " WINS!");
+removeMonster(A);
+} else {
+output("IT IS A DRAW!");
+}
+}
+public static void output(String message) {
+System.out.println(message);
+}
+}
+
+(Option D continues on the following page)
+
+[4]
+
+– 21 –
+
+8823 – 7012
+
+(Option D, question 15 continued)
+(c)
+
+Construct a simple UML class diagram showing the relationships between FireMonster,
+Monster and Arena. You do not need to include variables and methods.
+[2]
+
+The method addMonster(Monster M) does the following:
+y If the monster array is not full and M is not in the array, it adds M to the array and
+increases the variable monsterCount.
+y Otherwise, a message is output stating the reason why.
+
+16.
+
+(d)
+
+Construct the method addMonster(Monster M).[5]
+
+(e)
+
+Outline two disadvantages of using object-oriented programming (OOP) in the
+development of software.
+
+[4]
+
+(a)	Define the term polymorphism.[2]
+The method removeMonster(Monster M) in the Arena class removes Monster M from
+the array without leaving any gaps. It also updates the monsterCount variable. You may
+assume that Monster M already exists in the Arena.
+(b)
+
+Construct the method removeMonster(Monster M)[6]
+
+Monsters have three special abilities that may be used on other monsters:
+y The ability “Heal”, which can be used on another monster
+y An ability specific to the monster type (eg, all water-type monsters have the ability
+“Put out fire”)
+y An ability specific to the monster (eg, only instances of Squishy have the ability “Clean”).
+The methods ability1(Monster defender), ability2(Monster defender) and
+ability3(Monster defender) will be created to enable the monsters to perform their
+abilities. A class for each individual monster card, eg “Squishy”, will be created.
+(c)
+
+(i)	Define the term inheritance.[2]
+(ii)
+
+Explain how inheritance and polymorphism could be used to maximize code
+reuse in these three methods.
+
+[5]
+
+(Option D continues on the following page)
+
+Turn over
+
+– 22 –
+
+8823 – 7012
+
+(Option D continued)
+17.
+
+A programmer is considering the way in which an arena holds object references to the
+monsters and decides to use a library collection.
+(a)
+
+Identify two advantages of using an existing library collection rather than creating one.
+
+[2]
+
+Some types of monsters cause more damage when attacking other types of monsters. The
+game will change the damage of each attack by a factor between –8 and +6 depending on
+the types of the two monsters involved in the battle.
+In Table 1, the attacking monster is indicated by the row and the defending monster by the
+column. For example, if a fire-type monster attacks an ice-type monster, the damage will be
+increased by 6.
+Table 1: The effectiveness of different monster types in a battle
+
+Attacking
+monster
+
+Defending monster
+Ice
+
+Water
+
+Fire
+
+Ice
+
+0
+
+−4
+
++2
+
+Water
+
+−8
+
+0
+
++5
+
+Fire
+
++6
+
+-3
+
+0
+
+This is implemented as a static array in the Monster class as follows: int[][]
+effectiveness = {{0, -4, 2},{-8, 0, 5},{6, -3, 0}};
+The following method will be written to return the corresponding value from the
+effectiveness array:
+public static int getAttackingWeight(Monster attacker, Monster defender){
+return // ... to be completed
+}
+
+(b)
+
+Construct the return statement.
+
+[2]
+
+The method recommendAttackingMonster(Monster defender) in the Arena class
+recommends the best monster in the monster array to use in a battle based on its
+effectiveness against the defending monster.
+If there is more than one monster with the same effectiveness and health points, the first of
+them will be selected.
+(c)
+
+Construct the method recommendAttackingMonster(Monster defender). You can
+assume that there is at least one monster in the monsters array, that the attacking
+monster is not in the monsters array, and that the method getAttackingWeight
+is available.
+
+(Option D continues on the following page)
+
+[6]
+
+– 23 –
+
+8823 – 7012
+
+(Option D continued)
+18.
+
+The arena will maintain a linked list of the battles that take place between monsters,
+called gameLog.
+Each time a player takes a turn and one monster attacks another, a new instance of the
+Turn class is created and added to the gameLog linked list:
+public class Turn {
+long timestamp;
+Monster from;
+Monster to;
+int damage;
+}
+
+The developer wants to add a rewindTurns method in the Arena class, which restores
+health points taken from a particular monster during a specified number of turns. This method
+can be called at any time and will leave the gameLog linked list unchanged (see Figure 10).
+Figure 10: The gameLog linked list
+
+H
+
+Timestamp: 01
+From: Windy
+To: Flamey
+Damage: 11
+
+Timestamp: 02
+From: Flamey
+To: Windy
+Damage: 4
+
+Timestamp: 03
+From: Windy
+To: Flamey
+Damage: 1
+
+Timestamp: 04
+From: Flamey
+To: Windy
+Damage: 4
+
+The variable rewinder is a reference to a monster named Windy, which is battling another
+monster, Flamey. The game has had four attacks so far, each of which are entered in the
+gameLog linked list. In this example, the code rewindTurns(2, rewinder) would restore
+4 health points to Windy, and the code rewindTurns(3, rewinder) would restore 8 health
+points to Windy.
+(a)
+
+Outline two differences between the use of a linked list and a stack when using the
+rewindTurns method.
+
+(b)
+
+Explain how to implement the rewindTurns(int numberOfTurns, Monster
+rewinder) method using the linked list gameLog.[6]
+
+End of Option D
+
+
+[4]
+
+Disclaimer:
+Content used in IB assessments is taken from authentic, third-party sources. The views expressed within them belong to their
+individual authors and/or publishers and do not necessarily reflect the views of the IB.
+References:
+Figure 1.
+
+Department of Agriculture, Environment and Rural Affairs. EU Pet Travel Scheme - How to Complete Pet
+Passports. https://www.daera-ni.gov.uk/publications/eu-pet-travel-scheme-how-complete-pet-passports. Contains
+public sector information licensed under the Open Government Licence v3.0. Source adapted https://www.daerani.gov.uk/crown-copyright.
+
+Figure 2.
+
+Department of Agriculture, Environment and Rural Affairs. EU Pet Travel Scheme - How to Complete Pet
+Passports. https://www.daera-ni.gov.uk/publications/eu-pet-travel-scheme-how-complete-pet-passports. Contains
+public sector information licensed under the Open Government Licence v3.0. Source adapted https://www.daerani.gov.uk/crown-copyright.
+
+Figure 3.
+
+Wikipedia, n.d. California locations by crime rate. [online] Available at: https://en.wikipedia.org/wiki/California_
+locations_by_crime_rate [Accessed 11 January 2021] and Wikimedia Commons, 2008. Locator map of the Harbor
+Freeway in Los Angeles County, Southern California. [online] Available at: https://commons.wikimedia.org/wiki/
+File:Harbor_Freeway.svg [Accessed 11 January 2021]. Source adapted.
+
+Figure 6.
+
+Wikipedia, n.d. California locations by crime rate. [online] Available at: https://en.wikipedia.org/wiki/California_
+locations_by_crime_rate [Accessed 11 January 2021] and Wikimedia Commons, 2008. Locator map of the Harbor
+Freeway in Los Angeles County, Southern California. [online] Available at: https://commons.wikimedia.org/wiki/
+File:Harbor_Freeway.svg [Accessed 11 January 2021]. Source adapted.
+
+Figure 7.
+
+minka2507, 2019. [Fluffy]. [online] Available at: https://pixabay.com/photos/dog-animal-puppy-petmammal-4390884/ [Accessed 11 January 2021]. Source adapted.
+
+		SNGPhotography, 2016. [Floppy]. [online] Available at: https://pixabay.com/photos/pug-puppy-storm-animal-petdog-1502566/. Source adapted.
+		3914556, 2013. [Snowy]. [online] Available at: https://pixabay.com/photos/puppy-dog-pet-animal-cutewhite-1903313/ [Accessed 11 January 2021]. Source adapted.
+		Pexels, 2014. [Brownie]. [online] Available at: https://pixabay.com/photos/animal-dog-pet-puppy-pug-1284307/
+[Accessed 11 January 2021]. Source adapted.
+Figure 8.
+
+Meusel, R., Vigna, S., Lehmberg, O. and Bizer, C., 2015. The graph structure in the web – analyzed on different
+aggregation levels. The Journal of Web Science, 1, pp. 33–47. [online] Available at: https://webscience-journal.
+net/webscience/article/view/11 [Accessed 11 January 2021]. Source adapted.
+
+All other texts, graphics and illustrations © International Baccalaureate Organization 2023
+
+

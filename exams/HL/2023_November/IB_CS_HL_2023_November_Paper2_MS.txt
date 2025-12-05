@@ -1,0 +1,443 @@
+Option D – Object-oriented programming
+14.
+
+(a)
+
+Award [1 max]
+Variable belongs to the class not to the instantiation;
+All instances share the same variable;
+A change to one object state of that variable affects all of them;
+Variable can be accessed without instantiating an object of the WaterMonster class;
+Note: do not award: It cannot be changed/is a constant.
+
+(b)
+
+(i)
+
+Award [2 max]
+Data hiding / increased security;
+This prevents accidental changes to these variables from outside the class
+instance;
+Since modifications require getter and setter methods;
+
+(ii)
+
+Award [2 max]
+accessor;
+mutator;
+Note: allow get(ter) and set(ter) methods, or a correct java example.
+
+(c)
+
+Award [2 max]
+A reference to the superclass; (but do not accept reference to inheritance / extends)
+Calls the constructor (of Monster);
+Note: both marks can be gained in one statement, eg.
+“Super()” calls the constructor of the superclass (Monster).
+
+(d)
+
+Award [2 max]
+Security;
+Affordability;
+Transparency;
+Perpetuity;
+Interoperability;
+Flexibility;
+Localization;
+Note: Accept other reasonable answers.
+
+(e)
+
+Award [2 max]
+Award [1] for an appropriately typed and named variable (left of “=”)
+Award [1] for new FireMonster and correct parameters for constructor
+eg. FireMonster flamey = new FireMonster("Flamey", 40);
+
+– 27 –
+
+15.
+
+(a)
+
+8823 – 7012M
+
+Award [4 max]
+Award [1] for correctly using both methods rollDice() and output()
+Award [1] for correctly re-calculating the attacked monster’s health (ie subtracting
+the damage)
+Award [1] for outputting any correct message if health > 0
+Award [1] for outputting the correct message if health <= 0 (“must leave the game”)
+Award [1] for setting health to 0, if it is <0
+Example:
+public void attack(Monster defender)
+{
+int damage = rollDice();
+defender.health = defender.health - damage;
+if (defender.health > 0)
+{
+output(defender.name+" has sustained "+damage+" damage
+and now has "+defender.health+" health left");
+}
+else
+{
+output(defender.name+" must leave the game");
+defender.health = 0;
+}
+}
+
+Example without int damage:
+public void attack(Monster defender)
+{
+int oldHealth = defender.health;
+defender.health = defender.health - rollDice();
+if (defender.health > 0)
+{
+output(defender.name+" damage: "+(oldHealth-defender.health)+
+" health "+defender.health);
+}
+else
+{
+defender.health = 0;
+output(defender.name+" must leave the game");
+}
+}
+
+(b)
+
+Award [4 max]
+Class is a code definition / template / blueprint;
+Whereas Object is the actual / customizable instance variable;
+Memory use of a class is only for static elements;
+whereas an object uses memory for non-static parts;
+There is only 1 class;
+however there could (potentially) be multiple objects / instances of that class;
+Mark as [2] and [2]
+
+– 28 –
+
+(c)
+
+8823 – 7012M
+
+Award [2 max]
+Award [1] for connector between Arena and Monster indicating aggregation (has a)
+Award [1] for connector between FireMonster and Monster indicating inheritance (is a)
+Example:
+
+(d)
+
+Award [5 max]
+Award [1] for checking if monsterCount<10 / monsterCount < monsters.length;
+Award [1] for checking if that instance already exists (ie. using monsters[i]==M
+or .equals(M) or monsters[i].name==M.name) or .equals(M.name);
+Award [1] for adding monster in correct position and increasing monsterCount;
+Award [1] for correctly located error message if Arena is full;
+Award [1] for correctly located error message if monster already exists;
+Note: Candidates are not expected to cater for a situation in which the Arena is full
+AND the monster is already there. They may give either or both error messages if
+this is the case.
+Example:
+public void addMonster(Monster M)
+{
+if (monsterCount < monsters.length)
+{
+boolean alreadyEntered = false;
+for (int i = 0; i < monsterCount; i++)
+{
+if (monsters[i]==M)
+{
+alreadyEntered = true;
+}
+}
+if (!alreadyEntered)
+{
+monsters[monsterCount] = M;
+monsterCount++;
+}
+else
+{
+output(M.name + " has already entered");
+}
+}
+else
+{
+output("Sorry the Arena is full");
+}
+}
+
+– 29 –
+
+(e)
+
+8823 – 7012M
+
+Award [4 max].
+Unnecessarily complex for small problems;
+Some applications do not require OOP features and could be solved in a simpler
+way;
+Larger program size;
+More code is produced as classes, methods etc. need to be defined;
+Might run slower;
+This might be due to the extra time involved in creating instances of objects (ie.
+many monsters may be “created” and “destroyed” during the game);
+Not good for modelling situations in which only single objects/instances are needed;
+A small application may not require all those features;
+OOP training is required by developers;
+The programmers would be trained beforehand / this could be expensive;
+Mark as [2] and [2]
+
+– 30 –
+
+16.
+
+(a)
+
+8823 – 7012M
+
+Award [2 max]
+A method with the same name but different parameter types is created;
+Depending on the arguments/parameters, one of the methods is executed;
+A method with the same name and parameters is created / inherited in the subclass;
+and used instead of the method in the superclass;
+
+(b)
+
+Award [6 max]
+Award [1] mark for attempt to find the index of Monster M
+Award [1] mark for correct loop that finds the index of Monster M (using == or .equals())
+Award [1] mark for attempting a loop to shift monsters
+Award [1] mark for correctly shifting monsters from the index onwards (either until the end or
+until the first null value)
+Award [1] mark for correctly adding the extra null value to the array (at the end)
+Award [1] for decrementing monsterCount
+Example 1:
+public void removeMonster(Monster M)
+{
+for (int i = 0; i < monsters.length; i++)
+{
+if (monsters[i]==M)
+{
+for (int move = i; move < monsterCount – 1; move++)
+{
+monsters[move] = monsters[move + 1];
+}
+monsters[monsterCount – 1] = null;
+monsterCount = monsterCount – 1;
+break;
+}
+}
+}
+
+Example 2:
+public void removeMonster(Monster M)
+{
+// find the monster
+boolean found = false;
+int i = 0;
+while (!found && i<monsterCount)
+{
+found = (monsters[i] == M);
+i = i + 1;
+}
+// close up the rest of the array
+for (int j=i; j<10; j++)
+monsters[j-1] = monsters[j];
+monsterCount = monsterCount - 1;
+}
+
+– 31 –
+
+Example 3:
+public void removeMonster(Monster M)
+{
+int i=0;
+while (monsters[i]!=M)
+{
+i++;
+}
+for (int j = i; j < monsters.length-1; j++)
+{
+monsters[j] = monsters[j+1];
+}
+monsters[monsters.length-1] = null;
+monsterCount = monsterCount–1;
+}
+
+Example 4:
+public void removeMonster(Monster M)
+{
+int i=0;
+while (monsters[i]!=M)
+{
+i++;
+}
+for (int j = i; j < monsterCount-1; j++)
+{
+monsters[j] = monsters[j+1];
+}
+monsters[monster.length-1] = null;
+monsterCount = monsterCount–1;
+}
+
+8823 – 7012M
+
+– 32 –
+
+(c)
+
+8823 – 7012M
+
+(i)
+
+Award [2 max]
+It is the mechanism/process in which a new class(derived/child) is based on the
+features of / is allowed to copy of/ extends the existing class (base/parent);
+A parent object holds common data and actions for a group of related child objects;
+Variables and methods defined in superclass are available in subclass;
+Private variables and methods will not be accessible/inherited by the subclass;
+Protected variables and methods also available to subclass if in the same package;
+
+(ii)
+
+Award [5 max]
+(Inheritance)
+Award [1] mark - Each Specific card extends its monster type class (eg. Splashy
+extends WaterMonster)
+Award [1] mark - Therefore specific cards will inherit the public behaviour (abilities)
+from the Monster class and their MonsterType class
+Award [1] mark - Ability1 must be implemented in Monster class and will be inherited
+by all
+Award [1] mark - Abillity2 and Ability3 should be defined in the Monster class (but not
+implemented
+(Polymorphism)
+Award [1] mark - Ability2 should be overridden in Monster type class (eg. WaterType)
+Award [1] mark - Ability3 should be overridden in class of specific monster (eg.
+Squishy)
+(both)
+Award [1] mark – A specific behaviour is defined/overridden in the subclasses
+Award [1] mark – The default behaviour is defined in the superclass
+
+– 33 –
+
+17.
+
+8823 – 7012M
+
+(a)
+
+Award [2 max]
+Convenient / faster to develop (because these implementations are fully developed,
+functional and robust);
+Reliable (already tested);
+Specialist knowledge (can do something that programmer can't do);
+
+(b)
+
+Award [2 max]
+Award [1] for using monsterType of 2 different instances in the correct order - row,
+column
+Award [1] for subtracting 1 from index of both monsterTypes
+Example:
+
+return effectiveness[attacker.monsterType - 1][defender.monsterType - 1];
+
+Note: allow expression without the “return”
+Also allow missing “;”
+
+– 34 –
+
+(c)
+
+8823 – 7012M
+
+Award [6 max]
+Award [1] Defining 3 variables for: most effective, healthiest and current best choice
+Award [1] Initialise chosen monster to first element (although not strictly necessary)
+Award [1] Initialise most effective variable to lower than least effective combination (-8)
+Award [1] Correct loop through array of monsters using monsterCount
+Award [1] Call Monsters.getAttackingWeight correctly
+Award [1] Selection based on attacking Weight (effectiveness)
+Award [1] Selection inside effectiveness, based on health
+Award [1] appropriately updating 3 variables (most effective, healthiest and current best
+choice)
+Award [1] Returning chosen instance of Monster/Providing a monster recommendation
+aligned with method signature
+Example:
+public Monster recommendAttackingMonster(Monster defender)
+{
+Monster chosen=monsters[0];
+//ie. Default to first element
+int effectiveness;
+int mostEffective=-9;
+//as valid effectiveness can be as low as -8
+int healthiest=0;
+for (int i=0;i<monsterCount;i++)
+{
+effectiveness=Monster.getAttackingWeight(monsters[i],defender);
+if (effectiveness>mostEffective)
+{
+if (monsters[i].health>healthiest)
+{
+chosen=monsters[i];
+healthiest=monsters[i].health;
+mostEffective=effectiveness;
+}
+}
+}
+return chosen;
+}
+
+18.
+
+(a)
+
+Award [4 max]
+Speed/order of access:
+A stack is accessed in LIFO order whereas a Linked List is traversed starting from
+the first node;
+Therefore, a stack would allow faster access to the most recent turns to ‘rewind’;
+Method of access:
+To access an element, it must be removed (popped) from stack, whereas a Linked
+List can be read without removal;
+Therefore, if a stack is used the removed items would have to be added again in the
+correct order to gameLog;
+Mark as [2] and [2]
+
+– 35 –
+
+(b)
+
+8823 – 7012M
+
+Award [6 max]
+Award [1] for testing if the requested number of turns is bigger than the size of the Linked
+List / gameLog
+Award [1] for giving a reason (either Linked List is front access only or the potentially invalid
+request)
+Award [1] for outputting an error message if the requested number of turns is bigger than the
+size of the Linked List / gameLog
+Award [1] for giving a valid reason (telling the user that it is an invalid request)
+Award [1] for finding the first turn (the earliest turn) to be undone / rewinded
+Award [1] for giving a valid reason (to have a starting point for the loop to rewind the turns)
+Award [1] for looping through the remaining turns (of the Linked List / gameLog)
+Award [1] for testing If the defender (or 'to' monster) equals / is rewinder
+Award [1] for adding the (turn's) damage to the health of the 'to' monster / rewinder
+Award [1] for giving a valid reason (to undo the damage only when the rewinder is the
+defender)
+Note to examiners: accept explanations that use code to support the explanation.
+Example answer:
+First count the number of turns in the linked List;
+Because the new turns are added to the end of gameLog and you cannot easily
+access a Linked List from the rear;
+Give an error message if the number of turns counted is lower than
+numberOfTurns;
+Because then that number of turns cannot be rewinded;
+Loop backwards to find the first turn to be undone;
+In order to have a starting point for rewinding the turns;
+Loop through the remaining turns in the list;
+In each turn, if the defender is equal to rewinder;
+Then add the damage back to rewinder.health so that the turns are skipped
+where rewinder is the attacker;
+
+

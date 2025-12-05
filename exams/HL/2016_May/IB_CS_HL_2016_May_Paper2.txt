@@ -1,0 +1,1288 @@
+Option D — Object-oriented programming
+
+17 pages
+
+Questions
+1–4
+5–8
+9 – 13
+14 – 17
+
+2216 – 7012
+© International Baccalaureate Organization 2016
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+–2–
+Option A — Databases
+1.
+
+CrossCountryXL is a transport company that delivers items from different retailers.
+Each retailer has many suppliers.
+(a)
+
+Construct the entity-relationship diagram for this scenario.
+
+[3]
+
+CrossCountryXL constructs a relational database to store data about the items that suppliers
+supply to retailers. The following tables form part of this database.
+• The SUPPLIER table contains contact details for each supplier. Each supplier supplies
+only one item
+• The SUPPLY table identifies the supplier’s item. The attribute “Nature_Of_Goods” takes a
+value of “P” for perishable or “NP” for non-perishable items
+• The ITEM table contains the item details.
+Some of the data in these tables is shown below and on the following page. The underlined
+attribute indicates the primary key in each table.
+SUPPLIER
+Supplier_ID
+
+Name
+
+Email_ID
+
+Location
+
+98769171
+
+Joyce
+
+joyce@123.com
+
+Paris
+
+34567890
+
+Ahmed
+
+ahmed@rex.com
+
+Seville
+
+54959299
+
+John
+
+john@fish.com
+
+Rotterdam
+
+32010309
+
+George
+
+george@abcd.com
+
+Frankfurt
+
+45908919
+
+Ram
+
+ram@tech.com
+
+London
+
+……
+
+……
+
+……
+
+……
+
+SUPPLY
+Supplier_ID
+
+Item_ID
+
+Nature_Of_Goods
+
+98769171
+
+X391
+
+NP
+
+34567890
+
+B453
+
+P
+
+54959299
+
+X892
+
+P
+
+32010309
+
+X903
+
+NP
+
+45908919
+
+B670
+
+P
+
+……
+
+……
+
+……
+
+(Option A continues on the following page)
+
+–3–
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option A, question 1 continued)
+ITEM
+
+(b)
+		
+(c)
+
+Item_ID
+
+Item_Name
+
+Description
+
+Quantity (in cartons)
+
+B311
+
+Oranges
+
+Citrus fruit
+
+190
+
+B432
+
+Apples
+
+Seasonal fruit
+
+60
+
+X543
+
+Watches
+
+Accessories
+
+75
+
+B566
+
+Pears
+
+Seasonal fruit
+
+90
+
+B767
+
+Spinach
+
+Leafy vegetable
+
+110
+
+B202
+
+Bags
+
+Utilities
+
+180
+
+X321
+
+Wallets
+
+Utilities
+
+201
+
+B876
+
+Lamps
+
+Equipment
+
+103
+
+B213
+
+Tomatoes
+
+Organic vegetable
+
+167
+
+……
+
+……
+
+……
+
+……
+
+The Supplier_ID “34567890”, in the SUPPLY table, is updated to become “54959299”.
+Outline, with respect to the primary key, how the referential integrity constraint is
+violated in the relation SUPPLY.
+
+[2]
+
+For the data in the tables on pages 2 and 3, state the output of the following queries.
+
+		
+
+(i)
+
+Select Item_Name from ITEM where Quantity > 150.
+
+[1]
+
+		
+
+(ii)
+
+Select Supplier_ID from SUPPLY where Nature_Of_Goods=‘P’.
+
+[1]
+
+(d)
+
+Identify the steps to create a query to find the names of suppliers who supply perishable
+goods.[4]
+
+CrossCountryXL needs to ensure supplier data is not lost at any time.
+(e)
+
+Outline two measures that CrossCountryXL should take in order to be able to restore
+supplier data if it is lost.
+
+[4]
+
+(Option A continues on the following page)
+
+Turn over
+
+–4–
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option A continued)
+2.
+
+An online School Management System allows restricted access for the parents of students.
+Each parent is able to check their child’s attendance and subject grades.
+(a)
+
+		
+
+(i)
+
+Define the term schema.[1]
+
+(ii)
+
+With reference to this School Management System, distinguish between data and
+information.[2]
+
+All teachers at the school are able to access and update the database in the School
+Management System.
+(b)
+		
+
+(i)
+
+Describe a problem which could arise due to concurrency in this scenario.
+
+[2]
+
+(ii)
+
+Explain which of the ACID properties of a database prevent concurrency
+problems.	
+
+[4]
+
+Student records are regularly inserted and grades are permanently stored in the system.
+Occasionally, while read or write operations are taking place, a system error occurs that
+prevents the transaction from being completed. Such a situation demands a rollback.
+(c)
+
+With a suitable example, outline rollback as a transaction operation in this School
+Management System.
+
+[3]
+
+(d)
+
+Explain what is meant by durability, as a transaction property.
+
+[2]
+
+(Option A continues on the following page)
+
+–5–
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option A continued)
+3.
+
+A science research firm stores all of its data in a large central database, and employs a
+database administrator to maintain it.
+(a)
+
+Suggest two measures that the database administrator should take to prevent personnel
+from misusing the database systems.
+
+[2]
+
+(b)
+
+State one implication to the science research firm’s research as a result of storing its
+data in this way.
+
+[1]
+
+Employees in the firm have their details stored in the database. The employees are
+categorized based on the departments in which they work. Part of the database is shown
+below.
+EMP_DEPT
+EmpName
+
+SSN
+
+DOB
+
+Salary
+
+Address
+
+DeptNo
+
+James
+
+9955
+
+1940-11-10
+
+35 000
+
+731, Stone Road, AZ
+
+1
+
+Admin
+
+455
+
+Joy
+
+6611
+
+1969-03-29
+
+20 000
+
+890, Fire Drive, AZ
+
+4
+
+Research
+
+210
+
+Jennifer
+
+7632
+
+1940-06-20
+
+43 000
+
+291, Cherry Hill, AZ
+
+5
+
+Design
+
+728
+
+Harry
+
+6641
+
+1974-06-01
+
+36 000
+
+292, Orchard Drive,
+AZ
+
+1
+
+Admin
+
+455
+
+Marie
+
+8752
+
+1967-09-02
+
+49 000
+
+234, Vine Street, AZ
+
+4
+
+Research
+
+210
+
+……
+
+……
+
+……
+
+……
+
+……
+
+……
+
+……
+
+……
+
+EmpName:
+SSN:
+DOB:
+DeptNo:
+DeptName:
+DM_SSN:
+
+DeptName
+
+DM_SSN
+
+the name of the employee
+their social security number
+their date of birth
+their department number
+their department name
+the social security number of the employees’ department manager.
+
+Employees of the science research firm are protected by the Data Protection Act.
+(c)
+
+With specific reference to the data stored, outline two methods to ensure the privacy of the
+employee’s data in the research firm’s database.
+[4]
+
+Data in the EMP_DEPT relation is used for data mining on a large scale.
+(d)
+
+Explain the difference between data matching and data mining. 
+
+[4]
+
+Database normalization is a way of organizing the fields and tables of a relational database.
+(e)
+		
+
+(i)
+
+State two advantages of normalizing the database to 3rd Normal Form (3NF).
+
+[2]
+
+(ii)
+
+Construct the relation EMP_DEPT to 3NF, limited to the information explicitly
+visible in the table above.
+
+[3]
+
+(Option A continues on the following page)
+Turn over
+
+–6–
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option A continued)
+4.
+
+QuickCook is a chain of restaurants that has existed for 20 years. Each restaurant maintains
+its own database for local operations. The data collected from all restaurants over the
+20 years are stored in a data warehouse at QuickCook ’s company headquarters. QuickCook
+wants to use this data for strategic planning.
+(a)
+
+Identify three examples of data classification that could be used to investigate any
+patterns in the sales at a particular QuickCook restaurant.
+
+[3]
+
+(b)
+
+Suggest how the time dependency of a data warehouse is useful when performing a
+database transaction.	
+
+[2]
+
+For reporting and analysis purposes, QuickCook decided to prepare data through the ETL
+(Extract, Transform, Load) processes.
+(c)
+
+State three ways to ensure the quality of data as part of the clean up procedure.
+
+[3]
+
+In the past, QuickCook constructed views of a transactional database.
+(d)
+
+State four differences between database views and data warehouses.
+
+[4]
+
+(e)
+
+Suggest two precautionary measures QuickCook should take before and after loading
+data into the data warehouse.
+
+[2]
+
+QuickCook is considering developing its restaurants’ databases, in an object-oriented
+programming environment, to enable the storing and sharing of complex, structured objects.
+(f)
+
+(i)
+
+		(ii)
+
+Suggest two features of object-oriented programming systems that can be used
+in a relational database environment.
+
+[2]
+
+Explain one advantage and one disadvantage of using object-oriented database
+systems.[4]
+
+End of Option A
+
+–7–
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+Option B — Modelling and simulation
+5.
+
+An estate agent calculates the estimated selling price of properties within a town, according
+to the following criteria:
+•
+•
+•
+•
+
+the size (in square metres) of the property
+whether the property is a house or an apartment
+the district in which the property is located (the town is divided into districts 1, 2, 3 and 4)
+the condition of the property, rated “very good”, “good”, “medium”, “poor” or “very poor”.
+
+A mathematical model is set up to store the above variables for each property that is for sale,
+and to calculate the estimated selling price.
+(a)
+
+Outline, with an example, a suitable way of representing each of the variables that is
+needed to store the information in a spreadsheet. 
+
+[4]
+
+The rules for the model are as follows:
+• initial value of an apartment = $2000 per square metre
+• initial value of a house = $2300 per square metre
+• a multiplier is then applied according to the district in which the property is located:
+1.25, 1.00, 0.95 or 0.90, where the most popular district (district 1) has a multiplier of 1.25
+and the least popular district (district 4) has a multiplier of 0.90
+• another multiplier is applied, based on the condition of the property. For example, a house
+in good condition has a multiplier of 1.00.
+(b)
+
+Using a spreadsheet, construct a model which uses the values of the variables from
+part (a) to find the appropriate multipliers and calculate the estimated price for a property.
+
+[6]
+
+The estate agent uses the spreadsheet to calculate the estimated price and to store the
+date on which the property was first for sale. When a property is sold the final selling price
+and the date sold are recorded. Properties are not always sold at the price estimated by the
+estate agent.
+(c)
+
+Suggest how the data from sold properties could be used to test and change the rules
+of the model.
+
+[3]
+
+(d)
+
+Suggest ways in which the estate agent could use the model to identify the
+characteristics that make a property difficult to sell.
+
+[4]
+
+(Option B continues on the following page)
+
+Turn over
+
+–8–
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option B continued)
+6.
+
+A railway company has ticket machines and manually operated ticket offices in all of its
+stations. There are two types of ticket machine:
+Type 1: where tickets which have been purchased online can be collected.
+Type 2: where tickets can be bought by selecting a journey and date.
+The ticket offices are manned by employees who sell and renew season tickets and can also
+carry out the same functions as the Type 2 ticket machines.
+The distribution of machines and ticket offices at each station causes some problems.
+Customers complain that:
+• the ticket offices are often closed when they are needed.
+• during busy periods they have to wait too long at the ticket machines and sometimes miss
+trains that they have already booked online.
+The railway company decides to run computer simulations to compare different ways of
+organizing the numbers and types of machines and ticket offices in one particular station.
+(a)
+
+Explain the difference between a model and a simulation in relation to this scenario.
+
+[4]
+
+(b)
+
+(i)
+
+Identify the data that is needed to run the simulations. 
+
+[2]
+
+(ii)
+
+Outline an efficient method of data collection for this scenario.
+
+[2]
+
+		
+(c)
+
+Outline how different combinations of machines and ticket offices can be simulated
+using the data collected.
+
+[2]
+
+(d)
+
+Suggest one criterion which could be used to compare the results of the simulations.
+
+[2]
+
+(e)
+
+Discuss the validity of using the simulations of this station to install ticket systems in
+other stations.
+
+[4]
+
+(Option B continues on the following page)
+
+–9–
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option B continued)
+7.
+
+8.
+
+Emergency helicopter pilots are likely to encounter a variety of unpredictable and dangerous
+situations and need extensive training. One training method is for pilots to be trained
+by flying with an experienced pilot for a period of time. An alternative method is to use
+simulation software.
+(a)
+
+Outline one advantage and one disadvantage of training pilots with simulation software
+as opposed to working with an experienced pilot.
+
+[4]
+
+(b)
+
+Outline the hardware and software required for the simulation in this scenario.
+
+[2]
+
+(c)
+
+Outline the need for 3D visualization in this scenario.
+
+[3]
+
+(d)
+
+Describe how the representation of the image stored in memory can be visualized in 3D.
+
+[3]
+
+Following the eruption of a volcano in a mountainous region, isolated groups of endangered
+animals are displaced across a large area.
+A computer-manned aircraft is used to identify the positions of the groups. The optimum path
+to the groups is then calculated, so that they can be reached by conservationists.
+(a)
+
+Outline the use of a genetic algorithm to determine this optimum path.
+
+[5]
+
+The positions change on a daily basis as the groups of animals move. A neural network is
+used, together with a map of the area, to attempt to establish the pattern of movement.
+(b)
+
+Compare supervised and unsupervised learning and suggest which is more suitable in
+this case.
+
+[6]
+
+A scientist proposes that a series of robots placed close to the known volcanic area could
+communicate the state of the volcano prior to an eruption.
+Communication between robots involves the use of sensors. Appropriately programmed, the
+robots could communicate the state of the volcano to each other. Communication between
+humans involves natural language and the information about the volcano would need to be
+relayed to humans.
+(c)
+
+Distinguish between the structures of natural language that can be learnt by robots and
+those that cannot.
+
+[3]
+
+(d)
+
+Discuss the differences between human and machine learning in relation to natural
+language processing.
+
+[6]
+
+End of Option B
+
+Turn over
+
+– 10 –
+
+Blank page
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+– 11 –
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+Option C — Web science
+9.
+
+HTTPS is not a distinct protocol, but makes specific use of a combination of two separate
+protocols.
+(a)
+
+		
+(b)
+
+(i)
+
+Identify these two protocols.
+
+[2]
+
+(ii)
+
+Outline their functions.
+
+[4]
+
+Outline the interaction between a user, a web browser and a domain name server
+when accessing sites on the internet.
+
+[4]
+
+The following PHP script accesses the database “library.db”, using data gathered from a
+web form.
+<?php
+$con=mysqli_connect(“library.db”);
+$result = mysqli_query($con,“SELECT * FROM Books WHERE Author =
+$_POST[“author”]”); echo “<table border=‘1’>
+<tr>
+<th>FirstName</th>
+<th>LastName</th>
+</tr>”;
+while($row = mysqli_fetch_array($result))
+{ echo “<tr>”;
+echo “<td>” . $row[‘FirstName’] . “</td>”;
+echo “<td>” . $row[‘LastName’] . “</td>”;
+echo “</tr>”;
+}
+echo “</table>”; mysqli_close($con);
+?>
+
+(c)
+
+(i)
+
+Describe the processing that takes place when the form that was sent from the
+client is received by the web server.
+
+		
+
+Scripts can be created on both the client-side and server-side.
+
+		
+
+(ii)
+
+Explain, giving two reasons, why the use of server-side scripting promotes
+security when retrieving content from databases.
+
+[4]
+
+[4]
+
+(Option C continues on the following page)
+
+Turn over
+
+– 12 –
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option C continued)
+10.
+
+(a)
+
+Define the term black hat search engine optimization.[2]
+
+In an attempt to rank more highly with search engines, a web developer has included the
+following text on his web page:
+“We have the best apple pies! Try our apple pies as they are delicious. We have apple pies
+like your mother makes. Our apple pies are made from the best apples. Try our special offer
+for apple pies.”
+(b)
+
+With reference to the specific search engine optimization technique being used
+here, discuss two possible consequences from the inclusion of this text on the web
+developer’s web page.
+
+[5]
+
+Many search engines examine the pages that link to a particular site and use this
+information when indexing this site.
+(c)
+
+11.
+
+Outline, with an example, how the content of these linking pages will affect the ranking
+given to the site.
+
+[3]
+
+The Internet of Things (IoT) is a term that describes the interconnectivity made possible by
+the widespread use of ubiquitous computing.
+(a)
+
+(i)
+
+Define the term ubiquitous computing.[1]
+
+The IoT predicts the widespread use of uniquely identifiable devices which will be
+accessible through the internet.
+		
+
+(ii)
+
+Suggest whether the characteristics of the internet protocol (IP) will be able to
+handle this predicted increase in use.
+
+[2]
+
+The increase in the number and type of devices that can be accessed through the
+internet will have many possible advantages.
+		(iii)
+
+Explain one way in which this use of ubiquitous computing might help a car rental
+company manage its business.
+
+[4]
+
+The availability of information on the web has led to increased opportunities for plagiarism.
+However, there are now several web sites that perform text analysis in order to establish
+authenticity. Various techniques are used to establish the degree of authenticity.
+(b)
+
+Describe two of the limitations of the services offered by these web sites.
+
+[4]
+
+A major country is proposing allowing deals between commercial companies and ISPs to
+prioritize delivery of their web traffic. This has provoked an intense debate between those
+who support net neutrality, which is based on the principles of a democratic web, and those
+who consider these deals as a valid business proposition.
+(c)
+
+By examining the concepts of net neutrality and by making use of examples, discuss
+the merits of this proposal.[6]
+
+(Option C continues on the following page)
+
+– 13 –
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option C continued)
+12.
+
+The web has evolved in such a way that the distribution of web pages can be visually
+described as a bowtie structure.
+(a)
+
+Sketch this bowtie structure, labelling at least three of its main features.
+
+[4]
+
+Web graphs are often used to analyse the connectivity of the web.
+(b)
+		
+13.
+
+(i)
+
+Describe how web sites can be represented as a directed graph.
+
+[3]
+
+(ii)
+
+Outline why the PageRank of a page is continually changing.
+
+[3]
+
+The semantic web (or W3) is a vision of how the future web may look.
+(a)
+
+Describe the relationship between the semantic web and the use of ontologies.
+
+[4]
+
+Ambient intelligence and collective intelligence are computing concepts that have been put
+into practice in many applications. One such application, in the health care sector, combines
+the use of sensors, nanotechnology, Smartphones and centralized servers to aid the care of
+patients without the need to keep them in hospital.
+(b)
+
+With reference to both ambient intelligence and collective intelligence, discuss how
+these technologies work together to provide a beneficial experience for the patient.
+
+[6]
+
+End of Option C
+
+Turn over
+
+– 14 –
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+Option D — Object-oriented programming
+A hotel has 100 rooms and uses an OOP program to deal with allocating the rooms to clients when
+they arrive at the hotel. The program contains a Client class and a Room class. A user-defined
+Dates class is also used. Part of the Client class and Dates class are shown below.
+public class Client
+{ private int customerID;
+private String name;
+private Dates arrive;
+private Dates leave;
+private Room bedroom;
+public Client(int id, String c, Dates dateIn, Dates dateOut, Room r)
+{ setCustomerID(id);
+		 setName(c);
+		 setArrive(dateIn);
+		setLeave(dateOut);
+		setBedroom(r);
+}
+public void setCustomerID(int id) {customerID = id;}
+public void setName(String c) {name = c;}
+public void setArrive(Dates dateIn) {arrive = dateIn;}
+public void setLeave(Dates dateOut) {leave = dateOut;}
+public void setBedroom(Room r) {bedroom = r;}
+public int getCustomerID() {return customerID;}
+public String getName() {return name;}
+public Dates getArrive() {return arrive;}
+public Dates getLeave() {return leave;}
+public Room getBedroom() {return bedroom;}
+
+}
+
+public void bill()
+{... // method that calculates the bill for this client
+}
+
+public class Dates
+{ private int day;
+private int month;
+private int year;
+public Dates(int day, int month, int year)
+{ this.day = day;
+		this.month = month;
+		this.year = year;
+}
+public int getDay() {return day;}
+public int getMonth() {return month;}
+public int getYear() {return year;}
+public static int StayDays(Dates x, Dates y)
+{... // method that calculates the number of nights between x and y
+}
+}
+
+(Option D continues on the following page)
+
+– 15 –
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option D continued)
+The Room class contains the following variables.
+•
+•
+•
+•
+
+roomNumber		
+beds					
+price				
+empty				
+
+14.
+
+a value that identifies the room
+the number of beds in the room
+the price of the room, per night
+indicating whether or not the room is occupied.
+
+(a)
+
+State the relationship between Client and Room.[1]
+
+(b)
+
+Construct a UML diagram for the Room class.
+
+[4]
+
+(c)
+
+Outline one advantage of using a class to represent the dates.
+
+[2]
+
+The Room objects are held in the array allRooms[] in ascending order of roomNumber.
+For example, the object for room 5 is held in allRooms[4].
+(d)
+
+Construct a method, findRooms(), that searches allRooms[] and returns the
+roomNumber of all empty rooms that have two beds.
+
+(e)
+
+Construct the method, bill(), in the Client class to calculate and output a bill for a
+client based on the price of the room per night and the number of nights spent in the hotel.
+The bill should include:
+• the client’s name
+• the room number
+• the date that they arrived
+• the date that they are leaving
+• the total number of nights they stayed
+• the total cost.
+[8]
+
+		
+
+[6]
+
+(Option D continues on the following page)
+
+Turn over
+
+– 16 –
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+(Option D continued)
+15.
+
+The hotel accepts group bookings where many clients, such as tour groups, can be allocated
+rooms on arrival. The Group class contains the name of the group, the number of rooms
+used by the group and a method bill() that calculates the total bill for the group.
+Part of the Group class is shown below.
+
+		public class Group
+		{
+			private String name; // name of group
+			private int number; // number of rooms allocated to the group
+			public Group(String name, int number)
+			{
+				this.name = name;
+				this.number = number;
+			}
+			public String getName() {return name;}
+			public int getNumber() {return number;}
+			int[] gRooms = new int[number];
+			 // array to hold room numbers allocated to the group
+			public double bill(int[] gRooms)
+			 {... // method that calculates the bill for the group
+			}
+		}
+
+The GClient class represents a client who is part of a group. It inherits all the class
+members of the Client class and also stores the name of the group.
+(a)
+
+Construct the GClient class.
+
+[7]
+
+(b)
+
+With reference to the objects, methods and parameters, describe the process of
+allocating rooms when a tour group called “Happy Travellers” arrives at the hotel and is
+allocated 15 rooms, each of which has two beds.
+
+[6]
+
+Construct the method, bill(int[] gRooms), to calculate and output the total cost of
+the group’s rooms for one day. 
+
+[5]
+
+(c)
+
+16.
+
+The company wishes to update this OOP program and sell it to other hotels. They hire a
+programmer to make appropriate changes to the program.
+(a)
+
+Outline the responsibilities that the programmer has when updating the program.
+
+[2]
+
+(b)
+
+Discuss the features of modern programming languages that enable the program to be
+sold in other countries.
+
+[4]
+
+(Option D continues on the following page)
+
+M16/4/COMSC/HP2/ENG/TZ0/XX
+
+– 17 –
+(Option D continued)
+17.
+
+Clients can book over the internet and are allocated a room on arrival. When a booking is
+made, a Client object is added to a linked list, Bookings, which is linked in order of the
+client’s arrival time, stored in arrive.
+If any Client objects have the same arrival date they are ordered so that the most recently
+added object will appear first in the linked list.
+The Dates class contains two methods to compare dates:
+• public static Dates compareDate(Dates x, Dates y)
+which returns the earlier of the two dates
+• public static Boolean equalDate(Dates x, Dates y)
+which returns true if the dates are the same.
+In answering parts (a) and (b), you should use the methods of the LinkedList class.
+(a)
+
+Construct a method, newClient(), to insert a Client object into the correct position
+in Bookings.[6]
+
+On the morning of each day, the hotel staff requires a list of clients who are expected to
+arrive that day.
+(b)
+
+Construct a method todayClients(Dates today) which, for all clients arriving today:
+• removes their Client object from Bookings
+• places their Client object in an array arrivalsToday[]
+• sorts the array in order of the date that they will leave the hotel.
+Note: You can assume that bookings for days previous to today, have already been
+removed from Bookings[6]
+
+(c)
+
+Discuss how the use of library classes simplifies the construction of the methods in
+parts (a) and (b).
+
+[4]
+
+Alternatively, the Client objects of clients arriving today (05/05/2016) could be held in a
+binary tree in order of dateOut
+(d)
+
+By drawing such a binary tree for the clients in the following table, who arrived today,
+explain the recursive way in which the tree can be traversed using an inorder traversal.
+customerID
+
+dateOut
+
+121
+
+08/05/2016
+
+132
+
+06/05/2016
+
+154
+124
+117
+150
+133
+
+14/05/2016
+02/06/2016
+15/05/2016
+10/05/2016
+07/05/2016
+
+End of Option D
+
+[4]
+
+

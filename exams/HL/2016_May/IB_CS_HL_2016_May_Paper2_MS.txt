@@ -1,0 +1,410 @@
+Option D — Object-oriented programming
+14.
+
+(a)
+
+Association/dependency as Client has a Room;
+
+(b)
+
+Award [1] for a three-tier box, [1] for correct class name, [1] for all variables
+correct and [1] for all get/set methods correct.
+class: Room
+int: roomNumber
+int: beds
+double: price
+Boolean: empty
+void setRoomNumber(int n)
+void setBeds(int b)
+void setPrice(double p)
+void setEmpty(Boolean e)
+int getRoomNumber()
+int getBeds()
+double getPrice()
+Boolean getEmpty()
+
+[1]
+
+[4]
+
+Note: Accept int for price.
+(c)
+
+Award [1] for identifying an advantage and [1] for an elaboration.
+Advantage:
+Encapsulation in Dates;
+(which implies) abstraction of Dates;
+Explanation:
+(encapsulation) combines data and methods;
+So as to reuse the code for multiple dates.
+
+[2]
+
+– 19 –
+
+(d)
+
+M16/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award marks as follows up to [6 max].
+Award [1] for correct method declaration including data type
+Award [1] correct return.
+Award [1] for creating available array (or other method to record empty).
+Award [1] for correct loop through allRooms[].
+Award [1] for checking for two beds.
+Award [1] for checking room is empty.
+Award [1] for correctly recording available room.
+For example:
+public int[] findRooms()
+{
+int[] available;
+available = new int[100];
+int j;
+j=0;
+for(int i=0; i<100; i++)
+{
+if(allRooms[i].beds == 2 && allRooms[i].empty)
+{
+available[j] = allRooms[i].roomNumber;
+j = j + 1;
+}
+}
+return available;
+}
+
+(e)
+
+[6]
+
+Award marks as follows up to [8 max].
+Award [1] for correct method declaration /
+void with output or double with return.
+Award [1] for using both dates.
+Award [1] for calling stayDays().
+Award [1] for correct values entered into stayDays.
+Award [1] for getting correct price.
+Award [1] for correct room accessed.
+Award [1] for output of correct cost.
+Award [1] for output of bill including all details.
+
+Note: Accept methods that return a double.
+public void bill()
+{
+int stay;
+stay = Dates.StayDays(arrive, leave);
+double cost = getBedroom().getPrice()*stay;
+System.out.println("Client" + name + "room" +
+getBedroom().getRoomNumber());
+System.out.println("date arrived" + arrive +
+"date booked out" + leave + "cost = " + cost);
+}
+
+[8]
+
+– 20 –
+
+15.
+
+(a)
+
+M16/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award marks as follows up to [7 max].
+Award [1] for use of extends.
+Award [1] for groupName declared as private.
+Award [1] for ALL variables correct (including String groupName).
+Award [1] for use of super with correct parameters.
+Award [1] for setting groupName = g.
+Award [1] for correct set groupName.
+Award [1] for correct get groupName.
+public class GClient extends Client
+{
+private String groupName;
+public GClient(int id, String c, Dates dateIn, Dates dateOut,
+Room r, String g)
+{
+super (id, c, dateIn, dateOut, r);
+groupName = g;
+}
+public void setGroupName(String groupName)
+{
+this.groupName = groupName;
+}
+public String getGroupName()
+return groupName;
+}
+
+(b)
+
+[7]
+
+Award marks as follows, up to [6 max].
+Award [1] for a correct instantiation of Group.
+Award [1] for searching for empty rooms.
+Award [1] for looping through all group members.
+Award [1] for allocating roomNumber and storing it in allRooms[].
+Award [1] for setting empty in Room object to false.
+Award [1] for correct instantiation of GClient object with information including
+room number and group name.
+For example:
+Group object instantiated withname = Happy Travellers and number = 15;
+Use findRooms() to search for empty rooms with 2 beds;
+For each of 15 in the group…
+find next room in list of available;
+status of room changed from empty;
+room number passed to gRooms;
+instantiate new GClient with name of group and room number;
+
+[6]
+
+– 21 –
+
+(c)
+
+M16/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award marks as follows, up to [5 max].
+Award [1] for correct declaration of all variables (not method signature).
+Accept int for roomCost and totalCost.
+Award [1] for setting totalCost to zero.
+Award [1] for looping through gRooms.
+Award [1] for correct roomNumber found in allRooms[].
+Award [1] for getPrice from Room.
+Award [1] for adding to totalCost.
+Award [1] for outputting/returning totalCost.
+Note: Accept methods that return a double.
+Example:
+
+16.
+
+(a)
+
+(b)
+
+public void bill (int[] gRooms)
+// method to calculate bill for the group
+{
+double totalCost = 0.0;
+double roomCost;
+for (int i=0;i<number;i=i+1)
+{
+for (int j=0;j<100;j=j+1;)
+{
+if (gRooms[i] == allRooms[j].getRoomNumber())
+{
+roomCost = allRooms[j].getPrice();
+}
+}
+totalCost=totalCost + roomCost;
+}
+System.out.println(totalCost);
+}
+
+[5]
+
+Award up to [2 max].
+Thorough testing;
+Cite sources;
+Update documentation;
+
+[2]
+
+Award [1] for identifying a feature and [1] for an expansion, for two features up
+to [4 max].
+Unicode;
+International character sets;
+Portable (in Java);
+Changes are straightforward (output messages, currencies etc);
+
+[4]
+
+– 22 –
+
+17.
+
+(a)
+
+M16/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award marks as follows, up to [6 max].
+Award [1] for setting aClient at head, if list is empty.
+Award [1] for setting Boolean flag/break or similar.
+Award [1] for checking which date is greater.
+Award [1] for checking for equal dates.
+Award [1] for insertion in correct position.
+Award [1] for continuing through Bookings until found.
+Award [1] for adding, if no insertion point found.
+public void newClient (Client aClient, LinkedList Bookings)
+{
+boolean found = false;
+int index = 0;
+if (Bookings.isEmpty())
+{
+Bookings.addFirst(aClient);
+}
+else
+{
+Client nextClient = Bookings.getFirst();
+while ((nextClient!=null) && (!found))
+{
+if (Dates.equalDate
+(Dates.compareDate(nextClient.arrive,aClient.arrive),
+aClient.arrive)) ||
+(Dates.equalDate(nextClient.arrive, aClient.arrive))
+{
+Bookings.add(index, aClient);
+found = true;
+}
+else
+{
+index = index + 1;
+nextClient = Bookings.get(index);
+}
+}
+if(!found)
+{
+Bookings.addLast(aClient);
+}
+}
+}
+
+[6]
+
+– 23 –
+
+(b)
+
+M16/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award marks as follows, up to [6 max].
+Award [1] for creating a new array of some reasonable dimension.
+Award [1] for looping through Bookings until date is past today;
+Award [1] for putting Client in array and updating next position.
+Award [1] for removing from Bookings.
+Award [1] for getting next correct Client from Bookings.
+Sort may be bubble after the array is filled or by placing into the correct order when
+placed. In either case:
+Award [1] for double loop.
+Award [1] for correct comparison.
+Award [1] for a correctly sorted array in order of dateOut.
+Example 1 – with bubble sort
+void todayClients(Dates today)
+{
+int i = 0;
+int index = 0;
+Client[] arrivalsToday = new Client[100];
+Client c = Bookings.getFirst();
+// or similar
+while (c!=null) && (Dates.equalDate(c.dateIn, today))
+//checks list not empty and date is today.
+{
+arrivalsToday[i] = c;
+//add to array
+i=i+1;
+Bookings.remove(index);
+//remove from list
+c = Bookings.get(index);
+//get next in list
+}
+for (int j=0; j<i-1; j=j+1)
+{
+for (int k=0; k<i-1-j; k=k+1) //double loop for bubble sort
+{
+if (Dates.equalDate(Dates.compare(arrivalsToday[k].dateOut,
+arrivalsToday[k+1]).dateOut, arrivalsToday[k+1]))
+//compare adjacent dateOut
+{
+temp = arrivalsToday[k];
+arrivalsToday[k] = arrivalsToday[k+1];
+arrivalsToday[k+1] = temp;
+//swap
+}
+}
+}
+}
+
+– 24 –
+
+M16/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Example 2 – Placing in order
+Client[] todayClients(Dates today)
+{
+int count = 0;
+// number of bookings added to array
+int i;
+// insertion point
+boolean found;
+Client[] arrivalsToday = new Client[100];
+Client c = Bookings.getFirst();
+// or similar
+while ((c!=null) && (Dates.equalDate(c.dateIn, today)))
+{
+Bookings.remove(0);
+i = 0;
+found = false;
+while ((i<count) && (!found))
+// find insertion point
+{
+if (Dates.equalDate(Dates.compareDate(c.dateOut,arrivalsToday[j]),
+c.dateOut))
+{found = true; }
+else { i=i+1; }
+}
+for (int j=count; j>i; j=j-1)
+// correct shifting
+{
+arrivalsToday[j] = arrivalsToday[j-1];
+}
+arrivalsToday[i] = c;
+count = count + 1;
+Client c = Bookings.getFirst();
+
+// insert c
+// increment count
+// get the next one
+
+}
+return arrivalsToday;
+
+// not required
+
+}
+
+Note: For an empty array the two inner loops will not execute.
+[6]
+(c)
+
+Award up to [4 max].
+Can use the arraylist library class;
+Do not have to declare size of the array;
+Because the arraylist automatically resizes itself;
+Do not need to identify the index;
+Because library class auto increments for you;
+Could have used “sort list” instead of finding the correct place to insert object;
+
+[4]
+
+– 25 –
+
+M16/4/COMSC/HP2/ENG/TZ0/XX/M
+
+(d)
+
+[4]
+
+Award [1] for correct diagram.
+Award [2] for correct steps for a node;
+Award [1] for using data in diagram to relate to recursion;
+Start at root (121)
+inorder:
+Go left as far as possible
+if no left take node (132)
+go right (133)
+if no left or right go back up tree passing all taken
+back to inorder
+Hence "recursion" as each node calls the same inorder method.
+Note: Accept any explanation related to the diagram which shows how the
+nodes are visited and recursively checked for leaf nodes giving the correct order.
+
+

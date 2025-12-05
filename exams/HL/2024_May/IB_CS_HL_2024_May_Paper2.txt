@@ -1,0 +1,388 @@
+Option D — Object-oriented programming
+14.
+
+A car rental company has offices in cities in Spain and Portugal. It manages its cars as
+a large, unsorted collection of rental objects that is accessed by a Java program.
+The following UML diagram describes the current main Rental class. Fuel type and
+transmission type were chosen to be Boolean because they have two choices: petrol
+or diesel for fuel type, and manual or automatic for transmission type.
+The brand and the model of the car are stored together as one string brandModel.
+Typically the company has many cars of the same brand and model.
+Rental
+
+example Rental object
+
+- numberPlate: String
+- brandModel: String
+- year: integer
+- rentalClass: char
+- pricePerDay: real
+- fuelType: boolean
+- transmissionType: boolean
+
+9876 BMW
+Citrault Polo
+2018
+B
+28.78
+true
+false
+
++ default constructor
++ accessor and mutator methods
+
+(a)
+
+Outline the general nature of an object.
+
+[2]
+
+(b)
+
+State one mutator method to be included in the class Rental.[1]
+
+(c)
+
+Construct the code for the accessor method getBrandModel().[3]
+
+(d)
+
+Outline one purpose of a default constructor.
+
+[2]
+
+The company is buying new electric cars and hybrid cars.
+(e)
+
+Outline one change that needs to be made to class Rental due to this development.
+
+[2]
+
+Based on this Rental class, the program defines several other classes: Car, Bus and
+Van, each with their own characteristics. For example, the class Car adds the attribute
+numberOfDoors to the class Rental.
+(f)
+
+State the relationship between Rental and Car.[1]
+
+(g)
+
+Construct the code for the class Car without having to duplicate all the attributes and
+methods from the class Rental. The default constructor of the class Rental should
+be overridden to also assign the value 4 to numberOfDoors. No other constructors
+are required.
+
+(Option D continues on the following page)
+
+[3]
+
+– 23 –
+
+2224 – 6905
+
+(Option D continued)
+15.
+
+16.
+
+(a)	Identify the OOP feature that was used to declare the Car class.
+
+[1]
+
+(b)
+
+Explain the benefits of the feature identified in part (a).[3]
+
+(c)
+
+Identify the two other features of OOP.
+
+[2]
+
+(d)
+
+Describe one advantage of modularity in program development.
+
+[2]
+
+All Car objects have been read into a large unsorted array called allCars.
+A method is needed to show customers the range of available cars.
+This method should take the array allCars as a parameter and select Car objects from
+allCars so that every available brandModel is presented only once.
+You may assume that there are never more than 100 different types of cars (as identified by
+the variable brandModel).
+(a)
+
+Define the term parameter variable.[2]
+
+(b)
+
+Construct the code for the method findBrandModels() that will take the array
+allCars as a parameter. It must return a Car array that contains every brandModel
+that is available without duplication.
+
+[8]
+
+A customer wants to see which different types of cars are available. The criteria are it must
+be a petrol car with automatic transmission and cost less than 35 euros per day.
+(c)
+
+17.
+
+Without writing code, outline the steps needed for a method to perform this query and
+present the results to the customer.
+
+[5]
+
+The car rental company also has a database of customers. For each customer it stores an
+object with personal data such as their ID, name and address.
+This Customer object includes the history of the cars they have rented and the car they are
+currently renting (if any).
+(a)
+
+Draw the relationship between Customer and Car objects.
+
+[1]
+
+A suggestion has been made to modify the Rental class to include customerID.
+The intention is to make it easier to find the customer who has a certain car.
+(b)
+
+Describe in terms of dependencies why this suggestion is inappropriate.
+
+[2]
+
+(c)
+
+Explain the ethical obligations for programmers when developing a customer database.
+
+[5]
+
+(Option D continues on the following page)
+
+Turn over
+
+– 24 –
+(Option D continued)
+18.
+
+The car rental company stores details of its customers as objects of a Customer class,
+as follows.
+public class Customer
+{
+private String customerID;
+private String name;
+// more personal data
+private CarList history;
+private String level;
+// constructors
+// all getter and setter methods
+
+}
+
+public void updateHistory(Car newCar)
+{
+// missing code
+}
+
+Where the class CarList is declared as:
+public class CarList
+{
+private CarNode root;
+// default constructor
+public void addToFront(Car newCar)
+{
+// missing code
+}
+public boolean isEmpty()
+{
+return (root  null);
+}
+public int count()
+{
+// missing code
+}
+}
+
+// returns the number of Cars in history
+
+… more methods …
+
+(Option D continues on the following page)
+
+2224 – 6905
+
+– 25 –
+
+2224 – 6905
+
+(Option D, question 18 continued)
+The class CarNode is declared as:
+public class CarNode
+{
+private Car aCar;
+private CarNode next;
+public CarNode (Car newCar)
+{
+this.aCar  newCar;
+this.next  null;
+}
+}
+
+(a)
+
+// getter and setter methods
+
+By using object references, construct the method addToFront in class CarList that
+allows a new car to be added to the front of the list.
+
+[3]
+
+The company has a loyalty program with 4 levels (basic, silver, gold and diamond). The more
+cars you rent, the higher your level and the bigger your benefits.
+Number of rentals
+
+Loyalty programme level
+
+Greater than 19
+
+Diamond
+
+Greater than 9
+
+Gold
+
+Greater than 2
+
+Silver
+
+Up to 2
+
+Basic
+
+When a customer returns a car, the program will add the Car object to the start of their
+history list. Then it will count the cars in the history list and finally it will determine
+and save the new status of the customer.
+(b)
+
+Construct the method updateHistory(Car newCar) in the Customer class,
+that will perform the following tasks:
+y add newCar to the start of the carList history
+y count the number of cars in the carList history
+y update the customer’s status.
+You can use any previously developed methods.
+
+[4]
+
+(Option D continues on the following page)
+
+Turn over
+
+– 26 –
+
+2224 – 6905
+
+(Option D continued)
+19.
+
+The extensive customer database of the car rental company is saved in a collection and
+needs to be read into an abstract data structure to ensure that searches can be done quickly.
+(a)
+
+Outline why a linked list is slower to search than a binary tree.
+
+The following class TNode has been defined to store Customer objects in a binary search tree.
+public class TNode
+{
+private TNode left;
+private Customer data;
+private TNode right;
+public TNode(Customer newCustomer)
+{
+left  null;
+data  newCustomer;
+right  null;
+}
+}
+
+// getter and setter methods
+
+Figure 12 shows a representation of the way customers are stored in the binary search tree.
+The nodes only show the customerID. However, each node stores a full Customer object.
+Figure 12: A binary search tree of customers
+root
+
+519
+
+337
+
+101
+
+788
+
+451
+
+(Option D continues on the following page)
+
+612
+
+999
+
+[3]
+
+– 27 –
+
+2224 – 6905
+
+(Option D, question 19 continued)
+Consider the following recursive algorithm.
+public void print(TNode node)
+{
+if (node ! null)
+{
+print(node.left);
+output(node.data.getCustomerID());
+print(node.right);
+}
+}
+
+(b)
+
+State the output for the call print(root) given in Figure 12.[2]
+
+The output of the call print(root) is used to construct a new binary search tree.
+(c)
+
+Sketch the resulting binary search tree using your output from part (b) as sequential
+input to create the new tree.
+
+[3]
+
+A new method is required to add the Customer objects from the binary tree to a sequential
+collection called myCollection. The order of the Customer objects in the collection must
+enable the tree to be restored in its original binary search tree form when the customers are
+read in a sequential order from myCollection.
+(d)
+
+Construct the recursive code for a method storeBST() that will allow the binary tree of
+customers to be stored appropriately in myCollection.
+You may assume a method myCollection.add(Customer aCustomer) exists that
+appends aCustomer to the end of the sequential collection of customers.
+
+End of Option D
+
+
+[5]
+
+Disclaimer:
+Content used in IB assessments is taken from authentic, third-party sources. The views expressed within them belong to their
+individual authors and/or publishers and do not necessarily reflect the views of the IB.
+References:
+11.
+
+Semaforo GMS. Arpanet in the 1970s.png. https://commons.wikimedia.org/wiki/File:Arpanet_in_the_1970s.png. Licensed
+under CC BY-SA 4.0 DEED https://creativecommons.org/licenses/by-sa/4.0/deed.en. Image adapted.
+
+All other texts, graphics and illustrations © International Baccalaureate Organization 2024
+
+

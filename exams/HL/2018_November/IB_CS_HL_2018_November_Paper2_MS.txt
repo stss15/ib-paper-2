@@ -1,0 +1,580 @@
+Option D — Object-oriented programming
+13.
+
+(a)
+
+(i)
+
+(ii)
+
+Award up to [1] for each part of a suitable definition up to [2 max].
+An object is an abstract entity;
+and its components are data and/or actions;
+Award up to [1] for identifying each disadvantage and [1] for an elaboration
+of this disadvantage, up to [2 max].
+Mark as [2] and [2].
+Unsuitable for minor projects;
+since OOP increases complexity for little gain;
+
+[2]
+
+[4]
+
+OOP programs are larger than other programs;
+and therefore slower;
+OOP programs take more effort to construct;
+because of the decomposition needed to achieve abstraction;
+(iii)
+
+Award [1] for identifying an advantage and [1] for an elaboration of this
+advantage up to [2 max].
+
+[2]
+
+Example answers:
+Faster development;
+Because different programming teams can work on different modules;
+Easier to debug;
+Because the smaller modules will have fewer mistakes than one big
+program;
+Easier to update (in the future);
+Because it is easier to update a module than the full program;
+Re-usability;
+Modules can be stored in libraries and reused for different programs;
+(b)
+
+Award up to [1] for any indication of aggregation.
+Example answer:
+The Arrival object has/stores a Flight object;
+
+[1]
+
+– 26 –
+
+(c)
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award up to [4 max].
+Award [1] for including 3 distinct sections.
+Award [1] for including a component with all variables.
+Award [1] for including a component with all listed methods.
+Award [1] for indicating private/public using + / –.
+Don't penalize the absence of accessor and mutator methods.
+
+[4]
+
+Example answer:
+class Arrival
+- Flight: myFlight
+- String: STA
+- int: runway
+- String: gate
+- int: delay
+- boolean: landed
++ void addDelay (int)
++ String getETA()
++ int compareWith(String)
++ int compareWith(Arrival)
+
+(d)
+
+Award up to [4 max].
+Award [1] for a while loop.
+Award [1] for correctly testing the flightID using compareWith().
+Award [1] for incrementing the loop counter.
+Award [1] for a return statement.
+
+[4]
+
+Example answer:
+private int search(String flightID)
+{
+int i = 0;
+while (inbound[i].compareWith(flightID) != 0)
+{ i++; }
+return i;
+}
+(e)
+
+(i)
+
+Award up to [2 max].
+Award [1] for identifying an advantage of using a binary search and [1] for
+an elaboration of the advantage up to [2 max].
+Binary search is much faster than sequential search;
+Because it halves the search range for every comparison;
+
+(ii)
+
+[2]
+
+Award up to [2 max].
+Award [1] for identifying a disadvantage of using a binary search and [1] for
+an elaboration of the disadvantage up to [2 max].
+However, it is not applicable to unsorted data sets;
+Because the data must be sorted first which adds to computational cost;
+
+[2]
+
+– 27 –
+14.
+
+(a)
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award up to [2 max].
+Award [1] for stating encapsulation as an OOP property.
+Award [1] for an elaboration.
+
+[2]
+
+Example answer:
+Encapsulation allows to make instance variables (and methods) of a class private
+to that class;
+So that the main program / other classes can't accidentally access / change the
+data in an object;
+(b)
+
+(i)
+
+(ii)
+(c)
+
+Award up to [2 max].
+The two methods have different parameters;
+allowing the compiler to choose the correct one.
+
+[2]
+
+Polymorphism
+
+[1]
+
+Award up to [3 max].
+Award [1] for correctly using compareTo.
+Award [1] for correctly using getETA() twice (with or without “this”).
+Award [1] for returning the correct result.
+Example answers:
+public int compareWith(Arrival anotherArrival)
+{
+int result;
+result = this.getETA().compareTo(anotherArrival.getETA());
+return result;
+}
+public int compareWith(Arrival anotherArrival)
+{
+String currentETA = this.getETA();
+String otherETA = anotherArrival.getETA();
+return currentETA.compareTo(otherETA);
+}
+
+[3]
+
+– 28 –
+15.
+
+(a)
+
+(b)
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award up to [2 max].
+[1 max] for any two out of three underlined key components.
+[2 max] for all three key components.
+Note: the return type is not part of the method signature.
+Example answers:
+The method name and all of its parameters and the type of these parameters.
+The method name and the type of all of its parameters.
+
+[2]
+
+Award up to [4 max].
+Award [1] for a correct loop until last Arrival.
+Award [1] for including correct test for ETA.
+Award [1] for including correct test landed.
+Award [1] for correctly using double dot notation in output statement.
+Do not penalize incorrect use of accessor methods.
+
+[4]
+
+Example answers:
+public void showDelayed(String t)
+{
+int i = 0;
+while (i <= last)
+{
+if (inbound[i].getETA().compareTo(t) < 0)
+{
+if (!inbound[i].getLanded())
+{
+output(inbound[i].getMyFlight().getID());
+}
+i = i + 1
+}
+}
+}
+public void showDelayed(String t)
+{
+int i = 0;
+while ((i <= last) && (inbound[i].getETA().compareTo(t) < 0))
+{
+if (!inbound[i].landed)
+{
+output(inbound[i].myFlight.id);
+}
+i = i + 1
+}
+}
+public void showDelayed(String t)
+{
+for (int i = 0; i <= last; i++)
+{
+if ((inbound[i].getETA().compareTo(t) < 0) &&
+(!inbound[i].landed))
+{
+output(inbound[i].myFlight.id);
+}
+}
+}
+
+– 29 –
+(c)
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award up to [6 max].
+Award [1] for a loop comparing newArrival to entries in inbound.
+Award [1] for testing for the last entry.
+Award [1] for good attempt a for loop in reverse order.
+Award [1] for a fully correct for loop in reverse order.
+Award [1] for correctly shifting elements in the array.
+Award [1] for assigning newArrival.
+Award [1] for incrementing last.
+
+[6]
+
+Example answer:
+public void add(Arrival newArrival)
+{
+int i = 0;
+while ((i <= last)&&(inbound[i].compareWith(newArrival) < 0))
+{ i++;
+}
+for (int j = last + 1; j>i; j--)
+{
+inbound[j] = inbound[j - 1];
+}
+inbound[i] = newArrival;
+last++;
+}
+Alternative answer:
+public void add(Arrival newArrival)
+{
+int i = 0;
+while (i <= last)&&
+(inbound[i].getETA().compareTo(newArrival.getETA()) < 0)
+{
+i++;
+}
+for (int j = last; j >= i; j--)
+{
+inbound[j + 1] = inbound[j];
+}
+inbound[i] = newArrival;
+last++;
+}
+(d)
+
+Award up to [4 max].
+Award [1] for declaring a variable of type Arrival.
+Award [1] for calling remove(flightID).
+Award [1] for calling addDelay(minutes).
+Award [1] for adding the updated Arrival object to array inbound.
+Award [1] for adding the update to the array inbound by calling add(update).
+public void delay(String flightID, int minutes)
+
+{
+Arrival update = remove(flightID);
+update.addDelay(minutes);
+add(update);
+}
+
+[4]
+
+– 30 –
+
+16.
+
+(a)
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Award up to [2 max].
+Award [1] for identifying an advantage.
+Award [1] for an elaboration of the advantage.
+
+[2]
+
+Example answers:
+Convenience;
+Because implementations of common tasks are available;
+Reliability;
+because these implementations are fully developed, functional and robust.
+(b)
+
+(c)
+
+Award up to [4 max].
+Award [1] for identifying an issue and [1] for a valid comparison related to the
+issue.
+Mark as [2] and [2]
+Issue
+
+dynamic linked list
+
+static array
+
+memory use
+
+efficiently uses memory
+as needed
+
+uses a fixed amount of
+memory which is
+inefficient
+
+access
+
+only sequential access
+
+direct access using an
+array index
+
+overflow
+
+amount of elements
+only limited by amount
+of memory available
+
+overflow is a problem as
+there is a fixed amount of
+elements allowed
+
+manipulation
+
+rearranging is easy by
+changing pointers
+
+rearranging often
+involves shifting
+elements
+
+Award up to [2 max].
+Award [1] for a good attempt (for example the new node being added as the 3rd
+node in the list).
+Award [2] for a fully correct diagram.
+
+[4]
+
+[2]
+
+– 31 –
+
+(d)
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+(i)
+
+When a method calls on itself.
+
+[1]
+
+(ii)
+
+Award up to [4 max].
+Award [1] for correct recursion levels i including i = 3.
+Award [1] for the correct flight id's (with or without the line for i = 3.
+Award [1] for 12:55 and 11:05 in the correct order.
+Award [1] for 12:30 (ETA) in the correct order.
+Note: that there are many ways to trace a recursive algorithm.
+
+[4]
+
+i
+
+id
+
+output
+
+0
+
+KL1102
+
+1
+
+MH9077
+
+2
+
+LH8803
+
+3
+
+–
+
+2
+
+LH8803
+
+12:55
+
+1
+
+MH9077
+
+12:30
+
+0
+
+KL1102
+
+11:05
+
+– 32 –
+
+(e)
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+For answers without iterators
+Award up to [7 max].
+Award [1] for correctly instantiating the LinkedList variable result.
+Award [1] for declaring (and instantiating) all other variables.
+Award [1] for correct main loop.
+Award [1] for correctly comparing the first Arrivals in the two lists.
+Award [1] for correctly removing the earlier Arrival from its original list.
+Award [1] for correctly adding this Arrival to the end of the resulting list.
+Award [1] for attempting to add the remainder of a non-empty linked list.
+Award [1] for correct loop for copying the remainder of runway1.
+Award [1] for correctly removing/adding the remainder of runway1.
+Award [1] for also copying a possible remainder of runway2.
+Example without iterator:
+public LinkedList<Arrival> mergeLists()
+{
+LinkedList<Arrival> result = new LinkedList<Arrival>();
+Arrival temp = null;
+while (!runway1.isEmpty() && !runway2.isEmpty())
+{
+if (runway1.getFirst().compareWith(runway2.getFirst())<0)
+{ temp = runway1.removeFirst(); }
+else
+{ temp = runway2.removeFirst(); }
+result.addLast(temp);
+}
+while (!runway1.isEmpty())
+{
+temp = runway1.removeFirst();
+result.addLast(temp);
+}
+while (!runway2.isEmpty())
+{
+temp = runway2.removeFirst();
+result.addLast(temp);
+}
+return result;
+}
+
+Alternative example without iterator:
+public LinkedList<Arrival> mergeLists()
+{
+LinkedList<Arrival> result = new LinkedList<Arrival>();
+Arrival head1 = runway1.peekFirst();
+Arrival head2 = runway2.peekFirst();
+while ((head1 != null) && (head2 != null))
+{
+if (head1.compareWith(head2) <= 0)
+{
+result.addLast(head1);
+runway1.removeFirst();
+head1 = runway1.peekFirst();
+}
+else
+{
+result.addLast(head2);
+runway2.removeFirst();
+head2 = runway2.peekFirst();
+}
+}
+while (!runway1.isEmpty())
+
+// or <
+
+– 33 –
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+{
+result.addLast(runway1.removeFirst());
+}
+while (!runway2.isEmpty())
+{
+result.addLast(runway2.removeFirst());
+}
+return result;
+}
+
+For answers that use iterators
+Award up to [7 max].
+Award [1] for correctly instantiating the LinkedList variable result.
+Award [1] for declaring and instantiating iterators and all other variables.
+Award [1] for correct main loop.
+Award [1] for correctly comparing the first Arrivals in the two lists.
+Award [1] for correctly adding the earlier Arrival to the end of the resulting list.
+Award [1] for testing iter.hasNext() and loop termination.
+Award [1] for attempting to add the remainder of a non-empty linked list.
+Award [1] for correct loop used for copying the remainder of runway1.
+Award [1] for correctly copying the remainder of runway1.
+Award [1] for also copying a possible remainder of runway2.
+
+[7]
+
+– 34 –
+
+N18/4/COMSC/HP2/ENG/TZ0/XX/M
+
+Example with iterator:
+public LinkedList<Arrival> mergeLists()
+{
+LinkedList<Arrival> result = new LinkedList<Arrival>();
+ListIterator<Arrival> iter1 = runway1.listIterator();
+ListIterator<Arrival> iter2 = runway2.listIterator();
+Arrival curr1 = null;
+Arrival curr2 = null;
+if (iter1.hasNext()) {curr1 = iter1.next();}
+if (iter2.hasNext()) {curr2 = iter2.next();}
+while ((curr1 != null) && (curr2 != null))
+{
+if (curr1.compareWith(curr2) <= 0)
+// or <
+{
+result.addLast(curr1);
+if (iter1.hasNext()) {curr1 = iter1.next();}
+else {curr1 = null;}
+}
+else
+{
+result.addLast(curr2);
+if (iter2.hasNext()) {curr2 = iter2.next();}
+else {curr2 = null;}
+}
+}
+while (iter1.hasNext()) result.addLast(iter1.next());
+while (iter2.hasNext()) result.addLast(iter2.next());
+return result;
+}
+
+
