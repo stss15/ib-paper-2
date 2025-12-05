@@ -289,7 +289,6 @@ function extractUMLAsJava(text) {
   const lines = text.split(/\r?\n/);
   let className = '';
   const attributes = [];
-  const methods = [];
   
   for (const line of lines) {
     // Look for class name (usually appears before attributes)
@@ -306,21 +305,15 @@ function extractUMLAsJava(text) {
       attributes.push({ name, type: javaType, visibility: line.trim().startsWith('-') ? 'private' : 'public' });
       continue;
     }
-    
-    // UML method: + methodName()
-    const methodMatch = line.match(/^[+]\s*(\w+.*\(.*\))/);
-    if (methodMatch) {
-      methods.push(methodMatch[1]);
-    }
   }
   
   if (!className || attributes.length === 0) {
     return null;
   }
   
-  // Build Java class
-  let java = `public class ${className} {\n`;
-  java += `    // Instance variables\n`;
+  // Build Java class - ONLY show structure, NOT the methods students need to write
+  let java = `public class ${className} {\n\n`;
+  java += `    // Instance variables (from UML diagram)\n`;
   
   for (const attr of attributes) {
     java += `    ${attr.visibility} ${attr.type} ${attr.name};\n`;
@@ -328,21 +321,13 @@ function extractUMLAsJava(text) {
   
   java += `\n    // Default constructor\n`;
   java += `    public ${className}() {\n`;
-  java += `        // Initialize default values\n`;
+  java += `        // Initializes instance variables to default values\n`;
   java += `    }\n`;
   
-  java += `\n    // Accessor and mutator methods\n`;
-  for (const attr of attributes) {
-    const capName = attr.name.charAt(0).toUpperCase() + attr.name.slice(1);
-    java += `    public ${attr.type} get${capName}() {\n`;
-    java += `        return this.${attr.name};\n`;
-    java += `    }\n\n`;
-    java += `    public void set${capName}(${attr.type} ${attr.name}) {\n`;
-    java += `        this.${attr.name} = ${attr.name};\n`;
-    java += `    }\n\n`;
-  }
+  java += `\n    // Accessor and mutator methods are listed in the UML\n`;
+  java += `    // but YOU need to write them as part of the questions!\n`;
   
-  java += `}\n`;
+  java += `\n}\n`;
   
   return java;
 }
@@ -425,29 +410,46 @@ function detectCodingQuestion(text) {
 }
 
 function extractStarterCode(questionText, examCode) {
-  // Try to find a method name mentioned in the question
-  const methodMatch = questionText.match(/method\s+(\w+)\s*\(/i);
+  // For accessor methods like getBrandModel()
+  const accessorMatch = questionText.match(/accessor\s+method\s+(\w+)\s*\(\)/i) ||
+                        questionText.match(/method\s+(get\w+)\s*\(\)/i);
+  if (accessorMatch) {
+    const methodName = accessorMatch[1];
+    // Don't provide return type - student should figure it out
+    return `// Write your ${methodName}() method below\n\n`;
+  }
+  
+  // For mutator methods like setX()
+  const mutatorMatch = questionText.match(/mutator\s+method\s+(\w+)\s*\(/i) ||
+                       questionText.match(/method\s+(set\w+)\s*\(/i);
+  if (mutatorMatch) {
+    const methodName = mutatorMatch[1];
+    return `// Write your ${methodName}() method below\n\n`;
+  }
+  
+  // For general methods like findBrandModels()
+  const methodMatch = questionText.match(/method\s+(\w+)\s*\(\)/i);
   if (methodMatch) {
     const methodName = methodMatch[1];
-    return `// Construct the ${methodName}() method\n\npublic void ${methodName}() {\n    // Your code here\n    \n}\n`;
+    return `// Write your ${methodName}() method below\n\n`;
+  }
+  
+  // Check if it's asking for a class with extends
+  const extendsMatch = questionText.match(/class\s+(\w+).*extends/i);
+  if (extendsMatch) {
+    const className = extendsMatch[1];
+    return `// Write the ${className} class below\n\n`;
   }
   
   // Check if it's asking for a class
   const classMatch = questionText.match(/class\s+(\w+)/i);
   if (classMatch) {
     const className = classMatch[1];
-    return `public class ${className} {\n    // Your code here\n    \n}\n`;
+    return `// Write the ${className} class below\n\n`;
   }
   
-  // Check for accessor/getter
-  if (/accessor|get\w+\(\)/i.test(questionText)) {
-    const getterMatch = questionText.match(/get(\w+)\(\)/i);
-    if (getterMatch) {
-      return `public String get${getterMatch[1]}() {\n    // Your code here\n    return null;\n}\n`;
-    }
-  }
-  
-  return '// Write your code here\n\n';
+  // Generic coding question
+  return '// Write your code below\n\n';
 }
 
 // ============== RENDERING ==============
