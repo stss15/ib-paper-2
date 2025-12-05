@@ -189,5 +189,5 @@ Two sub-classes will be created: shortTerm and longTerm.
 class, the Loan superclass and the two sub-classes. Note: there is no need to include
 the attributes or methods of each class. [4]
 
-Outline, using an OOP technique, how the total number of books on loan could be
+(d) Outline, using an OOP technique, how the total number of books on loan could be
 displayed without processing the borrowers array. [3]
