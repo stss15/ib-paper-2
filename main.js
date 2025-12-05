@@ -182,8 +182,14 @@ function parseExam(qpText, msText) {
   const optionDText = extractOptionD(qpText);
   const optionDMS = extractOptionD(msText);
   
+  // Extract scenario/context information
+  const scenarioContext = extractScenarioContext(optionDText);
+  
   // Extract all Java code from the exam - improved extraction
-  state.examCode = extractAllJavaCode(optionDText);
+  const javaCode = extractAllJavaCode(optionDText);
+  
+  // Combine scenario context with Java code
+  state.examCode = scenarioContext + javaCode;
   
   // Parse questions and sub-questions
   const rawQuestions = splitMainQuestions(optionDText);
@@ -220,6 +226,66 @@ function parseExam(qpText, msText) {
         subQuestions,
       };
     });
+}
+
+function extractScenarioContext(text) {
+  // Extract the scenario/context that appears before the first sub-question
+  // This contains important background information for students
+  
+  const lines = text.split(/\r?\n/);
+  const contextLines = [];
+  let inContext = false;
+  let foundFirstQuestion = false;
+  
+  for (const line of lines) {
+    const trimmed = line.trim();
+    
+    // Skip header lines
+    if (/Option D/i.test(trimmed) || /^–?\s*\d+\s*–?$/.test(trimmed) || 
+        /^\d{4}\s*–\s*\d{4}$/.test(trimmed) || /M\d{2}\/\d\//.test(trimmed)) {
+      continue;
+    }
+    
+    // Start collecting after we see a main question number
+    if (/^1[0-9]\.$/.test(trimmed) || /^[0-9]\.$/.test(trimmed)) {
+      inContext = true;
+      continue;
+    }
+    
+    // Stop at first sub-question
+    if (/^\([a-z]\)/i.test(trimmed)) {
+      foundFirstQuestion = true;
+      break;
+    }
+    
+    // Collect context lines (but not UML attributes or code)
+    if (inContext && trimmed && !foundFirstQuestion) {
+      // Skip UML notation lines and page references
+      if (!/^[-+]\s*\w+\s*:/.test(trimmed) && 
+          !/Option D continues/i.test(trimmed) &&
+          !/^Turn over$/i.test(trimmed) &&
+          !/^\[.*\]$/.test(trimmed) &&
+          !/^public\s+(class|interface)/.test(trimmed) &&
+          !/^private\s+/.test(trimmed)) {
+        contextLines.push(trimmed);
+      }
+    }
+  }
+  
+  if (contextLines.length < 3) return '';
+  
+  // Format the context as a comment block
+  const context = contextLines.slice(0, 15).join('\n');
+  
+  return `/*
+ * ==========================================
+ * EXAM SCENARIO / CONTEXT
+ * ==========================================
+ * ${context.split('\n').join('\n * ')}
+ * ==========================================
+ */
+
+`;
 }
 
 function extractOptionD(text) {
@@ -297,28 +363,375 @@ function extractAllJavaCode(text) {
     codeBlocks.push(currentBlock.join('\n'));
   }
   
-  // If we found actual Java classes, use them
+  // Extract UML diagrams and tables
+  const diagrams = extractDiagrams(text);
+  
+  // If we found actual Java classes, combine with diagrams
   const javaClasses = codeBlocks.filter(block => 
     /class\s+\w+/.test(block) && block.includes('{')
   );
   
+  let result = '';
+  
+  // Add UML diagrams first as comments
+  if (diagrams.length > 0) {
+    result += diagrams.join('\n\n') + '\n\n';
+  }
+  
   if (javaClasses.length > 0) {
-    return javaClasses.join('\n\n');
+    result += javaClasses.join('\n\n');
+    return result;
   }
   
   // Fall back to UML-style if no Java classes found
-  // Convert UML notation to Java class skeleton
   const umlBlock = extractUMLAsJava(text);
   if (umlBlock) {
-    return umlBlock;
+    return result + umlBlock;
   }
   
   // Last resort - return any code we found
   if (codeBlocks.length > 0) {
-    return codeBlocks.join('\n\n');
+    return result + codeBlocks.join('\n\n');
   }
   
-  return '// No Java code provided in this exam.\n// Refer to the question text for class specifications.';
+  return result || '// No Java code provided in this exam.\n// Refer to the question text for class specifications.';
+}
+
+// ============== DIAGRAM EXTRACTION ==============
+function extractDiagrams(text) {
+  const diagrams = [];
+  
+  // Extract UML class diagrams
+  const umlDiagrams = extractUMLDiagrams(text);
+  diagrams.push(...umlDiagrams);
+  
+  // Extract tables (loyalty levels, database tables, etc.)
+  const tables = extractTables(text);
+  diagrams.push(...tables);
+  
+  // Extract binary tree diagrams
+  const trees = extractBinaryTrees(text);
+  diagrams.push(...trees);
+  
+  return diagrams;
+}
+
+function extractUMLDiagrams(text) {
+  const diagrams = [];
+  const lines = text.split(/\r?\n/);
+  
+  // Pattern to detect UML class diagram blocks
+  // Looking for patterns like:
+  // ClassName
+  // - attribute: Type
+  // + method()
+  
+  let currentClass = null;
+  let exampleData = [];
+  const classes = [];
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    // Detect class name (PascalCase word alone on a line, not part of a sentence)
+    if (/^[A-Z][a-zA-Z]+$/.test(line) && !line.includes(' ') && line.length > 2) {
+      // Check if next lines have UML attributes
+      const nextLines = lines.slice(i + 1, i + 10).map(l => l.trim());
+      const hasUMLAttributes = nextLines.some(l => /^[-+]\s*\w+\s*:/.test(l));
+      
+      if (hasUMLAttributes) {
+        if (currentClass && currentClass.attributes.length > 0) {
+          classes.push({ ...currentClass, exampleData: [...exampleData] });
+        }
+        currentClass = { name: line, attributes: [], methods: [] };
+        exampleData = [];
+        continue;
+      }
+    }
+    
+    // Detect "example X object" pattern
+    if (/example\s+\w+\s+object/i.test(line) && currentClass) {
+      // Next few lines might be example data
+      for (let j = i + 1; j < Math.min(i + 10, lines.length); j++) {
+        const dataLine = lines[j].trim();
+        if (dataLine && !dataLine.startsWith('-') && !dataLine.startsWith('+') && 
+            !dataLine.startsWith('(') && !/^[A-Z][a-z]/.test(dataLine)) {
+          exampleData.push(dataLine);
+        } else if (/^[-+]/.test(dataLine) || /^\(/.test(dataLine)) {
+          break;
+        }
+      }
+    }
+    
+    // Detect UML attribute: - attributeName: Type
+    if (currentClass && /^[-+]\s*\w+\s*:\s*\w+/.test(line)) {
+      const match = line.match(/^([-+])\s*(\w+)\s*:\s*(\w+)/);
+      if (match) {
+        currentClass.attributes.push({
+          visibility: match[1] === '-' ? 'private' : 'public',
+          name: match[2],
+          type: match[3]
+        });
+      }
+    }
+    
+    // Detect UML method: + methodName() or + constructor
+    if (currentClass && /^[-+]\s*(\w+\s*\(|constructor|accessor|mutator)/i.test(line)) {
+      currentClass.methods.push(line.replace(/^[-+]\s*/, ''));
+    }
+  }
+  
+  if (currentClass && currentClass.attributes.length > 0) {
+    classes.push({ ...currentClass, exampleData });
+  }
+  
+  // Convert to ASCII art
+  for (const cls of classes) {
+    diagrams.push(createUMLAsciiArt(cls));
+  }
+  
+  return diagrams;
+}
+
+function createUMLAsciiArt(cls) {
+  const lines = [];
+  const width = Math.max(
+    cls.name.length + 4,
+    ...cls.attributes.map(a => `${a.visibility === 'private' ? '-' : '+'} ${a.name}: ${a.type}`.length + 2),
+    ...cls.methods.map(m => `+ ${m}`.length + 2),
+    30
+  );
+  
+  const border = '+' + '-'.repeat(width) + '+';
+  const empty = '|' + ' '.repeat(width) + '|';
+  
+  lines.push('/*');
+  lines.push(' * UML Class Diagram:');
+  lines.push(' * ' + border);
+  lines.push(' * |' + cls.name.padStart((width + cls.name.length) / 2).padEnd(width) + '|');
+  lines.push(' * ' + border);
+  
+  // Attributes
+  for (const attr of cls.attributes) {
+    const symbol = attr.visibility === 'private' ? '-' : '+';
+    const attrStr = `${symbol} ${attr.name}: ${attr.type}`;
+    lines.push(' * |' + attrStr.padEnd(width) + '|');
+  }
+  
+  lines.push(' * ' + border);
+  
+  // Methods
+  for (const method of cls.methods) {
+    const methodStr = `+ ${method}`;
+    lines.push(' * |' + methodStr.padEnd(width) + '|');
+  }
+  
+  lines.push(' * ' + border);
+  
+  // Example data if available
+  if (cls.exampleData && cls.exampleData.length > 0) {
+    lines.push(' *');
+    lines.push(' * Example ' + cls.name + ' object:');
+    cls.exampleData.forEach(d => {
+      lines.push(' *   ' + d);
+    });
+  }
+  
+  lines.push(' */');
+  
+  return lines.join('\n');
+}
+
+function extractTables(text) {
+  const tables = [];
+  const lines = text.split(/\r?\n/);
+  
+  // Look for patterns indicating tables
+  // - Loyalty level tables (Bronze/Silver/Gold/Diamond)
+  // - Status threshold tables
+  
+  // Detect loyalty/status tables
+  const loyaltyMatch = text.match(/Bronze\s*[=<>]\s*(?:less than\s*)?\d[\d\s,]*(?:points)?/i);
+  const silverMatch = text.match(/Silver\s*[=<>]\s*\d[\d\s,]*(?:points)?/i);
+  const goldMatch = text.match(/Gold\s*[=<>]\s*\d[\d\s,]*(?:points)?/i);
+  
+  if (loyaltyMatch || silverMatch || goldMatch) {
+    const statusTable = extractStatusTable(text);
+    if (statusTable) {
+      tables.push(statusTable);
+    }
+  }
+  
+  // Detect Number of rentals -> Level table pattern
+  if (/Number of rentals.*Level/i.test(text) || /rentals.*level/i.test(text)) {
+    const rentalTable = extractRentalLevelTable(text);
+    if (rentalTable) {
+      tables.push(rentalTable);
+    }
+  }
+  
+  return tables;
+}
+
+function extractStatusTable(text) {
+  // Extract Bronze/Silver/Gold point thresholds
+  const rules = [];
+  
+  const bronzeMatch = text.match(/Bronze\s*[=:]\s*(?:less than\s*)?(\d[\d\s,]*)/i);
+  const silverMatch = text.match(/Silver\s*[=:]\s*(\d[\d\s,]*)\s*(?:or more)?(?:\s*but\s*less than\s*(\d[\d\s,]*))?/i);
+  const goldMatch = text.match(/Gold\s*[=:]\s*(\d[\d\s,]*)\s*(?:or more)?/i);
+  
+  if (bronzeMatch) rules.push({ level: 'Bronze', threshold: bronzeMatch[1].trim() });
+  if (silverMatch) rules.push({ level: 'Silver', threshold: silverMatch[1].trim() + (silverMatch[2] ? ' - ' + silverMatch[2].trim() : '+') });
+  if (goldMatch) rules.push({ level: 'Gold', threshold: goldMatch[1].trim() + '+' });
+  
+  if (rules.length === 0) return null;
+  
+  const lines = [];
+  lines.push('/*');
+  lines.push(' * Status Level Thresholds:');
+  lines.push(' * +----------------+----------------------+');
+  lines.push(' * | Level          | Points Required      |');
+  lines.push(' * +----------------+----------------------+');
+  for (const rule of rules) {
+    lines.push(' * | ' + rule.level.padEnd(14) + ' | ' + rule.threshold.padEnd(20) + ' |');
+  }
+  lines.push(' * +----------------+----------------------+');
+  lines.push(' */');
+  
+  return lines.join('\n');
+}
+
+function extractRentalLevelTable(text) {
+  // Extract loyalty program level thresholds for rental company
+  const lines = [];
+  
+  // Look for patterns like "Greater than 19 -> Diamond"
+  const diamondMatch = text.match(/(?:Greater than|>)\s*(\d+)\s*(?:[\r\n]+\s*)?Diamond/i);
+  const goldMatch = text.match(/(?:Greater than|>)\s*(\d+)\s*(?:[\r\n]+\s*)?Gold/i);
+  const silverMatch = text.match(/(?:Greater than|>)\s*(\d+)\s*(?:[\r\n]+\s*)?Silver/i);
+  const basicMatch = text.match(/(?:Up to|<=?)\s*(\d+)\s*(?:[\r\n]+\s*)?Basic/i);
+  
+  const rules = [];
+  if (diamondMatch) rules.push({ level: 'Diamond', threshold: '> ' + diamondMatch[1] });
+  if (goldMatch) rules.push({ level: 'Gold', threshold: '> ' + goldMatch[1] });
+  if (silverMatch) rules.push({ level: 'Silver', threshold: '> ' + silverMatch[1] });
+  if (basicMatch) rules.push({ level: 'Basic', threshold: '≤ ' + basicMatch[1] });
+  
+  if (rules.length === 0) return null;
+  
+  lines.push('/*');
+  lines.push(' * Loyalty Program Levels:');
+  lines.push(' * +----------------+----------------------+');
+  lines.push(' * | Level          | Rentals Required     |');
+  lines.push(' * +----------------+----------------------+');
+  for (const rule of rules) {
+    lines.push(' * | ' + rule.level.padEnd(14) + ' | ' + rule.threshold.padEnd(20) + ' |');
+  }
+  lines.push(' * +----------------+----------------------+');
+  lines.push(' */');
+  
+  return lines.join('\n');
+}
+
+function extractBinaryTrees(text) {
+  const trees = [];
+  
+  // Look for Figure references with binary tree data
+  const figureMatch = text.match(/Figure\s+\d+[:\s]*.*binary\s+(?:search\s+)?tree/i);
+  
+  if (figureMatch) {
+    // Try to extract the tree node values
+    // Look for patterns like a tree structure in the text
+    const treeData = extractTreeNodeValues(text);
+    if (treeData) {
+      trees.push(createBinaryTreeAscii(treeData));
+    }
+  }
+  
+  // Also check for date-based tree examples
+  if (/binary\s+tree.*dateOut/i.test(text) || /dateOut.*binary\s+tree/i.test(text)) {
+    const dateTree = extractDateTreeData(text);
+    if (dateTree) {
+      trees.push(dateTree);
+    }
+  }
+  
+  return trees;
+}
+
+function extractTreeNodeValues(text) {
+  // Look for a sequence of numbers that might represent tree nodes
+  // Pattern: root -> children arrangement
+  
+  // Try to find customerID sequences or numeric sequences
+  const numberMatches = text.match(/root[\s\S]*?(\d{3}[\s\S]*?\d{3})/);
+  if (numberMatches) {
+    const numbers = numberMatches[1].match(/\d{3}/g);
+    if (numbers && numbers.length >= 3) {
+      return numbers;
+    }
+  }
+  
+  return null;
+}
+
+function createBinaryTreeAscii(nodes) {
+  if (!nodes || nodes.length === 0) return null;
+  
+  const lines = [];
+  lines.push('/*');
+  lines.push(' * Binary Search Tree (from exam figure):');
+  lines.push(' *');
+  
+  // Simple tree representation for 7 nodes
+  if (nodes.length >= 7) {
+    lines.push(' *              [' + nodes[0] + ']');
+    lines.push(' *              /     \\');
+    lines.push(' *          [' + nodes[1] + ']     [' + nodes[2] + ']');
+    lines.push(' *          /   \\       /   \\');
+    lines.push(' *       [' + nodes[3] + '] [' + nodes[4] + '] [' + nodes[5] + '] [' + nodes[6] + ']');
+  } else if (nodes.length >= 3) {
+    lines.push(' *         [' + nodes[0] + ']');
+    lines.push(' *         /     \\');
+    lines.push(' *     [' + nodes[1] + ']   [' + nodes[2] + ']');
+  }
+  
+  lines.push(' *');
+  lines.push(' * Note: This is a visual representation from the exam.');
+  lines.push(' * Refer to the question for exact node arrangement.');
+  lines.push(' */');
+  
+  return lines.join('\n');
+}
+
+function extractDateTreeData(text) {
+  // Look for customerID/dateOut table data
+  const lines = [];
+  const tableData = [];
+  
+  const datePattern = /(\d+)\s+(\d{2}\/\d{2}\/\d{4})/g;
+  let match;
+  while ((match = datePattern.exec(text)) !== null) {
+    tableData.push({ id: match[1], date: match[2] });
+  }
+  
+  if (tableData.length === 0) return null;
+  
+  lines.push('/*');
+  lines.push(' * Data for Binary Tree Construction:');
+  lines.push(' * +-------------+-------------+');
+  lines.push(' * | customerID  | dateOut     |');
+  lines.push(' * +-------------+-------------+');
+  for (const row of tableData) {
+    lines.push(' * | ' + row.id.padEnd(11) + ' | ' + row.date.padEnd(11) + ' |');
+  }
+  lines.push(' * +-------------+-------------+');
+  lines.push(' * ');
+  lines.push(' * Build the BST by inserting nodes in order of dateOut.');
+  lines.push(' */');
+  
+  return lines.join('\n');
 }
 
 function extractUMLAsJava(text) {
