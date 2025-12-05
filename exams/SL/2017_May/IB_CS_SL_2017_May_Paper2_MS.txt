@@ -1,0 +1,249 @@
+Option D — Object-oriented programming
+10.
+
+(a)
+
+Award up to [3] marks.
+Note: An example is required with detailed explanation (up to [2 max];
+Award [1 max] if there is lack of detail).
+A class describes/provides the template for a particular object;
+Whereas an instantiation of a class actually creates an object for that class;
+For example:
+An employee class would contain characteristics/actions that describe
+an employee, and an instantiation would represent a particular employee;
+
+(b)
+
+[3]
+
+Award marks as follows up to [4 max]:
+Award up to [2 max] for each of the two required examples (award [1] mark for correct
+example but lack of terminology/detail/competence)
+Note: Examples should show competent use of terminology in describing the use of
+inheritance, to get full marks.
+The responses should focus on these aspects, with keywords underlined:
+ Several sub-classes can inherit characteristics from a superclass;
+ Whilst adding specific characteristics particular to themselves;
+Examples can then expand or be described to include the features above.
+For example:
+There could be a “GUI” superclass that contains the main elements for the UIs
+with the GUI for each screen inheriting from its parent;
+For example:
+An “Employee” superclass that allows the different types of employees to inherit
+standard characteristics;
+
+(c)
+
+[4]
+
+Award up to [3 max]:
+Library programs are programs that have already been written;
+They are standard/frequently used programs;
+Development time will be saved if they can be incorporated into the design;
+They have been tested / Will be free of bugs;
+Note: Allow [1 mark] for responses that include examples that expand on any of the aspects
+listed above.
+[3]
+
+11.
+
+(a)
+
+Award [max 2 marks]:
+[1 mark] for each of the two correct assignments.
+public SalesPerson (String id)
+{
+this.id = id;
+salesHistory = new Sales [100];
+}
+
+Note: Allow any reasonable value for the number of Sales objects.
+
+[2]
+
+– 32 –
+(b)
+
+M17/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award up to [3 max].
+Note: Use of competent/detailed terminology (underlined) is required.
+As the variables are declared as private;
+They/their values cannot be accessed directly from outside this class;
+Therefore, public accessor methods are needed to permit access;
+
+[3]
+
+Note: Either accessor or access required.
+(c)
+
+(i)
+
+Award up to [4 max] as follows (there are 5 marking points):
+[1] for two classes BOTH with basic three-tier structure layout;
+[1] for correct dependency shown (eg diamond arrow) /
+“has a” from SalesPerson to Sales/
+1:N relation.
+[1] in SalesPerson, for all vars and methods (contentwise) with type
+(allow if constructor/ accessor/mutator methods are present);
+[1] in Sales, for all vars and methods (contentwise) with type
+(allow if constructor/ accessor/mutator methods are present);
+[1] for correct use of +/- for public/private;
+
+SalesPerson
+- id: String
+- salesHistory: Sales[]
+- count: int
+
+Sales
+- itemId: String
+- value: double
+- quantity: int
+
++ double calcTotalSales()
++ Sales largestSale()
+
+[4]
+
+(ii)
+
+Award up to [2 marks].
+Any change in the Sales class might require a rewriting of some
+SalesPerson methods/might not work;
+For example, the calcTotalSales() is dependent upon/uses data from
+the Sales
+class;
+
+[2]
+
+Note: Accept any reasonable example.
+(d)
+
+Award up to [4 marks].
+102;
+2;
+2550.40;
+5000.00; (Note: Accept, only in this case, 5000)
+
+[4]
+
+– 33 –
+(e)
+
+M17/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award marks up to [5 max] as follows:
+[1] for assigning an appropriate value to total;
+[1] for correct loop;
+[2] for correctly updating total OR [1] for a reasonable effort;
+[1] for returning the total;
+public double calcTotalSales() // returns total value of all
+// of the sales
+{
+double total = 0;
+for (int x = 0; x<count; x++)
+{
+total = total + salesHistory[x].getValue()
+*salesHistory[x].getQuantity();
+}
+return total;
+}
+
+[5]
+
+– 34 –
+(f)
+
+M17/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award marks as follows up to [5 max]:
+[1] for correct initialization;
+[1] for correct loop;
+[1] for correct comparison AND [1] for correct reassignment of total;
+Note: Award [1 max] for these two parts if dot notation is not used.
+Award [1] for correct re-assignment of index;
+public String highest()
+{
+double total = 0;
+int index = -1;
+for (int x=0; x<100; x++)
+{
+if (SalesPeople[x].calcTotalSales() > total)
+{
+total = SalesPeople[x].calcTotalSales();
+index = x;
+}
+}
+return SalesPeople[index].getId();
+}
+
+[5]
+Note: There will be other correct versions, but the markscheme shown above
+should still apply.
+
+– 35 –
+(g)
+
+M17/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award marks up to [4 max] as follows:
+[1] for correct loop;
+[1] for correct comparison (either as part of the loop condition, or within a for loop);
+[1] for assignment (with or without use of set);
+[1] for correct use of get / set methods.
+Note: Allow for a “follow through” (FT) if the loop is incorrect
+Example of solution with while-loop
+public void addSales(Sales s, String id)
+{
+int x = 0;
+while (salesPeople[x].getId() != id)
+{
+x++;
+}
+salesPeople[x].setSalesHistory(s);
+}
+
+Example of solution with for-loop
+public void addSales(Sales s, String id)
+{
+for(int i=0;i<salesPeople.length; i++)
+{
+if(salesPeople[i].getId().equals(id))
+{
+salesPeople[i].setSalesHistory(s);
+break;
+}
+}
+}
+
+(h)
+
+[4]
+
+Award up to [3 max]:
+A date variable must be added to the Sales class;
+And included in its constructor;
+Get/set methods added for the date;
+The calcTotalSales() would have to be rewritten;
+Note: The spirit of the question is to address the question from a programmer/developer
+point of view. We are looking for elements of programming/functionality of the programs.
+Please take this perspective when marking vague responses.
+
+[3]
+
+– 36 –
+
+(i)
+
+M17/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award up to [3 max]:
+This is shown by the two constructors in the SalesPerson class;
+Which is an example of overloading;
+The constructor that is executed (by the compiler);
+Is the one in which the parameters match up with the arguments in the calling
+statement;
+
+[3]
+
+

@@ -1,0 +1,369 @@
+Option D – Object oriented programming (OOP)
+10.
+
+(a)
+
+Award [1 max].
+These are data types that are pre-defined / fundamental / basic in the programming
+language;
+A data type that is always assigned a value (in the memory);
+They are the building blocks of the composite data types / classes / objects;
+The types that are implemented directly as bit patterns (by a Java compiler);
+
+(b)
+
+(i)
+
+Award [1 max] for any suitable example. Allow a description.
+For example
+hasParking;
+hasPool;
+hasGarden;
+Whether the property has been sold or not;
+
+(ii)
+
+Award [1 max] for any suitable example. Allow a description.
+For example
+numberRooms;
+area;
+The number of bathrooms;
+
+(c) (i)
+
+(ii)
+
+Award [1 max].
+Aggregation (allow Property 'has a' Owner);
+
+Award [1 max].
+Inheritance (allow House 'is a' Property);
+House is a subclass of Property;
+House inherits Property;
+
+(d) Award [2 max].
+Award [1] for distinguishing between a class and an instantiation at the definition level;
+Award [1] for including an example;
+A class (e.g. House class) is a blueprint / definition / specification (that defines all variables
+and methods that are needed) and an instantiation of a class is creates a (new) object of that
+class [1] (e.g. a (new) object of an actual house giving its actual address etc [1];
+
+(e) Award [2 max].
+A static variable is used when it is to be a class variable (belongs to the class not to the
+instantiation);
+It is used when all objects of that class are to have the same value for the static variable;
+It will not be instantiated when a new object is created;
+If the value of a static variable is changed, it will be changed in all instances of that class;
+It does not require an object of that class to be accessed;
+
+– 19 –
+
+(f)
+
+M23/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award [2 max].
+Both classes House and Apartment need a static (integer) variable count;
+that is incremented whenever a new object of that class is created;
+A static variable (e.g total) could be defined in the Property class;
+Which is incremented every time a House or Apartment object is instantiated;
+A static method in the Property class retrieves the total number of house and apartments;
+From static total variables that are in each of the 2 sub-classes;
+
+(g) Award [3 max].
+Award [1] for the identifier (left-hand side);
+Award [1] for use of new;
+Award [1] for House[10];
+House[] wishList = new House[10];
+
+– 20 –
+
+11.
+
+(a)
+
+M23/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award [1 max].
+The grouping of the data and the methods that operate on the data into one single unit;
+The practice of hiding the structure and representation of data within a class with the use of
+private variables / and making it only accessible outside that class via accessor functions;
+The practice of hiding the structure and representation of data within a class and making
+it only accessible directly from within that class;
+
+(b) Award [3 max].
+Improved security;
+Using data-hiding / Use of private variables;
+So that other classes cannot (accidentally) access/change the data (directly) / So other
+classes have to use accessor methods to access the data / So programs can be made readonly;
+Ease of maintenance / reusability;
+Programs will be easier to update / reuse;
+Because changes to the encapsulated class should not impact on other classes / Because all
+data and methods are in the same place;
+Ease of understanding;
+Programs will be easier to follow;
+Because all data and methods are in the same place;
+Ease of testing;
+Because the class can be fully tested in isolation;
+And limited code will contain fewer mistakes than the full program;
+Faster development (of whole program);
+Different classes can be worked on by teams;
+Each class is effectively independent of others;
+
+– 21 –
+
+M23/4/COMSC/SP2/ENG/TZ0/XX/M
+
+(c) Award [3 max].
+Inheritance reduces the amount of coding in the sub-class / reduces repetition of code;
+By allowing sub-classes to inherit the methods / attributes of their superclass;
+Therefore, leading to time being saved in the development of code;
+Inheritance reduces maintenance overhead;
+Because modifications to the super class are automatically inherited by the subclasses;
+Reduces the errors when writing code;
+Inheritance allows for further expansion / simplifies future development;
+As other subclasses can inherit from the classes already present;
+Or add additional functionality specific to the sub-class;
+Note: only award marks from one cluster (do not mix and match the marking points from
+different clusters).
+
+(d) Award [3 max].
+Modern programming languages use Unicode;
+Which can encode 216 (about 64,000) characters;
+Compared to ASCII which only uses 8 bits;
+Which includes special characters from different alphabets/languages/character sets;
+Allowing these programming languages to be used by people from different parts of the world
+(only award this marking point if a correct reason has already been given);
+
+– 22 –
+
+12.
+
+M23/4/COMSC/SP2/ENG/TZ0/XX/M
+
+(a)
+
+Award [2 max].
+The signature defines the parameters (and their types);
+The method name / identifier;
+Allow either the return type or access modifier for a mark;
+
+(b)
+
+Award [2 max].
+String is an immutable object / Java uses pass-by-value / does not use pass-byreference;
+It cannot simply have its value reassigned inside the method;
+The method type must be String;
+To return the new value for that String variable;
+
+(c)
+
+Award [1 max].
+To output the addresses of all houses in a given city;
+Note to examiners. Must imply all the houses that match, not just one.
+
+(d)
+
+(i)
+
+Award [2 max]
+The length of the array may not correspond to the number of houses stored;
+Causing a null pointer error/exception;
+Since the loop may try to access the getCity method for a null entry;
+
+(ii)
+
+Award [2 max.]
+Declare a variable count that stores the number of objects in allHouses;
+Change loop condition to j<count;
+Add a test if(allHouses[i]!=null);
+Before testing allHouses[i].getCity().equals(x) ;
+Use a while loop with a double condition;
+(i<allHouses.length)&&(allHouses[i]!=null) ;
+Initially fill the array with dummy objects;
+So that no null entries will be encountered;
+Change the array to an arrayList;
+So that no null entries will be encountered / so that the array has the exact
+number of valid objects in it;
+
+– 23 –
+
+(e)
+
+M23/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award [5 max].
+Award [1] for correctly declaring a swap variable;
+Award [1] for correct outer loop;
+Award [1] for correct inner loop;
+Award [1] for correctly testing prices (allow .price);
+Award [1] for correct swap statements (ignore here any incorrect declaration of swap
+variable);
+Notes to examiners.
+• As there are many variations on sort routines you will need to carefully read
+through each response. You can ignore minor syntax errors in every algorithm
+answer.
+• Note that is the House objects that are being swapped, not the prices. However, if
+prices are being swapped, allow FT for ta swap variable declared as a numeric
+type.
+Example answer 1
+public void houseSort()
+// basic bubblesort 1
+{
+House swapHouse;
+for (int i=0; i< allHouses.length-1; i++ //accept
+//allHouses.length
+{
+for (int j=0; j< allHouses.length-1; j++)
+{
+if (allHouses[j].getPrice()>allHouses[j+1].getPrice())
+{
+swapHouse = allHouses[j];
+allHouses[j] = allHouses[j+1];
+allHouses[j+1] = swapHouse;
+}
+}
+}
+}
+
+Example answer 2
+public void houseSort()
+// basic bubblesort 2
+{
+boolean isSorted = false;
+House houseTemp;
+while(!isSorted)
+{
+isSorted = true;
+for(int j=0;j<allHouses.length-1;j++)
+{
+if(allHouses[j].getPrice()>allHouses[j+1].getPrice())
+{
+houseTemp = allHouses[j];
+allHouses[j] = allHouses[j+1];
+allHouses[j+1] = houseTemp;
+isSorted=false;
+}
+}
+}
+}
+
+– 24 –
+
+M23/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Example answer 3
+public void houseSort()
+// basic selection sort 1
+{
+House swapHouse;
+int smallest;
+for (int i=0; i< allHouses.length-1; i++)
+{
+smallest = i;
+for (int j=i+1; j< allHouses.length; j++)
+// allow j =i
+{
+if (allHouses[j].getPrice()<allHouses[smallest].getPrice())
+{
+smallest = j;
+}
+}
+swapHouse = allHouses[smallest];
+allHouses[smallest] = allHouses[i];
+allHouses[i] = swapHouse;
+}
+}
+
+Example answer 4
+public void houseSort()
+// basic selection sort 2
+{
+House swapHouse;
+for (int i=0; i< allHouses.length-1; i++)
+{
+for (int j=i+1; j< allHouses.length; j++)
+// allow j = i
+{
+if (allHouses[i].getPrice()>allHouses[j].getPrice())
+{
+swapHouse = allHouses[i];
+allHouses[i] = allHouses[j];
+allHouses[j] = swapHouse;
+}
+}
+}
+}
+
+– 25 –
+
+(f)
+
+M23/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award [7 max].
+Award [1] for correct return type and return;
+Award [1] for correct parameter, budget (allow allHouses to be passed as well);
+Award [1] for correctly instantiating a result array;
+Award [1] for correctly using houseSort;
+Award [1] for while loop with one correct condition; // other loops could be used
+Award [1] for while loop with two correct conditions in the right order; // note that some of
+these conditions may be implemented as IF statements;
+Award [2] for assigning all 3 House objects in the correct order (award [1] for good attempt at
+identifying the 3 objects);
+Example answer 1
+public House[] selectThree(int budget)
+{
+House[] result = new House[3];
+houseSort();
+// allow allHouses.houseSort()
+int i=0;
+while ((i<allHouses.length)&&(allHouses[i]!=null)
+&&(allHouses[i].getPrice()<=budget))
+{
+i++;
+}
+i--;
+for (int a=0; a<=2; a++)
+{
+result[a] = allHouses[i-2+a];
+}
+return result;
+}
+Example answer 2
+public House[] selectThree(int budget)
+{
+House[] result = new House[3];
+houseSort();
+int i=0;
+while ((i<allHouses.length)&&(allHouses[i]!=null)
+&&(allHouses[i].getPrice()<=budget))
+{
+i++;
+}
+i--;
+result[0] = allHouses[i-2];
+result[1] = allHouses[i-1];
+result[2] = allHouses[i];
+return result;
+}
+
+– 26 –
+
+M23/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Example answer 3
+public House[] selectThree(int budget)
+{
+House[] result = new House[3];
+houseSort();
+int index = 2;
+for(int i=allHouses.length-1; i>=0 && index>=0; i--)
+{
+if(allHouses[i]!=null && allHouses[i].getPrice()<=budget)
+result[index--] = allHouses[i];
+}
+return result;
+}
+
+

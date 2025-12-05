@@ -1,0 +1,255 @@
+Option D — Object-oriented programming
+An airport uses an object-oriented program to keep track of arrivals and departures of planes.
+There are many objects in this system and some are listed below.
+Flight
+
+Each Flight has many attributes including a unique ID code.
+
+Arrival
+
+In addition to a variable of the type Flight, each Arrival has a
+Scheduled Time of Arrival (STA) in 24-hour format, a runway number,
+a gate code, a delay time (in minutes) and an indicator whether the
+airplane has landed.
+
+FlightManagement
+
+The main class that manages the arrival and departure of all flights.
+
+The code below outlines the Arrival class used in this program.
+public class Flight
+{ private String id;
+public String getId() {return this.id;}
+// ... more variables, accessor and mutator methods
+}
+
+public class Arrival
+{ private Flight myFlight;
+private String sta;
+// Scheduled Time of Arrival ("hh:mm")
+private int runway;
+private String gate;
+private int delay;
+private boolean landed;
+public Arrival(Flight myFlight, String sta)
+{ this.myFlight = myFlight;
+		this.sta = sta;
+		this.runway = 0;
+		this.gate = null;
+		this.delay = 0;
+		this.landed = false;
+}
+public void addDelay(int newDelay)
+{ this.delay = newDelay;
+}
+
+public String getETA()
+{ // calculates the Estimated Time of Arrival (ETA) of the flight
+		 // by adding the delay to the sta and returning the result as a
+		 // String ("hh:mm")
+}
+public int compareWith(String flightID)
+{ if (myFlight.getID().equals(flightID)) { return 0; }
+		else { return 1; }
+}
+public int compareWith(Arrival anotherArrival)
+{ // missing code
+}
+
+}
+
+// ... plus accessor and mutator methods
+
+(Option D continues on the following page)
+
+– 11 –
+
+N18/4/COMSC/SP2/ENG/TZ0/XX
+
+(Option D continued)
+10.
+
+(a)
+
+(i)
+
+Outline the general nature of an object.
+
+[2]
+
+(ii)
+
+Describe two disadvantages of using Object Oriented Programming (OOP).
+
+[4]
+
+(iii)
+
+Outline one advantage of using modularity in program development. 
+
+[2]
+
+(b)
+
+State the relationship between the Flight object and the Arrival object. 
+
+[1]
+
+(c)
+
+Construct a UML diagram to represent the Arrival object. 
+
+[4]
+
+The code below outlines part of the FlightManagement class used in this program.
+For the purposes of this exam only arriving flights are being considered.
+public class FlightManagement
+{
+private Arrival[] inbound;
+private int last = -1;
+
+// array of inbound airplanes
+// index of last used entry
+
+public FlightManagement()
+{ inbound = new Arrival[200];
+}
+public void add(Arrival newArrival)
+{ // missing code that adds the newArrival to the array inbound
+		 // sorted by ETA, and updates last
+}
+private int search (String flightID)
+{ // missing code that searches the array inbound and
+// returns the index of the Arrival object with flightID
+}
+public Arrival remove(String flightID)
+{ Arrival result;
+		int index = search(flightID);
+		 result = inbound[index];
+		while (index < last)
+		 { inbound[index] = inbound[index + 1];
+			index++;
+		}
+		last--;
+		return result;
+}
+}
+
+// ... many more methods
+
+(Option D continues on the following page)
+
+Turn over
+
+– 12 –
+
+N18/4/COMSC/SP2/ENG/TZ0/XX
+
+(Option D, question 10 continued)
+The method search in the FlightManagement class searches the array inbound and
+returns the index of the Arrival object with the given flightID.
+(d)
+
+Construct the method search() implementing a linear search. Use the first
+compareWith() method in the Arrival object.
+You may assume that an Arrival object with the given flightID exists in the array
+inbound. 
+
+(e)
+
+11.
+
+[4]
+
+(i)
+
+Outline one advantage of using a binary search. 
+
+[2]
+
+(ii)
+
+Outline one disadvantage of using a binary search. 
+
+[2]
+
+(a)
+
+Outline the use of data-hiding as a security feature in OOP. 
+
+(b)
+
+(i)
+
+(ii)
+
+[2]
+
+The Arrival object has two methods named compareWith.
+Outline why calling the compareWith method does not cause a conflict. 
+
+[2]
+
+State the name of this OOP property.
+
+[1]
+
+The method compareWith(Arrival anotherArrival) compares the Estimated Time of
+Arrival (ETA) of the current Arrival object with the ETA of another Arrival object. The
+method should return a negative value if the current Arrival object’s ETA is less than the
+ETA of anotherArrival.
+Remember that the String class contains a method compareTo() as follows:
+given two String variables A and B,
+A.compareTo(B) < 0 when A is lexicographically smaller than B
+A.compareTo(B) = 0 when A is equal to B
+A.compareTo(B) > 0 when A is lexicographically bigger than B.
+(c)
+
+Construct the code for this method compareWith(). 
+
+(Option D continues on the following page)
+
+[3]
+
+– 13 –
+
+N18/4/COMSC/SP2/ENG/TZ0/XX
+
+(Option D continued)
+12.
+
+(a)
+
+Define the term method signature. 
+
+[2]
+
+The array inbound in the FlightManagement class is sorted by Estimated Time of Arrival
+(ETA).
+(b)
+
+(c)
+
+Construct a method showDelayed() that outputs the IDs of all delayed flights in the
+array inbound that have not yet landed and that have an ETA before a given time t.
+The time t is passed as a String parameter. 
+
+[4]
+
+Without using a sorting algorithm, construct the method add(Arrival newArrival)
+that inserts a newArrival in the sorted array inbound. You may assume that
+newArrival has been instantiated and that the array inbound is not full. 
+
+[6]
+
+When a flight is delayed, a method in FlightManagement is used to find and update the
+flight with the delay and to reorganize the array so that it remains sorted for the ETA.
+(d)
+
+Describe how this method would be implemented using the methods provided. 
+
+End of Option D
+
+[4]
+
+

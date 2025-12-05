@@ -1,0 +1,307 @@
+Option D — Object-oriented programming
+10.
+
+(a)
+
+(i)
+
+(ii)
+
+Award up to [1] for each part of a suitable definition up to [2 max].
+An object is an abstract entity;
+and its components are data and/or actions;
+Award up to [1] for identifying each disadvantage and [1] for an elaboration
+of this disadvantage, up to [2 max].
+Mark as [2] and [2].
+Unsuitable for minor projects;
+since OOP increases complexity for little gain;
+
+[2]
+
+[4]
+
+OOP programs are larger than other programs;
+and therefore slower;
+OOP programs take more effort to construct;
+because of the decomposition needed to achieve abstraction;
+(iii)
+
+Award [1] for identifying an advantage and [1] for an elaboration of this
+advantage up to [2 max].
+
+[2]
+
+Example answers:
+Faster development;
+Because different programming teams can work on different modules;
+Easier to debug;
+Because the smaller modules will have fewer mistakes than one big
+program;
+Easier to update (in the future);
+Because it is easier to update a module than the full program;
+Re-usability;
+Modules can be stored in libraries and reused for different programs;
+(b)
+
+Award up to [1] for any indication of aggregation.
+Example answer:
+The Arrival object has/stores a Flight object;
+
+[1]
+
+– 18 –
+(c)
+
+N18/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award up to [4 max].
+Award [1] for including 3 distinct sections.
+Award [1] for including a component with all variables.
+Award [1] for including a component with all listed methods.
+Award [1] for indicating private/public using + / –.
+Don't penalize the absence of accessor and mutator methods.
+
+[4]
+
+Example answer:
+class Arrival
+- Flight: myFlight
+- String: STA
+- int: runway
+- String: gate
+- int: delay
+- boolean: landed
++ void addDelay (int)
++ String getETA()
++ int compareWith(String)
++ int compareWith(Arrival)
+
+(d)
+
+Award up to [4 max].
+Award [1] for a while loop.
+Award [1] for correctly testing the flightID using compareWith().
+Award [1] for incrementing the loop counter.
+Award [1] for a return statement.
+
+[4]
+
+Example answer:
+private int search(String flightID)
+{
+int i = 0;
+while (inbound[i].compareWith(flightID) != 0)
+{ i++; }
+return i;
+}
+(e)
+
+(i)
+
+Award up to [2 max].
+Award [1] for identifying an advantage of using a binary search and [1] for
+an elaboration of the advantage up to [2 max].
+Binary search is much faster than sequential search;
+Because it halves the search range for every comparison;
+
+(ii)
+
+[2]
+
+Award up to [2 max].
+Award [1] for identifying a disadvantage of using a binary search and [1] for
+an elaboration of the disadvantage up to [2 max].
+However, it is not applicable to unsorted data sets;
+Because the data must be sorted first which adds to computational cost;
+
+[2]
+
+– 19 –
+11.
+
+(a)
+
+N18/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award up to [2 max].
+Award [1] for stating encapsulation as an OOP property.
+Award [1] for an elaboration.
+
+[2]
+
+Example answer:
+Encapsulation allows to make instance variables (and methods) of a class private
+to that class;
+So that the main program / other classes can't accidentally access / change the
+data in an object;
+(b)
+
+(i)
+
+(ii)
+(c)
+
+Award up to [2 max].
+The two methods have different parameters;
+allowing the compiler to choose the correct one.
+
+[2]
+
+Polymorphism
+
+[1]
+
+Award up to [3 max].
+Award [1] for correctly using compareTo.
+Award [1] for correctly using getETA() twice (with or without “this”).
+Award [1] for returning the correct result.
+Example answers:
+public int compareWith(Arrival anotherArrival)
+{
+int result;
+result = this.getETA().compareTo(anotherArrival.getETA());
+return result;
+}
+public int compareWith(Arrival anotherArrival)
+{
+String currentETA = this.getETA();
+String otherETA = anotherArrival.getETA();
+return currentETA.compareTo(otherETA);
+}
+
+[3]
+
+– 20 –
+
+12.
+
+(a)
+
+(b)
+
+N18/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award up to [2 max].
+[1 max] for any two out of three underlined key components.
+[2 max] for all three key components.
+Note: the return type is not part of the method signature.
+Example answers:
+The method name and all of its parameters and the type of these parameters.
+The method name and the type of all of its parameters.
+
+[2]
+
+Award up to [4 max].
+Award [1] for a correct loop until last Arrival.
+Award [1] for including correct test for ETA.
+Award [1] for including correct test landed.
+Award [1] for correctly using double dot notation in output statement.
+Do not penalize incorrect use of accessor methods.
+
+[4]
+
+Example answers:
+public void showDelayed(String t)
+{
+int i = 0;
+while (i <= last)
+{
+if (inbound[i].getETA().compareTo(t) < 0)
+{
+if (!inbound[i].getLanded())
+{
+output(inbound[i].getMyFlight().getID());
+}
+i = i + 1
+}
+}
+}
+public void showDelayed(String t)
+{
+int i = 0;
+while ((i <= last) && (inbound[i].getETA().compareTo(t) < 0))
+{
+if (!inbound[i].landed)
+{
+output(inbound[i].myFlight.id);
+}
+i = i + 1
+}
+}
+public void showDelayed(String t)
+{
+for (int i = 0; i <= last; i++)
+{
+if ((inbound[i].getETA().compareTo(t) < 0) &&
+(!inbound[i].landed))
+{
+output(inbound[i].myFlight.id);
+}
+}
+}
+
+– 21 –
+(c)
+
+N18/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award up to [6 max].
+Award [1] for a loop comparing newArrival to entries in inbound.
+Award [1] for testing for the last entry.
+Award [1] for good attempt a for loop in reverse order.
+Award [1] for a fully correct for loop in reverse order.
+Award [1] for correctly shifting elements in the array.
+Award [1] for assigning newArrival.
+Award [1] for incrementing last.
+
+[6]
+
+Example answer:
+public void add(Arrival newArrival)
+{
+int i = 0;
+while ((i <= last)&&(inbound[i].compareWith(newArrival) < 0))
+{ i++;
+}
+for (int j = last + 1; j>i; j--)
+{
+inbound[j] = inbound[j - 1];
+}
+inbound[i] = newArrival;
+last++;
+}
+Alternative answer:
+public void add(Arrival newArrival)
+{
+int i = 0;
+while (i <= last)&&
+(inbound[i].getETA().compareTo(newArrival.getETA()) < 0)
+{
+i++;
+}
+for (int j = last; j >= i; j--)
+{
+inbound[j + 1] = inbound[j];
+}
+inbound[i] = newArrival;
+last++;
+}
+(d)
+
+Award up to [4 max].
+Award [1] for declaring a variable of type Arrival.
+Award [1] for calling remove(flightID).
+Award [1] for calling addDelay(minutes).
+Award [1] for adding the updated Arrival object to array inbound.
+Award [1] for adding the update to the array inbound by calling add(update).
+public void delay(String flightID, int minutes)
+
+{
+Arrival update = remove(flightID);
+update.addDelay(minutes);
+add(update);
+}
+
+[4]
+
+

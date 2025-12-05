@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB CS Paper 2 — Java Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">📘</span>
+          <div class="logo-text">
+            <span class="logo-title">IB Paper 2</span>
+            <span class="logo-sub">Option D — OOP Practice</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-center">
+        <label class="exam-label" for="examSelect">Exam Session</label>
+        <select id="examSelect" class="exam-select"></select>
+      </div>
+      <div class="header-right">
+        <button id="themeToggle" class="icon-btn" title="Toggle theme">
+          <span class="theme-icon">◐</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main 3-column layout -->
+    <div class="main-layout">
+      <!-- LEFT: Questions -->
+      <aside class="panel questions-panel">
+        <div class="panel-header">
+          <h2>Questions</h2>
+        </div>
+        <div id="questionList" class="question-accordion"></div>
+      </aside>
+
+      <!-- CENTER: Java Code -->
+      <section class="panel code-panel">
+        <div class="panel-header">
+          <h2>Exam Java Code</h2>
+          <button id="copyCode" class="small-btn">Copy</button>
+        </div>
+        <div class="code-wrapper">
+          <textarea id="examCode"></textarea>
+        </div>
+      </section>
+
+      <!-- RIGHT: Answer & Mark Scheme -->
+      <aside class="panel answer-panel">
+        <div class="panel-header">
+          <h2 id="answerTitle">Select a question</h2>
+        </div>
+        
+        <!-- Question text display -->
+        <div id="questionDisplay" class="question-display">
+          <p class="placeholder-text">Click on a sub-question (a), (b), (c)... from the left panel to begin.</p>
+        </div>
+
+        <!-- Answer input area -->
+        <div id="answerSection" class="answer-section hidden">
+          <div class="answer-header">
+            <h3>Your Answer</h3>
+            <div class="answer-actions">
+              <button id="clearAnswer" class="small-btn">Clear</button>
+            </div>
+          </div>
+          
+          <!-- Text answer (for non-coding) -->
+          <div id="textAnswerWrap" class="text-answer-wrap hidden">
+            <textarea id="textAnswer" placeholder="Type your answer here..."></textarea>
+          </div>
+          
+          <!-- Code answer (for coding questions) -->
+          <div id="codeAnswerWrap" class="code-answer-wrap hidden">
+            <textarea id="codeAnswer"></textarea>
+          </div>
+        </div>
+
+        <!-- Reveal Mark Scheme -->
+        <div id="markSchemeSection" class="mark-scheme-section hidden">
+          <button id="revealMS" class="reveal-btn">
+            <span class="reveal-icon">▶</span>
+            Click to Reveal Mark Scheme
+          </button>
+          
+          <div id="markSchemeContent" class="mark-scheme-content hidden">
+            <div class="ms-header">
+              <h3>Mark Scheme</h3>
+              <span id="marksAvailable" class="marks-badge"></span>
+            </div>
+            <div id="markSchemeText" class="ms-text"></div>
+            
+            <div class="guidance-section">
+              <h4>💡 Study Tips</h4>
+              <div id="guidanceText" class="guidance-text"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

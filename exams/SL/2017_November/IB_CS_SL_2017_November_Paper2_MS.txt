@@ -1,0 +1,217 @@
+Option D — Object-orientated programming
+10.
+
+(a)
+
+(b)
+
+Award [1] for identifying the code and [1] for identifying the new position.
+private int fiCount = 0 and private int diCount = 0;
+In the variable/attribute section of the class and not in the constructor);
+EITHER
+The values of these (static) variables;
+Are the same for all objects;
+They belong to the class (not to the objects);
+And are only created/declared once;
+Note: Do not accept “cannot be changed”.
+OR
+The static methods;
+Are class methods (not object methods);
+Are independent of the objects in the class;
+
+(c)
+
+[2]
+
+[2]
+
+Award [2 × 2] for each clear example. Only award [2] for an example if the
+benefit is clearly shown;
+Having different data types allow different operations to be carried out depending
+upon the type;
+eg
+Calculations in the integer “quantity” variable;
+which are not possible for a String;
+Double instead of integer allows the use of decimals;
+which mirrors real-life scenarios/allows more precise calculations;
+Using an array (of objects);
+Allows individual items to be accessed/processed more easily;
+
+(d)
+
+(e)
+
+Memory usage can be reduced;
+eg “fiCount” takes up less space as an integer than it would as a double
+(assuming it’s just a number);
+
+[4]
+
+The variable fi is declared as an array of FoodItem objects / of type FoodItem;
+With (a maximum of) 100 values;
+It cannot be directly accessed/it is encapsulated within the Payment class;
+
+[3]
+
+Award [1] for each correct line of code.
+public void addFoodItem(FoodItem f)
+{
+fi[fiCount] = f;
+fiCount++;
+}
+
+[3]
+
+– 17 –
+11.
+
+(a)
+
+(b)
+
+N17/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award [1] for each correct value.
+2;
+0.2;
+d103;
+
+[3]
+
+(i)
+
+System.out.println(tables[40].getDiCount());
+Allow variations of the get method name.
+
+[1]
+
+(ii)
+
+System.out.println(tables[2].getFi(2).getItemCode());
+Allow variations of the get method name.
+
+[1]
+
+Note: Ignore minor syntax errors in both parts (b)(i) and (b)(ii).
+(c)
+
+Award marks as follows up to [6 max].
+Award [1] for correct initialization.
+Award [2] for loop that checks entries, but has early exit.
+Award [1] for a loop that checks all 200 entries with no early exit.
+Award [1] for correct assignment.
+Award [1] for correct comparison.
+Award [1] for correct return value.
+Award [1] for both the assignment and comparison IF get methods are not used.
+public static double findPrice(Item[] pl, String c)
+{
+int x = 0;
+double price = 0.0;
+boolean found = false;
+while(!found)
+{
+if ((pl[x].getCode()) == c)
+{
+price = pl[x].getPrice();
+found = true;
+}
+x++;
+}
+return price;
+}
+
+[6]
+
+– 18 –
+(d)
+
+N17/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award marks as follows up to [7 max].
+Award [1] for correct method header.
+Award [1] for correct initialization.
+Award [1] for correct loop.
+Award [1] for finding item code.
+Award [1] for use of findPrice method.
+Award [2] for the calculation if completely correct, award only [1] if taxes are
+wrong and/or no use of accessor.
+Award [1] for consideration of both food and drink objects (whether correct
+or not);
+public double calculateBill(Item[] pl)
+{
+double total = 0.0;
+for(int x = 0; x < fiCount; x++)
+{
+String c = fi[x].getItemCode();
+double price = findPrice(pl,c);
+total = total + fi[x].getQuantity()*price*(1 + foodTax);
+}
+for(int y = 0; y < diCount; y++)
+{
+String c = di[y].getItemCode();
+double price = findPrice(pl,c);
+total = total + di[y].getQuantity()*price*(1 + drinkTax);
+}
+return total;
+}
+
+[7]
+
+– 19 –
+12.
+
+(a)
+
+N17/4/COMSC/SP2/ENG/TZ0/XX/M
+
+Award marks as follows, up to [3 max].
+Award [1] for 4 classes connected with arrows/lines.
+Award [1] for “has a” label or correct arrow from Payment to FoodItem and
+“has a” label or correct arrow from Payment to DrinkItem (with no
+additional arrows).
+Award [1] for “uses” label or correct arrow going from Payment to Item (with no
+additional arrows).
+has a
+FoodItem
+Payment
+
+has a
+DrinkItem
+
+uses
+Item
+
+[3]
+(b)
+
+Award [1] for identifying a feature, [1] for an example in the given context, and [1]
+for an elaboration, for two features up to [6 max].
+Encapsulation places all attributes and methods that relate to a particular
+object/entity together;
+For example, Payment class includes attributes such as the food and drink arrays
+and methods such as calculateBill();
+This provides a clearer view/understanding of each section of the problem;
+Which can lead to more efficient programming (faster, less errors etc);
+Encapsulation protects the values of the data stored within the object;
+From (accidental) changes made by other classes;
+For example, quantity in the FoodItem class cannot be altered through another
+variable called quantity in another class;
+This allows programmers to select any variable names they wish/no restriction on
+choice of variable names;
+
+(c)
+
+[6]
+
+Award up to [4 max].
+A generic Payment class can be created;
+This would contain data/variables/methods required by all units of the company;
+Each of the different operations could then inherit this class;
+Adding new variables/methods that relate only to them;
+Overriding the superclass methods as necessary;
+Note: Allow a similar answer that deals with the different items (FoodItem,
+DrinkItem etc).
+
+[4]
+
+

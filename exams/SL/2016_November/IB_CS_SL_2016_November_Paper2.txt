@@ -1,0 +1,826 @@
+Option D — Object-oriented programming
+
+11 pages
+
+Questions
+1–3
+4–6
+7–9
+10 – 14
+
+8816 – 7015
+© International Baccalaureate Organization 2016
+
+–2–
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+Option A — Databases
+1.
+
+A college maintains a database to store information about the courses that it offers, as shown
+in the table below.
+CourseTable
+CourseID
+CS1200
+CS1234
+CS1201
+CS5201
+CS1280
+CS1331
+CS1209
+
+…
+
+Course_Name
+Word Processing
+Databases
+Java Programming
+Java Programming – Advanced
+Python Programming
+C Programming
+Spreadsheets
+…
+
+Duration
+(Hours)
+10
+20
+105
+50
+75
+100
+20
+…
+
+Cost
+30.00
+60.00
+150.00
+90.00
+130.00
+180.00
+30.00
+…
+
+(a)
+
+Outline the difference between data and information.
+
+[2]
+
+(b)
+
+Suggest an appropriate data type for each attribute in this database.
+
+[3]
+
+(c)
+
+Explain the role of data validation.
+
+[2]
+
+(d)
+
+State a validation check which might be helpful when entering a
+
+		(i)
+
+CourseID;[1]
+
+		(ii)
+
+Cost.[1]
+
+(e)
+
+(i)
+
+		(ii)
+
+2.
+
+Identify the steps in a query, that could be constructed to produce a list of the
+names of courses with a duration between 40 and 80 hours.
+
+[3]
+
+Describe one function that is required to be performed on databases,
+other than the query function.
+
+[2]
+
+The database schema is the definition that describes the entire configuration of a database.
+(a)
+
+Outline the characteristics of the three levels of the schema.
+
+[6]
+
+(b)
+
+(i)
+
+Explain two responsibilities of a database administrator.
+
+[4]
+
+(ii)
+
+Explain, with an example, how the database administrator would use a data
+definition language.
+
+[3]
+
+		
+(c)
+
+Identify four consequences of poor data modelling in the design of a database.
+
+(Option A continues on the following page)
+
+[4]
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+–3–
+(Option A continued)
+3.
+
+Normalization can be described as a process of taking data from a given problem and
+designing it to a set of relations while ensuring data integrity and reducing data redundancy.
+(a)
+
+Outline what is meant by data redundancy.
+
+[2]
+
+(b)
+
+Outline what is meant by referential integrity of data.
+
+[2]
+
+The following table, College, holds information about students, subjects and examination grades.
+College
+StudentID
+CA3214
+CA3214
+CA3214
+SE1123
+FR2345
+FR2345
+FR2345
+WR6543
+…
+
+(c)
+
+(d)
+
+Name
+Ann Stern
+Ann Stern
+Ann Stern
+Mia Mann
+Joseph Hu
+Joseph Hu
+Joseph Hu
+Rea Kohn
+…
+
+Gender
+F
+F
+F
+F
+M
+M
+M
+F
+…
+
+Subject
+Biology
+Mathematics
+Chemistry
+Biology
+Computer Science
+Biology
+Physics
+Mathematics
+…
+
+ExamGrade
+5
+5
+3
+7
+7
+6
+5
+4
+…
+
+Explain the steps that would have to be taken in order to hold this data in a relational
+database in 2nd Normal Form (2NF). You should include an example of the 2NF form
+in your answer.
+
+[6]
+
+Describe two ways that a database management system (DBMS) can be used to
+promote data security.
+
+[4]
+
+End of Option A
+
+Turn over
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+–4–
+Option B — Modelling and simulation
+4.
+
+The population of rare tropical insects on an island follows a geometric model such that the
+population multiplies by k from one month to the next.
+For example if k = 2 the population would double each month.
+This situation can be expressed as either Pn+1 = kPn or Pn = P0 kn.
+P0 is the initial population.
+k is a constant.
+Pn is the population after n months.
+(a)
+
+For a value of k = 3 and an initial population of 100, calculate the population after two
+months, P2.[2]
+
+(b)
+
+With the aid of a diagram, outline the way in which a spreadsheet could be used to
+estimate the size of the population after each of the first 10 months.
+
+[3]
+
+Each month it is estimated that only 40 % of insects survive due to various circumstances
+such as climate and lack of nutrition. This is known as a constant survival rate of 0.4.
+(c)
+
+Outline how this factor could be built into your spreadsheet, stating any assumptions
+that you make.
+
+[2]
+
+Another model assumes a changing survival rate and recalculates the rate for each month
+using the following formula:
+
+xn+1 = r xn (1 − xn) where xn is the survival rate in month n. (0 < xn < 1)
+r is a constant.
+
+For example, using r = 3 and a survival rate of 0.4 in the first month, the survival rate for the
+second month would be:
+
+x2 = r x1 (1 − x1) = 3 × 0.4 × 0.6 = 0.72.
+(d)
+
+Construct an algorithm to calculate and output survival rates for the first 10 months,
+assuming that r = 3 and an initial survival rate of 0.4.
+
+[5]
+
+The following table shows a comparison between a model with a constant survival rate of
+0.4 and a model with a changing survival rate, for the first nine months.
+Population (Constant survival rate)
+
+100
+
+64
+
+51
+
+41
+
+33
+
+26
+
+21
+
+17
+
+13
+
+11
+
+Population (Changing survival rate)
+
+100
+
+72
+
+61
+
+71
+
+61
+
+71
+
+61
+
+71
+
+62
+
+71
+
+(e)
+
+With reference to the figures shown, suggest how these results could be used to
+compare the accuracy of the two models.
+
+(Option B continues on the following page)
+
+[4]
+
+–5–
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+(Option B continued)
+5.
+
+Influenza is a contagious disease and a new form is spreading throughout a city.  Some
+people are affected more than others and the illness is spreading more quickly in some parts
+of the city than in others. Members of the public can be given a vaccine that will prevent
+them from contracting influenza.  Unfortunately, a limited amount of vaccine is available.
+(a)
+
+Outline how the characteristics of the people most affected could be determined.
+
+[2]
+
+Age, gender and current health may be factors that affect risk.
+(b)
+
+Describe how a model of those most affected could be defined and applied to the
+population to estimate the number of people who are at risk.
+
+[4]
+
+(c)
+
+Outline one limitation of the model.
+
+[2]
+
+Each day the areas in the city where people have contracted the illness are recorded.
+These records can be used to simulate an estimate of the areas immediately at risk.
+
+6.
+
+(d)
+
+Describe the process of testing and refining the simulation.
+
+[3]
+
+(e)
+
+Discuss how this modelling and simulation could be used to limit the spread and impact
+of the illness.
+
+[4]
+
+Bridges are modelled and these models are tested using sophisticated software before being
+presented for construction.
+The software enables the architect to:
+• define the shape of the bridge
+• apply parameters such as width, length and material to the structure
+• view the bridge from different perspectives
+• test the strength and stability of the bridge under all conditions.
+The architect starts by defining the basic shape of the required bridge.  This includes the
+span of the bridge (from one end to the other), and the struts (pillars) that are needed to
+support the bridge. During this phase the architect has a wire frame image to work with.
+When the design is complete, the image is rendered to give a solid view of the bridge.
+(a)
+
+Outline the way in which the wire frame image can be used by the architect to adjust
+the parameters and view the bridge from many different perspectives.
+
+[3]
+
+(b)
+
+Describe how the wire frame image of the bridge is held in memory.
+
+[4]
+
+(c)
+
+Suggest reasons for making changes on the wire frame model rather than the
+solid view model.
+
+[3]
+
+(d)
+
+Suggest a strategy to test the model and ensure that the bridge will be safe
+once constructed.
+
+[4]
+
+End of Option B
+Turn over
+
+–6–
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+Option C — Web science
+7.
+
+A large file is being downloaded from a website using TCP/IP protocols.
+(a)
+
+Outline one difference between the internet and the World Wide Web (WWW).
+
+[2]
+
+(b)
+
+Outline the function of the transmission control protocol (TCP) in the operation
+described above.
+
+[3]
+
+The WWW is continually expanding and this has led to an upgrade in the internet
+protocol (IP). The IP that uses 32 bits is being replaced by one that uses 128 bits.
+(c)
+
+Outline the reasons for replacing the 32 bit protocol.
+
+[3]
+
+The new IP uses a different format for representing the address field in the packet.
+
+8.
+
+(d)
+
+State the effect that this has on the domain name servers (DNS).
+
+[1]
+
+(e)
+
+Evaluate the choice of compression software in the transfer of the file.
+
+[5]
+
+ACAME is a company that offers a subscription service that permits the downloading of
+animated cartoons.  When browsing their website the following uniform resource locator (URL)
+is visited:
+http://minerva.hq.acame.net/Products/index.html
+(a)
+
+		
+
+Identify in the given URL
+(i)
+
+the domain name of the server;
+
+[1]
+
+(ii)
+
+the file path of the resource in the server.  
+
+[1]
+
+The web page contains the following line referring to a contact person.
+mailto:sly.coyote@acame.net.
+(b)
+
+Outline why an expression related to mail services provides a
+uniform resource identifier (URI) but not a URL.
+
+[2]
+
+Access to part of the website is restricted and requires authentication.
+(c)
+
+State two disadvantages of having the authentication based on the IP address of
+the client.
+
+[2]
+
+ACAME has developed its website to be accessible on many different devices. CSS is used
+in the development of the website.
+(d)
+
+With reference to this use of CSS
+
+		(i)
+
+describe one advantage for the user;
+
+[2]
+
+		(ii)
+
+describe one advantage for the web developer.
+
+[2]
+
+The website is extremely popular. ACAME relies on a large network of servers to store and
+distribute their cartoons.
+(e)
+
+Discuss the implications of having distributed systems.
+
+(Option C continues on the following page)
+
+[5]
+
+–7–
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+(Option C continued)
+9.
+
+A user interacts with a web form in order to select the towns where there are schools with
+computer science classes. The web form has two windows, one for the country, and one
+for the town where a school is located. The web form is made interactive to the user so that
+when selecting a country, only the appropriate towns in that country are displayed.
+(a)
+
+Describe how this interaction can be generated dynamically.
+
+[3]
+
+By making the selection through the web form, the individual websites of the selected
+schools, including other resources and services, may be accessed.
+(b)
+
+Outline the role of open standards in providing web-based services.
+
+[4]
+
+Schools manage their own website and resources, and the school website must be
+easily retrieved.
+(c)
+
+Explain one example of the use of a white hat technique to optimize the search process.  [3]
+
+(d)
+
+Discuss, with an example, how a Creative Commons license could be used in
+this situation.
+
+[6]
+
+End of Option C
+
+Turn over
+
+–8–
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+Option D — Object-oriented programming
+In a particular country the Department of Transport analyses all of the train journeys of the different train
+companies in order to determine their reliability.
+A team of programmers have created an OOP system for the Department of Transport to use.
+The TrainCompany class is partially shown below.
+public class TrainCompany
+{
+private String companyName;
+private String companyCode;
+private int numberOfJourneys;
+private Journey[] journeyHistory = new Journey[100000];
+public TrainCompany(String x, String y)
+{
+this.companyName = x;
+this.companyCode = y;
+this.numberOfJourneys = 0;
+}
+public TrainCompany(){}
+// accessor and mutator methods
+Journey getJourney(int x)
+{
+return journeyHistory[x];
+}
+public void addJourney(Journey j)
+{
+journeyHistory[numberOfJourneys] = j;
+numberOfJourneys++;
+}
+public double averageDelay()
+{code missing}
+// returns the average delay for all of a company’s journeys
+public String longestDelay(Codes[] c)
+{code missing}
+// returns the route name for the journey with the longest delay
+
+}
+
+public String toString(Codes[] c)
+{code missing}
+
+(Option D continues on the following page)
+
+–9–
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+(Option D continued)
+10.
+
+11.
+
+(a)
+
+By making reference to OOP features, outline why it is possible for the TrainCompany
+class to have two constructors.
+
+(b)
+
+Outline the consequence of having the accessor and mutator methods declared
+as protected.[2]
+
+[3]
+
+Every time a train journey is completed a Journey object is created. The Journey class is
+partially shown below.
+public class Journey
+{
+private … routeCode;
+// A unique identifier for a particular route
+private … delay;
+// Minutes late in arriving at the destination
+private … weatherRelated;
+// Equals true if the journey is affected by the weather,
+// otherwise false.
+// Constructor which initializes all 3 of the above data items
+// accessor and mutator methods.
+}
+
+(a)
+
+State the most appropriate data type for each of the three data items in the
+Journey class.
+
+[2]
+
+(b)
+
+Construct the constructor method for the Journey class.
+
+[3]
+
+The following code updates the journey information for each train company. This includes
+the creation of the data structure allCompanies, which is an array of TrainCompany.
+TrainCompany[] allCompanies = new TrainCompany[3];
+allCompanies[0] = new TrainCompany(“Southern”,”T290”);
+allCompanies[1] = new TrainCompany(“Northern”,”T400”);
+allCompanies[2] = new TrainCompany(“Eastern”,”T155”);
+Journey s = new Journey(“J100”,3, false);
+Journey t = new Journey(“J103”,8, true);
+Journey u = new Journey(“J104”,10, true);
+allCompanies[0].addJourney(s);
+allCompanies[1].addJourney(t);
+allCompanies[0].addJourney(u);
+allCompanies[0].addJourney(new Journey(“J101”,6, false));
+System.out.println(allCompanies[0].getCompanyCode());
+System.out.println(allCompanies[0].getJourney(1).getDelay());
+System.out.println(allCompanies[1].getNumberOfJourneys());
+
+(c)
+
+State the output after the above code is executed.
+
+[3]
+
+(Option D continues on the following page)
+Turn over
+
+– 10 –
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+(Option D continued)
+12.
+
+The Department of Transport requires data from each company regarding the average length
+of delays. Delays that are caused by the weather are not included.
+The averageDelay() method in the TrainCompany class returns the average delay for all
+of the journeys. The method does not count delays caused by weather.
+
+13.
+
+(a)
+
+State the value returned by the method call allCompanies[0].averageDelay();,
+assuming that the code in question 11 has been executed.
+
+[1]
+
+(b)
+
+Construct the method averageDelay(). You can assume that each TrainCompany
+object has at least one journey.
+
+[6]
+
+A further class, Codes, links each routeCode to the routeName, which contains the
+departure and destination stations, as shown below.
+public class Codes
+{
+private String routeName; // e.g. New Amsterdam – Diamond City
+private String routeCode;
+public Codes(String a, String b)
+{
+this.routeName = a;
+this.routeCode = b;
+}
+public String getRouteCode()
+{
+return routeCode;
+}
+
+}
+
+(a)
+
+public String getRouteName()
+{
+return routeName;
+}
+
+Construct the UML diagram for the Codes class.
+
+[3]
+
+The array allCodes[] is an unordered array of Codes objects. It contains the details
+of every route for all of the train companies. The method longestDelay()in the
+TrainCompany class returns the route name for the journey with the longest delay not
+caused by the weather.
+(b)
+
+Construct the method longestDelay(). You can assume that all route codes are
+present in allCodes[].[7]
+
+(Option D continues on the following page)
+
+– 11 –
+
+N16/4/COMSC/SP2/ENG/TZ0/XX
+
+(Option D continued)
+14.
+
+The Department of Transport wants to expand this program to include similar analysis for bus
+and airplane journeys.
+(a)
+
+Describe how inheritance could be used to provide an organized set of classes for all of
+these forms of transport.
+
+(b)
+
+(i)
+
+		
+
+(ii)
+
+[4]
+
+Draw a diagram showing the dependencies between all of the classes described
+so far, including any introduced in part (a). You can assume that the Journey
+and Codes classes remain unchanged.
+
+[4]
+
+Outline the reasons for keeping dependencies to a minimum. You should include
+an example using the classes described so far.
+
+[3]
+
+The output from one call to the toString() method in the TrainCompany class is shown below.
+Eastern : Average Delay = 2.5 minutes : Longest Delay = Newtown – Westlock Bay
+
+(c)
+
+Construct the toString() method. You should make use of previously
+defined methods. 
+
+End of Option D
+
+[4]
+
+

@@ -1,0 +1,87 @@
+[
+  {
+    "id": "SL_2014_May",
+    "label": "SL 2014 May",
+    "level": "SL",
+    "questionPath": "exams/SL/2014_May/IB_CS_SL_2014_May_Paper2.txt",
+    "markSchemePath": "exams/SL/2014_May/IB_CS_SL_2014_May_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2014_November",
+    "label": "SL 2014 November",
+    "level": "SL",
+    "questionPath": "exams/SL/2014_November/IB_CS_SL_2014_November_Paper2.txt",
+    "markSchemePath": "exams/SL/2014_November/IB_CS_SL_2014_November_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2015_May",
+    "label": "SL 2015 May",
+    "level": "SL",
+    "questionPath": "exams/SL/2015_May/IB_CS_SL_2015_May_Paper2.txt",
+    "markSchemePath": "exams/SL/2015_May/IB_CS_SL_2015_May_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2015_November",
+    "label": "SL 2015 November",
+    "level": "SL",
+    "questionPath": "exams/SL/2015_November/IB_CS_SL_2015_November_Paper2.txt",
+    "markSchemePath": "exams/SL/2015_November/IB_CS_SL_2015_November_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2016_November",
+    "label": "SL 2016 November",
+    "level": "SL",
+    "questionPath": "exams/SL/2016_November/IB_CS_SL_2016_November_Paper2.txt",
+    "markSchemePath": "exams/SL/2016_November/IB_CS_SL_2016_November_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2017_May",
+    "label": "SL 2017 May",
+    "level": "SL",
+    "questionPath": "exams/SL/2017_May/IB_CS_SL_2017_May_Paper2.txt",
+    "markSchemePath": "exams/SL/2017_May/IB_CS_SL_2017_May_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2017_November",
+    "label": "SL 2017 November",
+    "level": "SL",
+    "questionPath": "exams/SL/2017_November/IB_CS_SL_2017_November_Paper2.txt",
+    "markSchemePath": "exams/SL/2017_November/IB_CS_SL_2017_November_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2018_May",
+    "label": "SL 2018 May",
+    "level": "SL",
+    "questionPath": "exams/SL/2018_May/IB_CS_SL_2018_May_Paper2.txt",
+    "markSchemePath": "exams/SL/2018_May/IB_CS_SL_2018_May_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2018_November",
+    "label": "SL 2018 November",
+    "level": "SL",
+    "questionPath": "exams/SL/2018_November/IB_CS_SL_2018_November_Paper2.txt",
+    "markSchemePath": "exams/SL/2018_November/IB_CS_SL_2018_November_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2023_May",
+    "label": "SL 2023 May",
+    "level": "SL",
+    "questionPath": "exams/SL/2023_May/IB_CS_SL_2023_May_Paper2.txt",
+    "markSchemePath": "exams/SL/2023_May/IB_CS_SL_2023_May_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2023_November",
+    "label": "SL 2023 November",
+    "level": "SL",
+    "questionPath": "exams/SL/2023_November/IB_CS_SL_2023_November_Paper2.txt",
+    "markSchemePath": "exams/SL/2023_November/IB_CS_SL_2023_November_Paper2_MS.txt"
+  },
+  {
+    "id": "SL_2024_May",
+    "label": "SL 2024 May",
+    "level": "SL",
+    "questionPath": "exams/SL/2024_May/IB_CS_SL_2024_May_Paper2.txt",
+    "markSchemePath": "exams/SL/2024_May/IB_CS_SL_2024_May_Paper2_MS.txt"
+  }
+]
+
