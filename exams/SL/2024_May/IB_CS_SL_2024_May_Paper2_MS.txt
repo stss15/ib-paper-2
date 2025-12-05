@@ -1,18 +1,14 @@
-Option D – Object-oriented programming
+Option D - Object-oriented programming
 10.
 
-(a)
-
-Award [2 max].
+(a) Award [2 max].
 an object is an abstract entity;
 consists of data/attributes/properties;
 has methods/behaviour/actions on (that data/attributes/properties);
 An object occupies memory / has a lifecycle;
 An object is an instance of a class;
 
-(b)
-
-Award [1 max].
+(b) Award [1 max].
 Any instance variable with the prefix 'set' and ( ) such as:
 setNumberPlate(String numberPlate);
 setPricePerDay(double pricePerDay);
@@ -23,9 +19,7 @@ SetFuelType(boolean fuelType);
 SetTransmissionType(boolean transmissionType);
 Note: Ignore the parameter and semi colon.
 
-(c)
-
-Award [3 max].
+(c) Award [3 max].
 public method;
 return type;
 correct return;
@@ -38,33 +32,23 @@ public String getBrandModel()
 return this.brandModel;
 }
 
-(d)
-
-Award [2 max].
+(d) Award [2 max].
 A default constructor instantiates an object of a class;
 with null or default values (for the instance variables/attributes);
 without using any parameter;
 
-(e)
-
-Award [2 max].
+(e) Award [2 max].
 fuelType can no longer be boolean;
 but could be another datatype such as int/char/String (or similar) to represent the distinct
 values;
 for 4 different types of fuel;
 
-(f)
-
-Award [1 max].
+(f) Award [1 max].
 Car inherits Rental (allow Car 'is a' Rental or Car extends Rental or Car is a subclass of
 Rental.);
 Note: Accept 'inheritance'.
 
-– 23 –
-
 (g)
-
-2224 – 6905M
 
 Award [3 max].
 Award [1] for (public) class Car extends Rental;
@@ -92,23 +76,15 @@ this.numberOfDoors = n;
 }
 }
 
-– 24 –
-
 11.
 
-(a)
-
-Award [1 max].
+(a) Award [1 max].
 Inheritance;
 
-(b)
-
-Award [3 max].
+(b) Award [3 max].
 Because the parent class holds common attributes and methods;
 inheritance will enhance reuse of code;
 and reduce maintenance costs;
-
-2224 – 6905M
 
 Faster development time;
 as the existing code (base class) is already tested;
@@ -123,17 +99,14 @@ as the changes in the parent class are automatically reflected in the child clas
 Note: Award [2 max] for one benefit with explanation. Award [1 max] for identification of
 another benefit. Accept benefits explained for any incorrect but legitimate OOP feature
 identified in 15a.
-(c)
 
-Award [2 max].
+(c) Award [2 max].
 Encapsulation;
 Polymorphism;
 Abstraction;
 Note: Allow FT for 15a.
 
-(d)
-
-Award [2 max].
+(d) Award [2 max].
 Easier / faster to debug/test;
 because there are far fewer mistakes in the smaller/individual modules.
 Speedier / faster completion of the project;
@@ -146,22 +119,14 @@ smaller manageable modules leading to better logical organization.
 Note: Do not allow mixing the points from different clusters. Do not allow easier/faster
 without any further description in context of modularity.
 
-– 25 –
-
 12.
 
-2224 – 6905M
-
-(a)
-
-Award [2 max].
+(a) Award [2 max].
 the value/variable passed when the function/method is called;
 passed as a value or as a reference;
 is found in the parameter list of the method definition/signature;
 
-(b)
-
-Award [8 max].
+(b) Award [8 max].
 Award [1] for correct method signature (excluding the return type);
 Award [1] for instantiating a Car array (result) of size 100;
 Award [1] for loop through allCars with length condition;
@@ -198,10 +163,6 @@ i++;
 }
 return result;
 }
-
-– 26 –
-
-2224 – 6905M
 
 Example answer 2:
 public Car[] findBrandModels(Car[] allCars)
@@ -251,10 +212,7 @@ brand[index++] = allCars[i];
 return brand;
 }
 
-– 27 –
 (c)
-
-2224 – 6905M
 
 Award [5 max].
 Example answer 1:
@@ -296,12 +254,9 @@ Award [3 max] - If the response doesn’t use the findBrandModels(); For example
 response only focuses on using if conditions to check three specific requirements for Car
 objects and present (either output or return) them (including duplicates) to the customer.
 
-– 28 –
 13.
 
 (a)
-
-2224 – 6905M
 
 Award [1 max].
 
@@ -309,18 +264,14 @@ Customer
 
 Car
 
-(b)
-
-Award [2 max].
+(b) Award [2 max].
 The problem becomes that Car 'has a' Customer and Customer 'has a' car;
 This is a circular / duplicate / redundant relationship;
 which may cause inconsistencies;
 It increases dependencies;
 and causes more overhead when changes need to be made;
 
-(c)
-
-Award [5 max].
+(c) Award [5 max].
 Award [2] for stating obligations;
 Award [2] for amplifications;
 Award [2] for reasons given.
@@ -334,5 +285,3 @@ obligation - to protect data against corruption;
 amplification - programmers should incorporate data validation / verification;
 reason - to limit the chance of incorrect personal data being stored;
 Note: Accept any other valid obligation. Do not accept a third obligation.
-
-

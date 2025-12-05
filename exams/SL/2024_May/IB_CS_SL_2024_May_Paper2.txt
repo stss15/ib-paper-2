@@ -1,5 +1,4 @@
-Option D — Object-oriented programming
-10.
+Option D - Object-oriented programming
 
 A car rental company has offices in cities in Spain and Portugal. It manages its cars as
 a large, unsorted collection of rental objects that is accessed by a Java program.
@@ -31,79 +30,40 @@ false
 + default constructor
 + accessor and mutator methods
 
-(a)
+10.
 
-Outline the general nature of an object.
+(a) Outline the general nature of an object. [2]
 
-[2]
+(b) State one mutator method to be included in the class Rental.[1]
 
-(b)
+(c) Construct the code for the accessor method getBrandModel().[3]
 
-State one mutator method to be included in the class Rental.[1]
-
-(c)
-
-Construct the code for the accessor method getBrandModel().[3]
-
-(d)
-
-Outline one purpose of a default constructor.
-
-[2]
+(d) Outline one purpose of a default constructor. [2]
 
 The company is buying new electric cars and hybrid cars.
-(e)
 
-Outline one change that needs to be made to class Rental due to this development.
-
-[2]
+(e) Outline one change that needs to be made to class Rental due to this development. [2]
 
 Based on this Rental class, the program defines several other classes: Car, Bus and
 Van, each with their own characteristics. For example, the class Car adds the attribute
 numberOfDoors to the class Rental.
-(f)
 
-State the relationship between Rental and Car.[1]
+(f) State the relationship between Rental and Car.[1]
 
-(g)
-
-Construct the code for the class Car without having to duplicate all the attributes and
+(g) Construct the code for the class Car without having to duplicate all the attributes and
 methods from the class Rental. The default constructor of the class Rental should
 be overridden to also assign the value 4 to numberOfDoors. No other constructors
-are required.
+are required. [3]
 
-(Option D continues on the following page)
-
-[3]
-
-– 19 –
-
-2224 – 6908
-
-(Option D continued)
 11.
 
-12.
+(a)	Identify the OOP feature that was used to declare the Car class. [1]
 
-(a)	Identify the OOP feature that was used to declare the Car class.
+(b) Explain the benefits of the feature identified in part (a).[3]
 
-[1]
+(c) Identify the two other features of OOP. [2]
 
-(b)
-
-Explain the benefits of the feature identified in part (a).[3]
-
-(c)
-
-Identify the two other features of OOP.
-
-[2]
-
-(d)
-
-Describe one advantage of modularity in program development.
-
-[2]
+(d) Describe one advantage of modularity in program development. [2]
 
 All Car objects have been read into a large unsorted array called allCars.
 A method is needed to show customers the range of available cars.
@@ -111,65 +71,35 @@ This method should take the array allCars as a parameter and select Car objects 
 allCars so that every available brandModel is presented only once.
 You may assume that there are never more than 100 different types of cars (as identified by
 the variable brandModel).
-(a)
 
-Define the term parameter variable.[2]
+12.
 
-(b)
+(a) Define the term parameter variable.[2]
 
-Construct the code for the method findBrandModels() that will take the array
+(b) Construct the code for the method findBrandModels() that will take the array
 allCars as a parameter. It must return a Car array that contains every brandModel
-that is available without duplication.
-
-[8]
+that is available without duplication. [8]
 
 A customer wants to see which different types of cars are available. The criteria are it must
 be a petrol car with automatic transmission and cost less than 35 euros per day.
+
 (c)
 
-13.
-
 Without writing code, outline the steps needed for a method to perform this query and
-present the results to the customer.
-
-[5]
+present the results to the customer. [5]
 
 The car rental company also has a database of customers. For each customer it stores an
 object with personal data such as their ID, name and address.
 This Customer object includes the history of the cars they have rented and the car they are
 currently renting (if any).
-(a)
 
-Draw the relationship between Customer and Car objects.
+13.
 
-[1]
+(a) Draw the relationship between Customer and Car objects. [1]
 
 A suggestion has been made to modify the Rental class to include customerID.
 The intention is to make it easier to find the customer who has a certain car.
-(b)
 
-Describe in terms of dependencies why this suggestion is inappropriate.
+(b) Describe in terms of dependencies why this suggestion is inappropriate. [2]
 
-[2]
-
-(c)
-
-Explain the ethical obligations for programmers when developing a customer database.
-
-[5]
-
-End of Option D
-
-
-Disclaimer:
-Content used in IB assessments is taken from authentic, third-party sources. The views expressed within them belong to their
-individual authors and/or publishers and do not necessarily reflect the views of the IB.
-References:
-9.
-
-Semaforo GMS. Arpanet in the 1970s.png. https://commons.wikimedia.org/wiki/File:Arpanet_in_the_1970s.png. Licensed
-under CC BY-SA 4.0 DEED https://creativecommons.org/licenses/by-sa/4.0/deed.en. Image adapted.
-
-All other texts, graphics and illustrations © International Baccalaureate Organization 2024
-
-
+(c) Explain the ethical obligations for programmers when developing a customer database. [5]

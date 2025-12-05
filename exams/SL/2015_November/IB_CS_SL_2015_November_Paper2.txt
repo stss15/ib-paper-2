@@ -1,37 +1,22 @@
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 
-15 pages
 
-Questions
-1–3
-4–6
-7–9
-10 – 13
+1-3
+4-6
+7-9
 
-8815 – 7015
-© International Baccalaureate Organization 2015
 
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-–2–
-Option A — Databases
+Option A - Databases
 1.
 
 After attending a database course, Paul, the owner of a small shop, decided to create and
 implement a customer database.
-(a)
 
-(i)
+(a) (i)
 
-		(ii)
+(ii) Identify one benefit of creating a database. [1]
 
-Identify one benefit of creating a database.
-
-[1]
-
-Identify one cost of the implementation.
-
-[1]
+Identify one cost of the implementation. [1]
 
 Consider this section of his customer database file.
 CustomerTable
@@ -44,9 +29,7 @@ Rob Nool
 Ann Low
 Ivor Turk
 
-(b)
-
-Date
+(b) Date
 
 18/04/2015
 18/04/2015
@@ -80,49 +63,23 @@ InvoiceAmount
 250.00
 105.00
 
-(i)
+(i) State the number of fields that are in each record of the CustomerTable. [1]
 
-State the number of fields that are in each record of the CustomerTable.
+(ii) Describe, using an example from the table above, why the customer’s name is
+not an appropriate primary key. [2]
 
-[1]
+(iii) Define the term secondary key. [1]
 
-		
-
-(ii)
-
-Describe, using an example from the table above, why the customer’s name is
-not an appropriate primary key.
-
-[2]
-
-		
-
-(iii)
-
-Define the term secondary key.
-
-[1]
-
-(c)
-
-Describe the steps in a query that will list all items for which more than five were
-ordered on 19/04/2015.
-
-[4]
+(c) Describe the steps in a query that will list all items for which more than five were
+ordered on 19/04/2015. [4]
 
 Paul finds that the response time to database queries is very slow.
-(d)
 
-Explain what Paul could do to improve the response time without making changes to
+(d) Explain what Paul could do to improve the response time without making changes to
 his hardware.
 
-(Option A continues on the following page)
+(Option A continues on the following page) [5]
 
-[5]
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-–3–
 (Option A continued)
 2.
 
@@ -147,10 +104,6 @@ Fred Cohen
 
 HPhone
 
-99123456
-93123455
-43453657
-38321432
 …
 
 TimeOut
@@ -192,102 +145,46 @@ The structure of the table can be summarized using the following shorthand notat
 BikeHireTable
 (HirerID, HName, HPhone, TimeOut, TimeIn, BikeID, BikeMake, BikeModel)
 
-(a)
-
-Identify three functions of a database management system in an application such as
-hiring bikes.
-
-[3]
+(a) Identify three functions of a database management system in an application such as
+hiring bikes. [3]
 
 There are several aspects of the BikeHireTable that are unsatisfactory and it is decided to
 normalize this database.
-(b)
 
-Outline the purpose of normalization.
+(b) Outline the purpose of normalization.
 
-(c)
+(c) State the characteristics of [2]
 
-State the characteristics of
+(i) 1st Normal form (1NF); [1]
 
-[2]
+(ii) 2nd Normal form (2NF); [1]
 
-		
+(iii) 3rd Normal form (3NF). [1]
 
-(i)
-
-1st Normal form (1NF);
-
-[1]
-
-		
-
-(ii)
-
-2nd Normal form (2NF);
-
-[1]
-
-		
-
-(iii)
-
-3rd Normal form (3NF).
-
-[1]
-
-(d)
-
-Construct the database to 3NF. Using the shorthand notation, clearly show the
-structure of the database in the 1st, 2nd and 3rd normal forms.
-
-[7]
+(d) Construct the database to 3NF. Using the shorthand notation, clearly show the
+structure of the database in the 1st, 2nd and 3rd normal forms. [7]
 
 (Option A continues on the following page)
-
-Turn over
-
-–4–
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
 
 (Option A continued)
 3.
 
-(a)
+(a) Distinguish between the logical and the physical design of a database. [4]
 
-Distinguish between the logical and the physical design of a database.
+(b) Identify three items of information that a data dictionary contains. [3]
 
-[4]
-
-(b)
-
-Identify three items of information that a data dictionary contains.
-
-[3]
-
-(c)
-
-Explain two responsibilities of a database administrator.
-
-[4]
+(c) Explain two responsibilities of a database administrator. [4]
 
 An online information service provides a database of job openings and also posts users’
 details. Users can view job listings and reply electronically with their details to the jobs that
 interest them.
-(d)
 
-Discuss one advantage and one disadvantage of using a database in this online
+(d) Discuss one advantage and one disadvantage of using a database in this online
 information service.
 
-End of option A
+End of option A [4]
 
-[4]
-
-–5–
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-Option B — Modelling and simulation
+Option B - Modelling and simulation
 4.
 
 Air pollution is a concern for public health. One measure of air pollution is the amount of
@@ -304,59 +201,37 @@ the town produces a report which includes the following:
 • a chart of the average daily values
 • the number of days the average exceeded 50 µg m-3
 • the daily values averaged across the year.
-(a)
 
-Outline, using a sketch or otherwise, a method of organizing the stored data in a
-spreadsheet for easy reference and analysis.
-
-[3]
+(a) Outline, using a sketch or otherwise, a method of organizing the stored data in a
+spreadsheet for easy reference and analysis. [3]
 
 Each day the average value from the previous day is published in the local press, together
 with the number of days, if any, that the daily limit (50 µg m-3) has been exceeded since
 1 January.
-(b)
 
-Describe how the hourly results could be used to output the results required daily and
-also to produce an end-of-year report.
-
-[5]
+(b) Describe how the hourly results could be used to output the results required daily and
+also to produce an end-of-year report. [5]
 
 The model can be used to produce data on patterns of pollution over time.
-(c)
-		
 
-(i)
+(c) (i)
 
-Identify two of these patterns.
+Identify two of these patterns. [2]
 
-[2]
-
-(ii)
-
-Explain how one of the patterns from part (c)(i) could help the town plan for
-the future.
-
-[2]
+(ii) Explain how one of the patterns from part (c)(i) could help the town plan for
+the future. [2]
 
 At one point in the year, the town’s daily values, averaged since 1 January, are 45 µg m-3. A
 “no car” weekend is introduced, in which people are not allowed to drive their cars within the
 town. It successfully reduces the average PM10 count but has a negative effect on local
 commerce.
-(d)
 
-Explain how the model could be used to estimate the minimum number of “no car”
+(d) Explain how the model could be used to estimate the minimum number of “no car”
 weekends that would be needed to keep the town’s daily values averaged across the
-year from exceeding 40 µg m-3.
-
-[5]
+year from exceeding 40 µg m-3. [5]
 
 (Option B continues on the following page)
 
-Turn over
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-–6–
 (Option B continued)
 5.
 
@@ -372,9 +247,7 @@ If one of the moves is blocked by the other player, the player can jump over the
 and land in the square on the opposite side.
 In the following diagram, player A is in square 1 and player B is in square 6.
 
-(a)
-
-A
+(a) A
 
 2
 
@@ -408,19 +281,11 @@ HOME
 
 List the possible squares to which player A is able to move.
 
-(Option B continues on the following page)
+(Option B continues on the following page) [1]
 
-[1]
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-–7–
 (Option B, question 5 continued)
-(b)
 
-		
-
-Player A moves to square 2 and then player B moves to square 10.
+(b) Player A moves to square 2 and then player B moves to square 10.
 
 1
 
@@ -455,61 +320,27 @@ B
 HOME
 
 For each of the moves that player A could now take, suggest and justify the best move
-that player B could then take.
-
-[3]
+that player B could then take. [3]
 
 The game is simulated by a computer program.
-(i)
 
-Outline one way of representing player A and player B, and their positions,
-in memory.
+(i) Outline one way of representing player A and player B, and their positions,
+in memory. [2]
 
-[2]
+(ii) Using your structure from part (c)(i), state the current positions of player A and
+player B, as shown in the diagram in part (b). [1]
 
-		
+(iii) Using your answer to part (c)(i), outline how each possible move from the
+player’s current position could be identified. [2]
 
-(ii)
+(iv) Suggest how a best move could be selected from the possible moves. [3]
 
-Using your structure from part (c)(i), state the current positions of player A and
-player B, as shown in the diagram in part (b).
+(c) The computer will always attempt to find the best path to the HOME square.
 
-[1]
-
-		
-
-(iii)
-
-Using your answer to part (c)(i), outline how each possible move from the
-player’s current position could be identified.
-
-[2]
-
-		
-
-(iv)
-
-Suggest how a best move could be selected from the possible moves.
-
-[3]
-
-(c)
-
-The computer will always attempt to find the best path to the HOME square.
-(d)
-
-Outline the effect that changing to a much larger board would have on running the
-game on a computer.
-
-[4]
+(d) Outline the effect that changing to a much larger board would have on running the
+game on a computer. [4]
 
 (Option B continues on the following page)
-
-Turn over
-
-–8–
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
 
 (Option B continued)
 6.
@@ -518,37 +349,18 @@ A self-driving car relies on a series of lasers and cameras that combine with hi
 maps to give a three-dimensional (3D) view of the environment. Rules are programmed
 into the system so that the car drives at an optimum speed, keeps a safe distance from any
 vehicle in front, uses fuel economically and follows the traffic regulations.
-(a)
 
-Outline the need for high definition maps held in memory.
+(a) Outline the need for high definition maps held in memory. [2]
 
-[2]
+(b) Outline how analysing successive 3D images in memory helps the car to drive safely. [3]
 
-(b)
+(c) Outline the time and memory needs of 3D visualization in this situation. [3]
 
-Outline how analysing successive 3D images in memory helps the car to drive safely.
-
-[3]
-
-(c)
-
-Outline the time and memory needs of 3D visualization in this situation.
-
-[3]
-
-(d)
-
-Discuss the social implications of self-driving cars.
-
-[4]
+(d) Discuss the social implications of self-driving cars. [4]
 
 End of option B
 
-–9–
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-Option C — Web science
+Option C - Web science
 7.
 
 The code below is part of an XML (Extensible Mark-up Language) document that contains
@@ -564,81 +376,47 @@ details of a DVD collection.
 <!--more DVDs entered here-->
 </collection>
 
-(a)
-
-Identify the error in the section of XML code shown above.
-
-[1]
+(a) Identify the error in the section of XML code shown above. [1]
 
 In some applications, XML is used instead of HTML principally because of its extensibility
 property.
-(b)
 
-Outline the meaning of this property in the context of XML code.
+(b) Outline the meaning of this property in the context of XML code. [2]
 
-[2]
-
-(c)
-
-Describe one benefit of storing HTML formatting information in a CSS file.
-
-[2]
+(c) Describe one benefit of storing HTML formatting information in a CSS file. [2]
 
 An XML document contains details of a person’s DVD collection. The XML code will be sent
 to the web server using the internet protocol suite, which includes the TCP and IP protocols.
-(d)
 
-Describe how these two protocols work together when sending data over the internet.
-
-[4]
+(d) Describe how these two protocols work together when sending data over the internet. [4]
 
 The following web form is part of a login page for an online shopping site.
 Name
 Email
 Country
-(e)
 
-		
+(e) (i)
 
-(i)
-
-(ii)
-
-Explain how client-side scripting might be used on this login page before the
+(ii) Explain how client-side scripting might be used on this login page before the
 page is sent to the web server of the shopping site. You should make reference
-to any software used.
+to any software used. [3]
 
-[3]
-
-Outline the benefit of using client-side scripting for the shopping site.
-
-[2]
+Outline the benefit of using client-side scripting for the shopping site. [2]
 
 A social networking site stores multiple profile photographs of each client on its web server.
-(f)
 
-Explain how the use of scripts allows the user to change their profile photograph
-without reloading the complete page.
-
-[4]
+(f) Explain how the use of scripts allows the user to change their profile photograph
+without reloading the complete page. [4]
 
 (Option C continues on the following page)
-Turn over
-
-– 10 –
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
 
 (Option C continued)
 8.
 
 When a user requests a file from a particular website, the website uses lossy compression to
 send the file to the user over the internet.
-(a)
 
-Discuss how this use of lossy compression might affect the user’s experience.
-
-[5]
+(a) Discuss how this use of lossy compression might affect the user’s experience. [5]
 
 The three essential processes of a web search engine are:
 • crawling
@@ -647,33 +425,18 @@ The three essential processes of a web search engine are:
 
 9.
 
-(b)
+(b) Outline the functions of each of these three processes. [6]
 
-Outline the functions of each of these three processes.
+(c) Explain why the PageRank algorithm might discriminate against new websites. [3]
 
-[6]
-
-(c)
-
-Explain why the PageRank algorithm might discriminate against new websites.
-
-[3]
-
-(d)
-
-Explain how a search engine is able to maintain an up-to-date index when the web is
-continually expanding.
-
-[3]
+(d) Explain how a search engine is able to maintain an up-to-date index when the web is
+continually expanding. [3]
 
 A large online retail company is relocating to a new purpose-built site and is considering
 incorporating cloud computing into its IT strategy.
-(a)
 
-Describe two architectural features that are essential components of a sustainable
-public cloud computing model.
-
-[4]
+(a) Describe two architectural features that are essential components of a sustainable
+public cloud computing model. [4]
 
 In making decisions regarding their computing facilities, the company has to consider the
 following factors:
@@ -683,22 +446,16 @@ following factors:
 • any upcoming development projects.
 Many companies now use a hybrid approach to cloud computing in which they make use of
 both private and public clouds.
-(b)
 
-Explain how this particular company might use a hybrid approach.
+(b) Explain how this particular company might use a hybrid approach.
 
-End of option C
+End of option C [6]
 
-[6]
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-– 11 –
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 
 A small health clinic with three doctors operates in a village. All clients of the clinic have their
 details stored in the clinic’s database. Patients that visit the clinic during the day are given a
-priority rating (1–3) and are seated in a waiting room to wait for the next available doctor. When it
+priority rating (1-3) and are seated in a waiting room to wait for the next available doctor. When it
 is their turn, the patients are taken from the waiting room to have a consultation with their assigned
 doctor, who makes a diagnosis, provides treatment and writes a prescription.
 The clinic’s system is coded in Java. There are many objects in this system and some of them are
@@ -776,14 +533,6 @@ void callNextPatient()
 Integer findNextPatientIndex()
 remove(Integer n)
 
-(Option D continues on the following page)
-Turn over
-
-– 12 –
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 The Patient and WaitingRoom objects are implemented as follows:
 public class Patient
 {
@@ -824,13 +573,6 @@ public void add(Patient newPatient)
 		else { patients[i] = newPatient; }
 }
 
-(Option D continues on the following page)
-
-– 13 –
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 public void callNextPatient()
 // finds the next patient, outputs their details
 // and removes the patient from the array
@@ -863,70 +605,33 @@ private void remove(int n)
 }
 }
 
-(Option D continues on the following page)
-
-Turn over
-
-– 14 –
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 10.
 
-(a)
+(a) Define the term constructor, using an example from the code on pages 12 and 13. [2]
 
-Define the term constructor, using an example from the code on pages 12 and 13.
+(b) Describe one additional field that might have been included in the Patient class.
+Include a data type and sample data in your answer. [2]
 
-[2]
-
-(b)
-
-Describe one additional field that might have been included in the Patient class.
-Include a data type and sample data in your answer.
-
-[2]
-
-(c)
-
-Describe the relationship between the Patient object and the WaitingRoom object.
-
-[2]
+(c) Describe the relationship between the Patient object and the WaitingRoom object. [2]
 
 Consider the WaitingRoom class as presented on pages 12 and 13.
-(d)
 
-Construct the missing lines of code in the findNextPatientIndex() method to return
+(d) Construct the missing lines of code in the findNextPatientIndex() method to return
 the index of the first patient with the highest priority in the patients array.
-Note: the highest possible priority is 3.
-
-[3]
+Note: the highest possible priority is 3. [3]
 
 Construct the remove(int n) method which outputs the data of the patient object at
 index n and then removes that patient object by moving all remaining patient objects
 one index towards the front of the patients array.
 You may assume that n is a valid index between 0 and 9, and that an instance of
-Patient exists at that index.
-
-[6]
-
-(a)
-
-In relation to the Patient class, outline one advantage of encapsulation.
-
-[2]
-
-(b)
-
-In relation to the Treatment object, discuss one ethical consideration when designing
-software that stores patients and their illnesses.
-
-[4]
-
-(e)
-		
+Patient exists at that index. [6]
 
 11.
+
+(a) In relation to the Patient class, outline one advantage of encapsulation. [2]
+
+(b) In relation to the Treatment object, discuss one ethical consideration when designing
+software that stores patients and their illnesses. [4]
 
 The clinic would like to start storing details in a Doctor object, including full name, telephone
 number and whether the doctor is present or not. For example:
@@ -936,32 +641,15 @@ Dr Henriëtte Mănescu-Raţa
 
 phone:
 
-0734511122
-
 present:
 
 true
 
-(c)
+(c) Design the Doctor object using a UML diagram. [3]
 
-Design the Doctor object using a UML diagram.
+(d) In relation to the Doctor object, outline the need for extended character sets as used
+by modern programming languages. [3]
 
-[3]
-
-(d)
-
-In relation to the Doctor object, outline the need for extended character sets as used
-by modern programming languages.
-
-[3]
-
-(Option D continues on the following page)
-
-– 15 –
-
-N15/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 12.
 
 Treatment objects are being instantiated throughout the day and added to a collection. The
@@ -973,35 +661,24 @@ Construct the method showMedicationByDoctor(), which will take the name of a doc
 as a parameter and output the medication for each treatment in the collection that has been
 provided by that doctor. You may assume that treatmentFile has been declared as a
 global variable, that it is open for reading, and that the first time getNext() is called it will
-return the first treatment from the collection.
+return the first treatment from the collection. [6]
 
 13.
 
-[6]
-
 The Treatment object needs to be developed further. There are three possible types of
 treatment and this is to now be recorded.
-• ambulatory – the patient is treated and goes home afterwards
-• in-patient – the patient spends one or more nights in the clinic
-• referral – the patient is sent to a hospital in a nearby city.
+• ambulatory - the patient is treated and goes home afterwards
+• in-patient - the patient spends one or more nights in the clinic
+• referral - the patient is sent to a hospital in a nearby city.
 All treatments have common fields such as ID of the patient, date and a doctor object, but
 other fields are different. For example, ambulatory and in-patient treatments include
 medication while referral does not. On the other hand, referral includes the name of
 the hospital that the patient was sent to and whether or not ambulance transportation was
 used. In-patient treatment includes a room number.
-(a)
 
-Construct diagrams to show how inheritance can be used to re-design the Treatment
-class.
+(a) Construct diagrams to show how inheritance can be used to re-design the Treatment
+class. [6]
 
-[6]
-
-(b)
-
-Describe three advantages of modularity in program development.
-
-[6]
+(b) Describe three advantages of modularity in program development. [6]
 
 End of option D
-
-

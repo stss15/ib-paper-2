@@ -1,5 +1,4 @@
-Option D — Object-oriented programming
-10.
+Option D - Object-oriented programming
 
 A large zoo has a collection of many individual animals of many different species. A computer
 program is being developed to keep track of all of the animals in the collection.
@@ -28,16 +27,6 @@ Specimen 3
 
 A separate object, Specimen, is used to represent each individual animal in the zoo.
 
-(Option D continues on the following page)
-
-2214-7015
-
-Turn over
-
-M14/4/COMSC/SP2/ENG/TZ0/XX
-
-– 12 –
-(Option D, question 10 continued)
 The following code implements the Species and Specimen objects:
 public class Species extends Genus
 {
@@ -85,140 +74,55 @@ return name + " is a " + toa + " in cage " + cageNumber;
 }
 }
 
-(Option D continues on the following page)
+10.
 
-2214-7015
+(a) State the relationship between the Genus and Species objects. [1]
 
-– 13 –
+(b) State the relationship between the Species and Specimen objects. [1]
 
-M14/4/COMSC/SP2/ENG/TZ0/XX
+(c) Construct the unified modelling language (UML) diagram for the Species object. [4]
 
-(Option D, question 10 continued)
-(a)
-
-State the relationship between the Genus and Species objects.
-
-[1]
-
-(b)
-
-State the relationship between the Species and Specimen objects.
-
-[1]
-
-(c)
-
-Construct the unified modelling language (UML) diagram for the Species object.
-
-[4]
-
-(d)
-
-Outline two ways in which the programming team can benefit from the way the
+(d) Outline two ways in which the programming team can benefit from the way the
 relationships between the three objects, Specimen, Species and Genus, have been
-represented in the code.
+represented in the code. [4]
 
-[4]
-
-(e)
-
-The Genus class implements a toString() method that produces an output string that is
+(e) The Genus class implements a toString() method that produces an output string that is
 different from the one produced by the toString() method in the Species class.
 Consider the following code fragment:
 Species human = new Species ( "homo", "sapiens" );
 System.out.println( human.toString() );
 
-(i)
+(i) Outline why calling the toString() method in this code does not cause an error. [2]
 
-Outline why calling the toString() method in this code does not cause an error.
+(ii) Identify the term for this property. [1]
 
-[2]
-
-(ii)
-
-Identify the term for this property.
-
-[1]
-
-(Option D continues on the following page)
-
-2214-7015
-
-Turn over
-
-– 14 –
-
-M14/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 11.
 
-(a)
+(a) Define the term encapsulation. [1]
 
-Define the term encapsulation.
+(b) Outline two benefits provided by encapsulation. [4]
 
-[1]
+(c) Identify an accessor method in the Specimen class. [1]
 
-(b)
+(d) Identify an instance variable in the Specimen class. [1]
 
-Outline two benefits provided by encapsulation.
-
-[4]
-
-(c)
-
-Identify an accessor method in the Specimen class.
-
-[1]
-
-(d)
-
-Identify an instance variable in the Specimen class.
-
-[1]
-
-(e)
-
-Construct code for the Genus object including a constructor, accessor methods and a
-toString() method.
-
-[3]
+(e) Construct code for the Genus object including a constructor, accessor methods and a
+toString() method. [3]
 
 The Specimen object could have been designed as a sub-class of the Species object.
 
+(f) Outline one advantage and one disadvantage of having the Specimen object as a
+sub-class of the Species object. [4]
+
 12.
 
-(f)
-
-Outline one advantage and one disadvantage of having the Specimen object as a
-sub-class of the Species object.
-
-[4]
-
-(a)
-
-Outline the changes that would be needed in order to add a description of each animal’s
-individual markings to the program.
-
-[4]
+(a) Outline the changes that would be needed in order to add a description of each animal’s
+individual markings to the program. [4]
 
 An array is used to store the Specimen objects corresponding to the animals in the zoo.
-(b)
 
-Construct a method countSpecimens( Specimen[] animals, Species s ) that
-will output the number of specimens of the given species in the zoo.
+(b) Construct a method countSpecimens( Specimen[] animals, Species s ) that
+will output the number of specimens of the given species in the zoo. [8]
 
-[8]
-
-(c)
-
-Construct an algorithm in pseudocode for listSpecies( Specimen[] animals ),
-which will generate a list of the different species in the zoo.
-
-[6]
-
-End of Option D
-
-2214-7015
-
-
+(c) Construct an algorithm in pseudocode for listSpecies( Specimen[] animals ),
+which will generate a list of the different species in the zoo. [6]

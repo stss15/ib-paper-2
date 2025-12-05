@@ -1,9 +1,7 @@
-Option D — Object-orientated programming
+Option D - Object-orientated programming
 10.
 
-(a)
-
-(b)
+(a) (b)
 
 Award [1] for identifying the code and [1] for identifying the new position.
 private int fiCount = 0 and private int diCount = 0;
@@ -19,11 +17,7 @@ The static methods;
 Are class methods (not object methods);
 Are independent of the objects in the class;
 
-(c)
-
-[2]
-
-[2]
+(c) [2] [2]
 
 Award [2 × 2] for each clear example. Only award [2] for an example if the
 benefit is clearly shown;
@@ -37,65 +31,41 @@ which mirrors real-life scenarios/allows more precise calculations;
 Using an array (of objects);
 Allows individual items to be accessed/processed more easily;
 
-(d)
-
-(e)
+(d) (e)
 
 Memory usage can be reduced;
 eg “fiCount” takes up less space as an integer than it would as a double
-(assuming it’s just a number);
-
-[4]
+(assuming it’s just a number); [4]
 
 The variable fi is declared as an array of FoodItem objects / of type FoodItem;
 With (a maximum of) 100 values;
-It cannot be directly accessed/it is encapsulated within the Payment class;
-
-[3]
+It cannot be directly accessed/it is encapsulated within the Payment class; [3]
 
 Award [1] for each correct line of code.
 public void addFoodItem(FoodItem f)
 {
 fi[fiCount] = f;
 fiCount++;
-}
+} [3]
 
-[3]
-
-– 17 –
 11.
 
-(a)
-
-(b)
-
-N17/4/COMSC/SP2/ENG/TZ0/XX/M
+(a) (b)
 
 Award [1] for each correct value.
 2;
 0.2;
-d103;
+d103; [3]
 
-[3]
+(i) System.out.println(tables[40].getDiCount());
+Allow variations of the get method name. [1]
 
-(i)
-
-System.out.println(tables[40].getDiCount());
-Allow variations of the get method name.
-
-[1]
-
-(ii)
-
-System.out.println(tables[2].getFi(2).getItemCode());
-Allow variations of the get method name.
-
-[1]
+(ii) System.out.println(tables[2].getFi(2).getItemCode());
+Allow variations of the get method name. [1]
 
 Note: Ignore minor syntax errors in both parts (b)(i) and (b)(ii).
-(c)
 
-Award marks as follows up to [6 max].
+(c) Award marks as follows up to [6 max].
 Award [1] for correct initialization.
 Award [2] for loop that checks entries, but has early exit.
 Award [1] for a loop that checks all 200 entries with no early exit.
@@ -118,14 +88,7 @@ found = true;
 x++;
 }
 return price;
-}
-
-[6]
-
-– 18 –
-(d)
-
-N17/4/COMSC/SP2/ENG/TZ0/XX/M
+} [6]
 
 Award marks as follows up to [7 max].
 Award [1] for correct method header.
@@ -153,16 +116,9 @@ double price = findPrice(pl,c);
 total = total + di[y].getQuantity()*price*(1 + drinkTax);
 }
 return total;
-}
+} [7]
 
-[7]
-
-– 19 –
 12.
-
-(a)
-
-N17/4/COMSC/SP2/ENG/TZ0/XX/M
 
 Award marks as follows, up to [3 max].
 Award [1] for 4 classes connected with arrows/lines.
@@ -179,12 +135,9 @@ has a
 DrinkItem
 
 uses
-Item
+Item [3]
 
-[3]
-(b)
-
-Award [1] for identifying a feature, [1] for an example in the given context, and [1]
+(b) Award [1] for identifying a feature, [1] for an example in the given context, and [1]
 for an elaboration, for two features up to [6 max].
 Encapsulation places all attributes and methods that relate to a particular
 object/entity together;
@@ -199,9 +152,7 @@ variable called quantity in another class;
 This allows programmers to select any variable names they wish/no restriction on
 choice of variable names;
 
-(c)
-
-[6]
+(c) [6]
 
 Award up to [4 max].
 A generic Payment class can be created;
@@ -210,8 +161,4 @@ Each of the different operations could then inherit this class;
 Adding new variables/methods that relate only to them;
 Overriding the superclass methods as necessary;
 Note: Allow a similar answer that deals with the different items (FoodItem,
-DrinkItem etc).
-
-[4]
-
-
+DrinkItem etc). [4]

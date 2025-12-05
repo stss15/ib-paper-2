@@ -1,18 +1,14 @@
-Option D – Object oriented programming (OOP)
+Option D - Object oriented programming (OOP)
 10.
 
-(a)
-
-Award [1 max].
+(a) Award [1 max].
 These are data types that are pre-defined / fundamental / basic in the programming
 language;
 A data type that is always assigned a value (in the memory);
 They are the building blocks of the composite data types / classes / objects;
 The types that are implemented directly as bit patterns (by a Java compiler);
 
-(b)
-
-(i)
+(b) (i)
 
 Award [1 max] for any suitable example. Allow a description.
 For example
@@ -21,9 +17,7 @@ hasPool;
 hasGarden;
 Whether the property has been sold or not;
 
-(ii)
-
-Award [1 max] for any suitable example. Allow a description.
+(ii) Award [1 max] for any suitable example. Allow a description.
 For example
 numberRooms;
 area;
@@ -31,9 +25,7 @@ The number of bathrooms;
 
 (c) (i)
 
-(ii)
-
-Award [1 max].
+(ii) Award [1 max].
 Aggregation (allow Property 'has a' Owner);
 
 Award [1 max].
@@ -56,13 +48,7 @@ It will not be instantiated when a new object is created;
 If the value of a static variable is changed, it will be changed in all instances of that class;
 It does not require an object of that class to be accessed;
 
-– 19 –
-
-(f)
-
-M23/4/COMSC/SP2/ENG/TZ0/XX/M
-
-Award [2 max].
+(f) Award [2 max].
 Both classes House and Apartment need a static (integer) variable count;
 that is incremented whenever a new object of that class is created;
 A static variable (e.g total) could be defined in the Property class;
@@ -76,15 +62,9 @@ Award [1] for use of new;
 Award [1] for House[10];
 House[] wishList = new House[10];
 
-– 20 –
-
 11.
 
-(a)
-
-M23/4/COMSC/SP2/ENG/TZ0/XX/M
-
-Award [1 max].
+(a) Award [1 max].
 The grouping of the data and the methods that operate on the data into one single unit;
 The practice of hiding the structure and representation of data within a class with the use of
 private variables / and making it only accessible outside that class via accessor functions;
@@ -110,10 +90,6 @@ Faster development (of whole program);
 Different classes can be worked on by teams;
 Each class is effectively independent of others;
 
-– 21 –
-
-M23/4/COMSC/SP2/ENG/TZ0/XX/M
-
 (c) Award [3 max].
 Inheritance reduces the amount of coding in the sub-class / reduces repetition of code;
 By allowing sub-classes to inherit the methods / attributes of their superclass;
@@ -135,45 +111,31 @@ Which includes special characters from different alphabets/languages/character s
 Allowing these programming languages to be used by people from different parts of the world
 (only award this marking point if a correct reason has already been given);
 
-– 22 –
-
 12.
 
-M23/4/COMSC/SP2/ENG/TZ0/XX/M
-
-(a)
-
-Award [2 max].
+(a) Award [2 max].
 The signature defines the parameters (and their types);
 The method name / identifier;
 Allow either the return type or access modifier for a mark;
 
-(b)
-
-Award [2 max].
+(b) Award [2 max].
 String is an immutable object / Java uses pass-by-value / does not use pass-byreference;
 It cannot simply have its value reassigned inside the method;
 The method type must be String;
 To return the new value for that String variable;
 
-(c)
-
-Award [1 max].
+(c) Award [1 max].
 To output the addresses of all houses in a given city;
 Note to examiners. Must imply all the houses that match, not just one.
 
-(d)
-
-(i)
+(d) (i)
 
 Award [2 max]
 The length of the array may not correspond to the number of houses stored;
 Causing a null pointer error/exception;
 Since the loop may try to access the getCity method for a null entry;
 
-(ii)
-
-Award [2 max.]
+(ii) Award [2 max.]
 Declare a variable count that stores the number of objects in allHouses;
 Change loop condition to j<count;
 Add a test if(allHouses[i]!=null);
@@ -186,13 +148,7 @@ Change the array to an arrayList;
 So that no null entries will be encountered / so that the array has the exact
 number of valid objects in it;
 
-– 23 –
-
-(e)
-
-M23/4/COMSC/SP2/ENG/TZ0/XX/M
-
-Award [5 max].
+(e) Award [5 max].
 Award [1] for correctly declaring a swap variable;
 Award [1] for correct outer loop;
 Award [1] for correct inner loop;
@@ -248,10 +204,6 @@ isSorted=false;
 }
 }
 
-– 24 –
-
-M23/4/COMSC/SP2/ENG/TZ0/XX/M
-
 Example answer 3
 public void houseSort()
 // basic selection sort 1
@@ -295,13 +247,7 @@ allHouses[j] = swapHouse;
 }
 }
 
-– 25 –
-
-(f)
-
-M23/4/COMSC/SP2/ENG/TZ0/XX/M
-
-Award [7 max].
+(f) Award [7 max].
 Award [1] for correct return type and return;
 Award [1] for correct parameter, budget (allow allHouses to be passed as well);
 Award [1] for correctly instantiating a result array;
@@ -348,10 +294,6 @@ result[2] = allHouses[i];
 return result;
 }
 
-– 26 –
-
-M23/4/COMSC/SP2/ENG/TZ0/XX/M
-
 Example answer 3
 public House[] selectThree(int budget)
 {
@@ -365,5 +307,3 @@ result[index--] = allHouses[i];
 }
 return result;
 }
-
-

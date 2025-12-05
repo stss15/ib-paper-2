@@ -1,25 +1,17 @@
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 10.
 
-(a)
+(a) (b)
 
-(b)
-
-(c)
-
-Award [1] for a definition, such as:
+(c) Award [1] for a definition, such as:
 A (special) method (with the same name as the class) that instantiates an object of
 that class;
 Award [1] for the example:
-public Patient(String i, String n, int p)
-
-[2]
+public Patient(String i, String n, int p) [2]
 
 Award [1] for a field and its data type.
 For example:
-String phoneNumber;
-
-[2]
+String phoneNumber; [2]
 
 Award [1] for any indication of aggregation.
 Award an additional [1] for a full description.
@@ -28,9 +20,7 @@ The WaitingRoom object stores up to 10 instances of the Patient object;
 The WaitingRoom has a Patient;
 Accept a correctly labelled diagram.
 
-(d)
-
-Award marks as follows up to [3 max].
+(d) Award marks as follows up to [3 max].
 Award [2] for correct loop, award [1] for loop with one condition.
 Award [1] for correct test.
 Award [1] for assigning max.
@@ -45,11 +35,8 @@ max = i;
 }
 i = i+1;
 }
-(e)
 
-[2]
-
-[3]
+(e) [2] [3]
 
 Award marks as follows up to [6 max].
 Award [1] for including the correct signature.
@@ -68,17 +55,9 @@ patients[i] = patients[i+1];
 }
 patients[9] = null;
 
-}
-
-[6]
-
-– 15 –
+} [6]
 
 11.
-
-(a)
-
-N15/4/COMSC/SP2/ENG/TZ0/XX/M
 
 Award [1] for a suitable definition, for example:
 Encapsulation means having private variables;
@@ -88,9 +67,7 @@ Award [1] for relating an advantage to the Patient class, such as:
 So that patient data cannot be accessed/modified accidentally;
 So that patient data is more secure;
 
-(b)
-
-Award [1] for identifying an ethical issue and [1] for an elaboration.
+(b) Award [1] for identifying an ethical issue and [1] for an elaboration.
 Award [1] for relating this issue to the Treatment class and [1] for an elaboration.
 Example answer:
 Sensitive information should be separated from identity data;
@@ -98,9 +75,7 @@ In order to avoid information misuse;
 The consultation object does not include the patient's name (only an ID);
 So that a sensitive diagnosis (like AIDS) is not directly linked to a name;
 
-(c)
-
-[4]
+(c) [4]
 
 Award marks as follows up to [3 max].
 Award [1] for including String name with correct getter and setter methods.
@@ -119,11 +94,7 @@ String getPhone()
 Boolean getPresent()
 String toString() //optional
 
-(d)
-
-[2]
-
-[3]
+(d) [2] [3]
 
 Award [1] for identifying an appropriate need for extended character sets and an
 additional [1] for an elaboration of this need. Award [1] for relating to the Doctor
@@ -133,15 +104,9 @@ Different languages use different characters, which are not included in the basi
 ASCII character set;
 Extended character sets (like Unicode) include all possible characters from all
 languages;
-For example, the doctor’s name could not be spelled correctly in ASCII;
-
-[3]
-
-– 16 –
+For example, the doctor’s name could not be spelled correctly in ASCII; [3]
 
 12.
-
-N15/4/COMSC/SP2/ENG/TZ0/XX/M
 
 Award marks as follows up to [6 max].
 Award [1] for correctly initialized method.
@@ -161,17 +126,9 @@ if (current.getDoctor().equals(name))
 output(current.getMedication());
 }
 }
-}
-
-[6]
-
-– 17 –
+} [6]
 
 13.
-
-(a)
-
-N15/4/COMSC/SP2/ENG/TZ0/XX/M
 
 Award marks as follows up to [6 max].
 Award [1] for a common super-class.
@@ -203,9 +160,8 @@ private String medication;
 private String roomNumber;
 
 Do not penalize if data types are not specified.
-(b)
 
-[6]
+(b) [6]
 
 Award [1] for identifying each advantage and an additional [1] for an elaboration of this
 advantage, up to [6 max].
@@ -217,8 +173,4 @@ Because the smaller modules will have fewer mistakes than one big program;
 Easier to update (in the future);
 Because it is easier to update a module than the full program;
 Re-usability;
-Modules can be stored in libraries and reused for different programs;
-
-[6]
-
-
+Modules can be stored in libraries and reused for different programs; [6]

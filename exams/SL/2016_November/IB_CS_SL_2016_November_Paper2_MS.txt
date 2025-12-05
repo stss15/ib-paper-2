@@ -1,37 +1,25 @@
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 10.
 
-(a)
-
-(b)
+(a) (b)
 
 11.
 
-(a)
+(a) (b)
 
-(b)
-
-(c)
-
-The two constructors have different parameter sets (or equivalent);
+(c) The two constructors have different parameter sets (or equivalent);
 Compiler can differentiate between the two;
 The compiler will execute the constructor whose parameter set matches the
 arguments in the constructor call ;
-This is an example of polymorphism/overloading;
-
-[3]
+This is an example of polymorphism/overloading; [3]
 
 Access is restricted to;
-(methods that are part of) the same package / project;
-
-[2]
+(methods that are part of) the same package / project; [2]
 
 Award [2] for all 3 correct and [1] for any 2 correct.
 routeCode is String
 delay is int (Note: Allow any numeric)
-weatherRelated is Boolean
-
-[2]
+weatherRelated is Boolean [2]
 
 “public Journey”;
 Correct parameters (Note: Allow FT from part (a));
@@ -42,32 +30,18 @@ public Journey(String a, int b, Boolean c)
 this.routeCode = a;
 this.delay = b;
 this.weatherRelated = c;
-}
-
-[3]
+} [3]
 
 T290;
 10;
 1;
-Note: The punctuation (“;”) is not output.
-
-[3]
-
-– 16 –
+Note: The punctuation (“;”) is not output. [3]
 
 12.
 
-N16/4/COMSC/SP2/ENG/TZ0/XX/M
+(a) 4.5; [1]
 
-(a)
-
-4.5;
-
-[1]
-
-(b)
-
-Award marks as follows:
+(b) Award marks as follows:
 Initializing variables used (e.g.total as a double and count as an integer);
 Correct loop;
 Correct comparison* (allow getJourney[x]);
@@ -95,9 +69,7 @@ return double(delayTotal)/count;
 
 13.
 
-(a)
-
-[6]
+(a) [6]
 
 Award [1] for each section (award [2] if correct except for +/-).
 Allow for slight variations of syntax.
@@ -108,15 +80,7 @@ Codes
 - routeCode : String
 +Codes(a: String, b: String)
 +getRouteName() : String
-+getRouteCode() : String
-
-[3]
-
-– 17 –
-
-(b)
-
-N16/4/COMSC/SP2/ENG/TZ0/XX/M
++getRouteCode() : String [3]
 
 Award marks as follows:
 Initialization of maxDelay to be a rogue value or 0, or 1st value;
@@ -152,19 +116,11 @@ route = c[y].getRouteName();
 }
 }
 return route;
-}
-
-[7]
-
-– 18 –
+} [7]
 
 14.
 
-(a)
-
-(b)
-
-N16/4/COMSC/SP2/ENG/TZ0/XX/M
+(a) (b)
 
 A super-class could be created (eg Transport);
 With sub-classes Bus, Train and Plane;
@@ -172,9 +128,8 @@ Containing variables/methods common to all the different transport
 classes/examples;
 The individual sub-classes can inherit these common attributes;
 Whilst having properties particular to themselves/ can override;
-(i)
 
-[4]
+(i) [4]
 
 Award [1] for a diagram showing five (or more) classes linked in some way.
 Award [1] for each of the three different dependencies shown, either with the
@@ -186,21 +141,17 @@ The train company class “uses” the Codes class;
 
 Bus
 Transport
-(superclass)
 
-is a
+(superclass) is a
 Plane
 Train
 uses
 Codes
 
 has a
-Journey
+Journey [4]
 
-[4]
-(ii)
-
-Changes in one class in a dependency will/may affect the other class(es) in
+(ii) Changes in one class in a dependency will/may affect the other class(es) in
 this dependency;
 This may cause programs using the second class not to function
 (correctly)/require modifications to the second class to avoid problems;
@@ -209,15 +160,7 @@ TrainCompany etc methods would have to be changed;
 (Less dependencies lead to) reduced maintenance overheads;
 As a programmer editing one class would not have to be concerned with
 other classes / allows programmers to focus just on the class they are
-writing;
-
-[3]
-
-– 19 –
-
-(c)
-
-N16/4/COMSC/SP2/ENG/TZ0/XX/M
+writing; [3]
 
 public String toString(Codes [] c)
 {
@@ -235,8 +178,4 @@ Extracting company name;
 Correct use of averageDelay() method;
 Correct use of longestDelay() method;
 Correct result line either returned or output;
-(Note: Ignore minor punctuation errors/missing parameter);
-
-[4]
-
-
+(Note: Ignore minor punctuation errors/missing parameter); [4]

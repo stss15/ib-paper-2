@@ -1,9 +1,7 @@
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 10.
 
-(a)
-
-Award up to [4 max].
+(a) Award up to [4 max].
 Award [1] for an advantage and [1] for an elaboration for up to two advantages.
 Re-use objects/modules across sub-groups;
 Which will speed up development;
@@ -14,9 +12,7 @@ Without having to re-program;
 Quicker to test;
 As each module is small/independent;
 
-(b)
-
-[4]
+(b) [4]
 
 Award up to [4 max].
 Award [1] for an issue and [1] for an explanation stating its importance, for two
@@ -28,75 +24,44 @@ work correctly;
 Acknowledgement of code sources;
 Important to avoid any potential legal issues;
 Accept other reasonable explanations that clearly refer to ethical aspects for the
-work of the programmers.
-[4]
+work of the programmers. [4]
 
-(c)
+(c) (d)
 
-(d)
-
-(e)
-
-(f)
+(e) (f)
 
 Award up to [3 max].
 By using private for variables for example studentID;
 Data can be protected from accidental changes;
-From outside the object;
-
-[3]
+From outside the object; [3]
 
 Award up to [2 max].
 Student newStudent = new Student(93003, "Smith")
 Award [1] for Student newStudent
-Award [1] for new Student(93003, "Smith").
-
-[2]
+Award [1] for new Student(93003, "Smith"). [2]
 
 Award up to [3 max].
 Static means that the variable is declared once only;
 Static variable is a class variable not re-declared in each object;
 And not each time an object is created;
 The variable represents the number of times a Loan object is created;
-And hence is a total of how many books have been borrowed;
-
-[3]
+And hence is a total of how many books have been borrowed; [3]
 
 Award up to [3 max].
 ST.addLoan (new Loan(212000, "The Stars"))
 Award [1] for ST.addLoan.
 Award [1] for new.
-Award [1] for Loan (212000, "The Stars").
-
-[3]
-
-– 16 –
+Award [1] for Loan (212000, "The Stars"). [3]
 
 11.
 
-(a)
+(a) (b)
 
-(b)
+(i) Jones; [1]
 
-M15/4/COMSC/SP2/ENG/TZ0/XX/M
+(ii) The Spooks; [1]
 
-(i)
-
-Jones;
-
-[1]
-
-(ii)
-
-The Spooks;
-
-[1]
-
-(iii)
-
-The Animals;
-
-[1]
+(iii) The Animals; [1]
 
 Award up to [7 max].
 Award [1] for correct signature (do not accept non-void/return methods.
@@ -121,70 +86,46 @@ System.out.println(currentLoan.getBookTitle());
 System.out.println(currentLoan.getDate());
 }
 }
-}
-[7]
+} [7]
 Note: Award [1] for both final System.out.println statements. Marks are not
 awarded if methods are used that are not defined or already present in the
 specification.
 
-(c)
-
-Award up to [3 max].
+(c) Award up to [3 max].
 There is no way to determine the fines;
 There is no way to differentiate between the short term and long term loan books;
 There is no way to indicate if a student’s borrowing rights are suspended;
-Nothing to prevent error or check number of books borrowed
-[3]
+Nothing to prevent error or check number of books borrowed [3]
 
-(d)
-
-Award up to [2 max] for any acceptable description.
+(d) Award up to [2 max] for any acceptable description.
 For example:
 Add a Boolean variable to represent the borrowing rights;
 Initially set this variable to true;
 The variable is set to true unless rights are suspended when it is set to false;
-etc;
-
-[2]
-
-– 17 –
+etc; [2]
 
 12.
 
-M15/4/COMSC/SP2/ENG/TZ0/XX/M
-
-(a)
-
-Award up to [2 max].
+(a) Award up to [2 max].
 Inheritance reduces the amount of coding / reduces repetition of code;
 By allowing sub-classes to inherit the methods / attributes of their superclass; [2]
 
-(b)
-
-Award up to [2 max].
+(b) Award up to [2 max].
 Variable for the fine (per day);
 Variable for the borrowing limit;
 Variable timeLimit;
 
-(c)
-
-[2]
+(c) [2]
 
 A suitable diagram will look like this.
 
 Award [1] for all four correct classes as shown.
 Award [1] for showing the links in the correct place (any arrow or line).
 Award [2] for distinguishing either with labels (Student has a Loan / Short is a
-Loan) or use of different arrows for the different relationships between Student–
-Loan and Loan–Short/Long.
-[4]
-(d)
+Loan) or use of different arrows for the different relationships between Student-
+Loan and Loan-Short/Long. [4]
 
-Award up to [3 max].
+(d) Award up to [3 max].
 Add a static count variable;
 To the shortTerm class and to the longTerm class;
-A method can be called to display count by adding the two above together;
-
-[3]
-
-
+A method can be called to display count by adding the two above together; [3]

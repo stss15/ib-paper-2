@@ -1,50 +1,21 @@
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 
-10 – 12
 
-13 pages
 
-8817 – 7015
-© International Baccalaureate Organization 2017
-
-–2–
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
-
-Option A — Databases
+Option A - Databases
 1.
 
 2.
 
-(a)
+(a) Define the term database transaction. [2]
 
-Define the term database transaction.
+(b) Explain the importance of durability in a database transaction. [2]
 
-[2]
+(c) Identify two different types of relationships within databases. [2]
 
-(b)
+(d) Describe the nature of the data dictionary. [4]
 
-Explain the importance of durability in a database transaction.
-
-[2]
-
-(c)
-
-Identify two different types of relationships within databases.
-
-[2]
-
-(d)
-
-Describe the nature of the data dictionary.
-
-[4]
-
-(e)
-
-Identify four responsibilities of a database administrator.
-
-[4]
+(e) Identify four responsibilities of a database administrator. [4]
 
 A group of art students have taken three examinations in the school year. Each of the three
 examinations has a maximum mark of 100. Each student’s total mark for the year is the sum
@@ -127,90 +98,37 @@ Mia Lorres
 
 226
 
-(a)
+(a) With reference to the relation CLASS_TABLE distinguish between data and
+information. [3]
 
-With reference to the relation CLASS_TABLE distinguish between data and
-information.
+(b) (i)
 
-[3]
+Define the term entity. [1]
 
-(b)
+(ii) State the entity for this example relation. [1]
 
-(i)
+(c) Identify an appropriate data type for Student_ID. [1]
 
-Define the term entity.
+(d) Explain the role of data validation and data verification. [4]
 
-[1]
+(e) Explain how Total could be validated. [2]
 
-(ii)
+(f) Describe the steps in a query that will output
 
-State the entity for this example relation.
+(i) the names of all students who earned the maximum mark on Exam_Two. [2]
 
-[1]
-
-		
-(c)
-
-Identify an appropriate data type for Student_ID.
-
-[1]
-
-(d)
-
-Explain the role of data validation and data verification.
-
-[4]
-
-(e)
-
-Explain how Total could be validated.
-
-[2]
-
-(f)
-
-Describe the steps in a query that will output
-
-		
-
-(i)
-
-the names of all students who earned the maximum mark on Exam_Two.
-
-[2]
-
-		
-
-(ii)
-
-the Student_IDs of all candidates who passed.
-
-[4]
+(ii) the Student_IDs of all candidates who passed. [4]
 
 (Option A continues on the following page)
-
-–3–
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
 
 (Option A continued)
 3.
 
-(a)
+(a) (i)
 
-		
+State what is meant by redundant data in databases. [1]
 
-(i)
-
-State what is meant by redundant data in databases.
-
-[1]
-
-(ii)
-
-Explain one issue that can be caused by redundant data in a database.
-
-[2]
+(ii) Explain one issue that can be caused by redundant data in a database. [2]
 
 Consider the following example relation. It holds data about a number of teachers and
 students from different schools who volunteer to support the local community on
@@ -287,107 +205,61 @@ West Street 19
 37
 
 The key attributes are underlined.
-(b)
 
-Identify three characteristics of the 1st Normal Form (1NF) which are evident in
-this relation.
+(b) Identify three characteristics of the 1st Normal Form (1NF) which are evident in
+this relation. [3]
 
-[3]
-
-(c)
-
-Explain why a compound key is used for the SCHOOL_VOLUNTEERS_TABLE
-relation.
-
-[2]
+(c) Explain why a compound key is used for the SCHOOL_VOLUNTEERS_TABLE
+relation. [2]
 
 The following shows the normalized SCHOOL_VOLUNTEERS_TABLE relation:
 SCHOOLS_TABLE
 Code, School_Name, Address
 VOLUNTEERS_TABLE
 Code, Date, Num_Volunteers
-(d)
 
-Discuss whether these relations are in third normal form (3NF).
-
-[5]
+(d) Discuss whether these relations are in third normal form (3NF). [5]
 
 End of Option A
 
-Turn over
-
-–4–
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
-
-Option B — Modelling and simulation
+Option B - Modelling and simulation
 4.
 
-(a)
+(a) Distinguish between a computer model and a computer simulation. [4]
 
-Distinguish between a computer model and a computer simulation.
-
-[4]
-
-(b)
-
-Identify two reasons why some systems are difficult to model successfully.
-
-[2]
+(b) Identify two reasons why some systems are difficult to model successfully. [2]
 
 Computer simulations are often used in situations where practical experimentation is,
 for some reason, not possible. One of these reasons could be an ethical issue.
+
 (c)
-		
 
-5.
+(i) With clear reference to the ethical issue, describe one example where practical
+experimentation would not be possible for ethical reasons. [3]
 
-(i)
+ (ii) State three other advantages, apart from ethical reasons, of simulating a
+ computer model rather than constructing a physical one. [3]
 
-With clear reference to the ethical issue, describe one example where practical
-experimentation would not be possible for ethical reasons.
+ A manufacturing company that produces several products is using spreadsheet software to
+ model its finances. This includes calculations that will estimate different quantities including
+ the profit that the company will make in future years.
+ The model involves the use of spreadsheet software which will be organized using different
+ sheets for different areas of the company’s finances. Previously less sophisticated methods
+ were used to keep track of costs and sales.
 
-[3]
+ 5.
 
-(ii)
+ (a) By including examples where appropriate, describe a basic structure for this model. [6]
 
-State three other advantages, apart from ethical reasons, of simulating a
-computer model rather than constructing a physical one.
-
-[3]
-
-A manufacturing company that produces several products is using spreadsheet software to
-model its finances. This includes calculations that will estimate different quantities including
-the profit that the company will make in future years.
-The model involves the use of spreadsheet software which will be organized using different
-sheets for different areas of the company’s finances. Previously less sophisticated methods
-were used to keep track of costs and sales.
-(a)
-
-By including examples where appropriate, describe a basic structure for this model.
-
-[6]
-
-(b)
-
-Suggest how the reliability of the model could be tested.
-
-[2]
+ (b) Suggest how the reliability of the model could be tested. [2]
 
 The company has established certain profit targets that it wishes to achieve over the next
 three years.
-(c)
 
-Explain how this model can be used to investigate different strategies that will reach
+(c) Explain how this model can be used to investigate different strategies that will reach
 these targets.
 
-(Option B continues on the following page)
-
-[4]
-
-–5–
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
+(Option B continues on the following page) [4]
 
 (Option B continued)
 6.
@@ -395,131 +267,73 @@ N17/4/COMSC/SP2/ENG/TZ0/XX
 Weather forecasters use computer models which are able to simulate future weather
 patterns. These forecasts were originally limited to the near future. However, modern
 systems can now produce long range forecasts.
-(a)
 
-Suggest two reasons why these simulations have improved both in their accuracy and
-their range.
+(a) Suggest two reasons why these simulations have improved both in their accuracy and
+their range. [4]
 
-[4]
+(b) Suggest why forecasts become less accurate the more long range they become. [4]
 
-(b)
-
-Suggest why forecasts become less accurate the more long range they become.
-
-[4]
-
-(c)
-
-Discuss whether historical data can be accurately used to forecast future weather.
-
-[5]
+(c) Discuss whether historical data can be accurately used to forecast future weather. [5]
 
 The simulation of the weather forecasting models produces specific data which can be output
 in a variety of ways.
-(d)
-		
 
-(i)
+(d) (i)
 
-Define the term visualization.
+Define the term visualization. [2]
 
-[2]
-
-(ii)
-
-With the help of examples, discuss how the development in the way such data
+(ii) With the help of examples, discuss how the development in the way such data
 is visualized has made the results of these simulations more accessible to the
-general public.
-
-[6]
+general public. [6]
 
 End of Option B
 
-Turn over
-
-–6–
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
-
-Option C — Web science
+Option C - Web science
 7.
 
 BuildYourWebSite is an online company that provides a number of common templates for
 building your own website. Each template includes one HTML file, one CSS file, a folder of
 web images, and a folder of special sound effects.
-(a)
 
-Identify two characteristics of HTML.
+(a) Identify two characteristics of HTML. [2]
 
-[2]
-
-(b)
-
-Discuss the benefits and disadvantages of the template including a CSS file in addition
-to the HTML page.
-
-[6]
+(b) Discuss the benefits and disadvantages of the template including a CSS file in addition
+to the HTML page. [6]
 
 Each template can be downloaded as a single compressed file, using a web browser.
 
 8.
 
-(c)
+(c) Explain why TCP/IP is a reliable protocol in relation to downloading operations. [3]
 
-Explain why TCP/IP is a reliable protocol in relation to downloading operations.
-
-[3]
-
-(d)
-
-Evaluate lossy compression and lossless compression when used to download files.
-
-[4]
+(d) Evaluate lossy compression and lossless compression when used to download files. [4]
 
 Open source code is made available by a community of developers and is frequently
 updated. The code can be downloaded for free, but users must register with the website and
 have their access authenticated.
-(a)
 
-Evaluate the use of server-side scripting to provide the mechanism for registration.
-
-[4]
+(a) Evaluate the use of server-side scripting to provide the mechanism for registration. [4]
 
 Authentication is based on signing in to an established third-party company, for example a
 user’s existing email or a social network account. The third-party company then verifies the
 user, granting them access to the open source code website.
-(b)
 
-Explain how the user’s privacy can be maintained whilst using this method of
-authentication.
-
-[4]
+(b) Explain how the user’s privacy can be maintained whilst using this method of
+authentication. [4]
 
 The URL of this website is www.OpenSourceDev.org. Any new pieces of code that the
 developers make available become new resources on the website. A script generates
 weekly automatic notifications of new code available on the site, and sends this notification to
 users as an email.
-(c)
-		
 
-(i)
+(c) (i)
 
 Outline, with an example, how the URL for these new pieces of code will
-be generated.
+be generated. [2]
 
-[2]
-
-(ii)
-
-Outline the steps that the script could perform for sending out these notifications.
-
-[3]
+(ii) Outline the steps that the script could perform for sending out these notifications. [3]
 
 (Option C continues on the following page)
-
-–7–
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
 
 (Option C, question 8 continued)
 A fragment of a script and a web form are provided below.
@@ -567,26 +381,13 @@ URL:
 <input type="submit" name="Submit" value="Submit" />
 </form>
 
-(d)
-
-Describe the processing that occurs when the form is filled with the URL
+(d) Describe the processing that occurs when the form is filled with the URL
 https://www.the2nd.org/bin.php?id=70 that the server discovers is associated
-with the IP address 172.16.254.1.
-
-[3]
+with the IP address 172.16.254.1. [3]
 
 (Option C continues on page 9)
-Turn over
-
-–8–
 
 Blank page
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
-
-–9–
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
 
 (Option C continued)
 9.
@@ -598,35 +399,22 @@ It is suggested that the museum’s static web pages may be contributing to the 
 lack of success.
 
 (a) Identify three differences between a static web page and dynamic web page.
-		
+
 (b) Suggest two services, and the benefits that they would provide, if the museum were to
 redesign its website to be dynamic.
-(c)
 
-Explain how the provision of services on the museum’s website can increase its
+(c) Explain how the provision of services on the museum’s website can increase its
 rankings in search engines.
-
-[3]
-[4]
-[4]
+ [3] [4] [4]
 
 It is also suggested that the museum’s basic catalogue be revised and upgraded with all of
 the museum’s pieces being catalogued using meta-tags.
-(d)
 
-Suggest how the use of meta-tags can be relevant for search engine optimization.
-
-[3]
+(d) Suggest how the use of meta-tags can be relevant for search engine optimization. [3]
 
 End of Option C
 
-Turn over
-
-– 10 –
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
-
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 A restaurant uses an object-oriented program to manage the cost of the food and drink consumed
 by customers. Everytime a table is occupied a Payment object is instantiated which will contain
 details of the items ordered. As each item is ordered, a FoodItem or a DrinkItem object is added
@@ -636,12 +424,12 @@ public class Payment
 private FoodItem[] fi = new FoodItem[100];
 private int fiCount;
 private static double foodTax = 0.2; // 20 % sales tax added to
-										
+
 // all food prices
 private DrinkItem[] di = new DrinkItem[100];
 private int diCount;
 private static double drinkTax = 0.1; // 10 % sales tax added to
-										
+
 // all drink prices
 public Payment()
 {
@@ -653,14 +441,14 @@ public DrinkItem getDi(int x)
 		return di[x];
 }
 // all other accessor and mutator methods are included
-// addFoodItem() – this method adds a new FoodItem object
-// addDrinkItem() – this method adds a new DrinkItem object
+// addFoodItem() - this method adds a new FoodItem object
+// addDrinkItem() - this method adds a new DrinkItem object
 public static double findPrice(Item[] pl, String c)
 { //code missing }
 
 }
 
-// calculateBill() – This method returns the bill (the total value of
+// calculateBill() - This method returns the bill (the total value of
 // the items consumed for a particular table)
 
 public class FoodItem
@@ -677,60 +465,27 @@ itemCode = x;
 // all accessor and mutator methods are included
 
 The DrinkItem class is defined in a similar way.
-(Option D continues on the following page)
 
-– 11 –
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 10.
 
 Whenever a Payment object is instantiated, the variables fiCount and diCount are
 initialized to 0 through the code in the constructor.
-(a)
 
-Outline an alternative method of initializing these variables that would not require the
-use of the code in the constructor.
+(a) Outline an alternative method of initializing these variables that would not require the
+use of the code in the constructor. [2]
 
-[2]
+(b) State the implication of the use of the term static in the Payment class. [2]
 
-(b)
+(c) With reference to two examples from the classes on page 10, explain the benefits
+gained by the use of different data types. [4]
 
-State the implication of the use of the term static in the Payment class.
-
-[2]
-
-(c)
-
-With reference to two examples from the classes on page 10, explain the benefits
-gained by the use of different data types.
-
-[4]
-
-(d)
-
-Describe the purpose of the following statement:
-
-[3]
+(d) Describe the purpose of the following statement: [3]
 
 			private FoodItem[] fi = new FoodItem[100];
 The Payment class method addFoodItem() is passed a FoodItem object as a parameter.
-(e)
 
-Construct the method addFoodItem().
+(e) Construct the method addFoodItem(). [3]
 
-[3]
-
-(Option D continues on the following page)
-
-Turn over
-
-– 12 –
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 11.
 
 The global variable tables is declared as follows:
@@ -753,50 +508,25 @@ System.out.println(tables[1].getFiCount());
 System.out.println(Payment.getFoodTax());
 System.out.println(tables[2].getDi(1).getItemCode());
 
-(a)
+(a) State the output after this code is executed.
 
-State the output after this code is executed.
+(b) Construct statements, in code, that will print out the following: [3]
 
-(b)
+(i) The number of drink items ordered by table 40. [1]
 
-Construct statements, in code, that will print out the following:
+(ii) The item code of the third food item ordered by table 2. [1]
 
-[3]
-
-		
-
-(i)
-
-The number of drink items ordered by table 40.
-
-[1]
-
-		
-
-(ii)
-
-The item code of the third food item ordered by table 2.
-
-[1]
-
-(Option D continues on the following page)
-
-– 13 –
-
-N17/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D, question 11 continued)
 The price of each item is stored in an object of the Item class.
 The class is outlined below:
 public class Item
 {
-		
+
 private String code;
 // item code
-		
+
 private String name;
 // item name
-		
+
 private double price;
 // unit price before tax
 		 // all accessor, mutator and constructor methods are included
@@ -807,11 +537,8 @@ declaration: Item[] pl = new Item[200];
 Note: The number of objects held in this array will change from week to week.
 The method findPrice(Item[] pl, String c) in the Payment class looks up and returns
 the price of the item with code c.
-(c)
 
-Construct the method findPrice(). You may assume that the item exists in the array.
-
-[6]
+(c) Construct the method findPrice(). You may assume that the item exists in the array. [6]
 
 When a customer wishes to pay the bill, the calculateBill() method is called. If the bill
 was for table 10 then the following call would be made:
@@ -819,38 +546,19 @@ was for table 10 then the following call would be made:
 
 12.
 
-(d)
+(d) Construct the calculateBill() method. You should make use of any previously
+defined methods. [7]
 
-Construct the calculateBill() method. You should make use of any previously
-defined methods.
-
-[7]
-
-(a)
-
-Construct a diagram showing the relationships between the Payment, FoodItem,
+(a) Construct a diagram showing the relationships between the Payment, FoodItem,
 DrinkItem, and Item classes. You do not need to include the names of attributes
-or methods.
-
-[3]
+or methods. [3]
 
 By making reference to any of the above classes, describe two benefits that a
-programming team would gain from the use of encapsulation.
+programming team would gain from the use of encapsulation. [6]
 
-[6]
-
-(b)
-
-The company that owns this restaurant also owns hotels, shops, and a car hire business.
+(b) The company that owns this restaurant also owns hotels, shops, and a car hire business.
 The programs that manage the finances of these different businesses include classes similar
 to the ones shown in this paper.
-(c)
 
-Explain how inheritance could be used as a tool to both improve the clarity of the
-design and to reduce the amount of code that needs to be written.
-
-End of Option D
-
-[4]
-
-
+(c) Explain how inheritance could be used as a tool to both improve the clarity of the
+design and to reduce the amount of code that needs to be written. [4]

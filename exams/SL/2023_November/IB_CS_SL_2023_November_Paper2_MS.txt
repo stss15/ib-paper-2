@@ -1,18 +1,14 @@
-Option D – Object-oriented programming
+Option D - Object-oriented programming
 10.
 
-(a)
-
-Award [1 max]
+(a) Award [1 max]
 Variable belongs to the class not to the instantiation;
 All instances share the same variable;
 A change to one object state of that variable affects all of them;
 Variable can be accessed without instantiating an object of the WaterMonster class;
 Note: do not award: It cannot be changed/is a constant.
 
-(b)
-
-(i)
+(b) (i)
 
 Award [2 max]
 Data hiding / increased security;
@@ -20,24 +16,18 @@ This prevents accidental changes to these variables from outside the class
 instance;
 Since modifications require getter and setter methods;
 
-(ii)
-
-Award [2 max]
+(ii) Award [2 max]
 accessor;
 mutator;
 Note: allow get(ter) and set(ter) methods, or a correct java example.
 
-(c)
-
-Award [2 max]
+(c) Award [2 max]
 A reference to the superclass; (but do not accept reference to inheritance / extends)
 Calls the constructor (of Monster);
 Note: both marks can be gained in one statement, eg.
 “Super()” calls the constructor of the superclass (Monster).
 
-(d)
-
-Award [2 max]
+(d) Award [2 max]
 Security;
 Affordability;
 Transparency;
@@ -47,20 +37,14 @@ Flexibility;
 Localization;
 Note: Accept other reasonable answers.
 
-(e)
-
-Award [2 max]
+(e) Award [2 max]
 Award [1] for an appropriately typed and named variable (left of “=”)
 Award [1] for new FireMonster and correct parameters for constructor
 eg. FireMonster flamey = new FireMonster("Flamey", 40);
 
-– 21 –
-
 11.
 
 (a)
-
-8823 – 7015M
 
 Award [4 max]
 Award [1] for correctly using both methods rollDice() and output()
@@ -103,9 +87,7 @@ output(defender.name+" must leave the game");
 }
 }
 
-(b)
-
-Award [4 max]
+(b) Award [4 max]
 Class is a code definition / template / blueprint;
 Whereas Object is the actual / customizable instance variable;
 Memory use of a class is only for static elements;
@@ -114,20 +96,14 @@ There is only 1 class;
 however there could (potentially) be multiple objects / instances of that class;
 Mark as [2] and [2]
 
-– 22 –
-
 (c)
-
-8823 – 7015M
 
 Award [2 max]
 Award [1] for connector between Arena and Monster indicating aggregation (has a)
 Award [1] for connector between FireMonster and Monster indicating inheritance (is a)
 Example:
 
-(d)
-
-Award [5 max]
+(d) Award [5 max]
 Award [1] for checking if monsterCount<10 / monsterCount < monsters.length;
 Award [1] for checking if that instance already exists (ie. using monsters[i]==M
 or .equals(M) or monsters[i].name==M.name) or .equals(M.name);
@@ -166,11 +142,7 @@ output("Sorry the Arena is full");
 }
 }
 
-– 23 –
-
 (e)
-
-8823 – 7015M
 
 Award [4 max].
 Unnecessarily complex for small problems;
@@ -187,13 +159,9 @@ OOP training is required by developers;
 The programmers would be trained beforehand / this could be expensive;
 Mark as [2] and [2]
 
-– 24 –
-
 12.
 
 (a)
-
-8823 – 7015M
 
 Award [2 max]
 A method with the same name but different parameter types is created;
@@ -201,9 +169,7 @@ Depending on the arguments/parameters, one of the methods is executed;
 A method with the same name and parameters is created / inherited in the subclass;
 and used instead of the method in the superclass;
 
-(b)
-
-Award [6 max]
+(b) Award [6 max]
 Award [1] mark for attempt to find the index of Monster M
 Award [1] mark for correct loop that finds the index of Monster M (using == or .equals())
 Award [1] mark for attempting a loop to shift monsters
@@ -218,12 +184,12 @@ for (int i = 0; i < monsters.length; i++)
 {
 if (monsters[i]==M)
 {
-for (int move = i; move < monsterCount – 1; move++)
+for (int move = i; move < monsterCount - 1; move++)
 {
 monsters[move] = monsters[move + 1];
 }
-monsters[monsterCount – 1] = null;
-monsterCount = monsterCount – 1;
+monsters[monsterCount - 1] = null;
+monsterCount = monsterCount - 1;
 break;
 }
 }
@@ -246,8 +212,6 @@ monsters[j-1] = monsters[j];
 monsterCount = monsterCount - 1;
 }
 
-– 25 –
-
 Example 3:
 public void removeMonster(Monster M)
 {
@@ -261,7 +225,7 @@ for (int j = i; j < monsters.length-1; j++)
 monsters[j] = monsters[j+1];
 }
 monsters[monsters.length-1] = null;
-monsterCount = monsterCount–1;
+monsterCount = monsterCount-1;
 }
 
 Example 4:
@@ -277,20 +241,12 @@ for (int j = i; j < monsterCount-1; j++)
 monsters[j] = monsters[j+1];
 }
 monsters[monster.length-1] = null;
-monsterCount = monsterCount–1;
+monsterCount = monsterCount-1;
 }
-
-8823 – 7015M
-
-– 26 –
 
 (c)
 
-8823 – 7015M
-
-(i)
-
-Award [2 max]
+(i) Award [2 max]
 It is the mechanism/process in which a new class(derived/child) is based on the
 features of / is allowed to copy of/ extends the existing class (base/parent);
 A parent object holds common data and actions for a group of related child objects;
@@ -298,11 +254,9 @@ Variables and methods defined in superclass are available in subclass;
 Private variables and methods will not be accessible/inherited by the subclass;
 Protected variables and methods also available to subclass if in the same package;
 
-(ii)
+(ii) Award [5 max]
 
-Award [5 max]
-(Inheritance)
-Award [1] mark - Each Specific card extends its monster type class (eg. Splashy
+(Inheritance) Award [1] mark - Each Specific card extends its monster type class (eg. Splashy
 extends WaterMonster)
 Award [1] mark - Therefore specific cards will inherit the public behaviour (abilities)
 from the Monster class and their MonsterType class
@@ -310,12 +264,10 @@ Award [1] mark - Ability1 must be implemented in Monster class and will be inher
 by all
 Award [1] mark - Abillity2 and Ability3 should be defined in the Monster class (but not
 implemented
-(Polymorphism)
-Award [1] mark - Ability2 should be overridden in Monster type class (eg. WaterType)
+
+(Polymorphism) Award [1] mark - Ability2 should be overridden in Monster type class (eg. WaterType)
 Award [1] mark - Ability3 should be overridden in class of specific monster (eg.
 Squishy)
-(both)
-Award [1] mark – A specific behaviour is defined/overridden in the subclasses
-Award [1] mark – The default behaviour is defined in the superclass
 
-
+(both) Award [1] mark - A specific behaviour is defined/overridden in the subclasses
+Award [1] mark - The default behaviour is defined in the superclass

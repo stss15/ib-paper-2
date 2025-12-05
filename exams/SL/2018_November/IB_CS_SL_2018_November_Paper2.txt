@@ -1,4 +1,4 @@
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 An airport uses an object-oriented program to keep track of arrivals and departures of planes.
 There are many objects in this system and some are listed below.
 Flight
@@ -60,46 +60,19 @@ public int compareWith(Arrival anotherArrival)
 
 // ... plus accessor and mutator methods
 
-(Option D continues on the following page)
-
-– 11 –
-
-N18/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 10.
 
-(a)
+(a) (i)
 
-(i)
+Outline the general nature of an object. [2]
 
-Outline the general nature of an object.
+(ii) Describe two disadvantages of using Object Oriented Programming (OOP). [4]
 
-[2]
+(iii) Outline one advantage of using modularity in program development. [2]
 
-(ii)
+(b) State the relationship between the Flight object and the Arrival object. [1]
 
-Describe two disadvantages of using Object Oriented Programming (OOP).
-
-[4]
-
-(iii)
-
-Outline one advantage of using modularity in program development. 
-
-[2]
-
-(b)
-
-State the relationship between the Flight object and the Arrival object. 
-
-[1]
-
-(c)
-
-Construct a UML diagram to represent the Arrival object. 
-
-[4]
+(c) Construct a UML diagram to represent the Arrival object. [4]
 
 The code below outlines part of the FlightManagement class used in this program.
 For the purposes of this exam only arriving flights are being considered.
@@ -137,62 +110,27 @@ public Arrival remove(String flightID)
 
 // ... many more methods
 
-(Option D continues on the following page)
-
-Turn over
-
-– 12 –
-
-N18/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D, question 10 continued)
 The method search in the FlightManagement class searches the array inbound and
 returns the index of the Arrival object with the given flightID.
-(d)
 
-Construct the method search() implementing a linear search. Use the first
+(d) Construct the method search() implementing a linear search. Use the first
 compareWith() method in the Arrival object.
 You may assume that an Arrival object with the given flightID exists in the array
-inbound. 
+inbound.
 
 (e)
 
+(i) Outline one advantage of using a binary search. [2]
+
+(ii) Outline one disadvantage of using a binary search. [2]
+
 11.
 
-[4]
+(a) Outline the use of data-hiding as a security feature in OOP. [2]
 
-(i)
+(b) (i) Outline why calling the compareWith method does not cause a conflict. [2]
 
-Outline one advantage of using a binary search. 
-
-[2]
-
-(ii)
-
-Outline one disadvantage of using a binary search. 
-
-[2]
-
-(a)
-
-Outline the use of data-hiding as a security feature in OOP. 
-
-(b)
-
-(i)
-
-(ii)
-
-[2]
-
-The Arrival object has two methods named compareWith.
-Outline why calling the compareWith method does not cause a conflict. 
-
-[2]
-
-State the name of this OOP property.
-
-[1]
+(ii) State the name of this OOP property. [1]
 
 The method compareWith(Arrival anotherArrival) compares the Estimated Time of
 Arrival (ETA) of the current Arrival object with the ETA of another Arrival object. The
@@ -203,53 +141,27 @@ given two String variables A and B,
 A.compareTo(B) < 0 when A is lexicographically smaller than B
 A.compareTo(B) = 0 when A is equal to B
 A.compareTo(B) > 0 when A is lexicographically bigger than B.
-(c)
 
-Construct the code for this method compareWith(). 
+(c) Construct the code for this method compareWith(). [3]
 
-(Option D continues on the following page)
-
-[3]
-
-– 13 –
-
-N18/4/COMSC/SP2/ENG/TZ0/XX
-
-(Option D continued)
 12.
 
-(a)
-
-Define the term method signature. 
-
-[2]
+(a) Define the term method signature. [2]
 
 The array inbound in the FlightManagement class is sorted by Estimated Time of Arrival
 (ETA).
-(b)
 
-(c)
+(b) (c)
 
 Construct a method showDelayed() that outputs the IDs of all delayed flights in the
 array inbound that have not yet landed and that have an ETA before a given time t.
-The time t is passed as a String parameter. 
-
-[4]
+The time t is passed as a String parameter. [4]
 
 Without using a sorting algorithm, construct the method add(Arrival newArrival)
 that inserts a newArrival in the sorted array inbound. You may assume that
-newArrival has been instantiated and that the array inbound is not full. 
-
-[6]
+newArrival has been instantiated and that the array inbound is not full. [6]
 
 When a flight is delayed, a method in FlightManagement is used to find and update the
 flight with the delay and to reorganize the array so that it remains sorted for the ETA.
-(d)
 
-Describe how this method would be implemented using the methods provided. 
-
-End of Option D
-
-[4]
-
-
+(d) Describe how this method would be implemented using the methods provided. [4]

@@ -1,5 +1,4 @@
-Option D — Object-oriented programming
-10.
+Option D - Object-oriented programming
 
 A company that manufactures a children’s card game, Monster Battle, wants to create a
 software version. Figure 7 shows three sample cards from the game.
@@ -36,39 +35,21 @@ FIRE MONSTER
 
 SPECIAL ABILITIES:
 
-1.
+HEAL A FRIEND
 
 HEAL A FRIEND
 
-1.
-
 HEAL A FRIEND
-
-1.
-
-HEAL A FRIEND
-
-2.
 
 PUT OUT FIRE
 
-2.
-
 PUT OUT FIRE
-
-2.
 
 HEAT WATER
 
-3.
-
 SOAK
 
-3.
-
 CLEAN
-
-3.
 
 BURN
 
@@ -94,13 +75,6 @@ public void attack(Monster defender) {
 //to be written
 }
 
-(Option D continues on the following page)
-
-– 15 –
-
-8823 – 7015
-
-(Option D, question 10 continued)
 private static int rollDice() {
 //returns a random integer between 1 and 12
 return new java.util.Random().nextInt(12)+1;
@@ -121,57 +95,29 @@ super(name, health, Monster.FIRE_MONSTER_TYPE);
 }
 }
 
-(a)
+10.
 
-Define the term static as used in the declaration ICE_MONSTER_TYPE in the
-Monster class.
+(a) Define the term static as used in the declaration ICE_MONSTER_TYPE in the
+Monster class. [1]
 
-[1]
-
-(b)
-
-(i)	Outline one advantage of making all instance variables in the Monster
-class private.
-
-[2]
+(b) (i)	Outline one advantage of making all instance variables in the Monster
+class private. [2]
 
 Some instance variables may need to be retrieved and changed from outside the
 class even though they will be declared private.
-(ii)
-(c)
 
-State two types of method that would allow this to happen.
+(ii) (c)
 
-[2]
+State two types of method that would allow this to happen. [2]
 
-Outline why the keyword super is used in the constructor of the WaterMonster class.
-
-[2]
+Outline why the keyword super is used in the constructor of the WaterMonster class. [2]
 
 The finished game may include some open source software.
-(d)
 
-Identify two aims of the open source movement.
+(d) Identify two aims of the open source movement. [2]
 
-[2]
-
-(e)
-
-Construct code that creates an instance of a fire-type monster called Flamey with
-40 health points.
-
-[2]
-
-(Option D continues on the following page)
-
-Turn over
-
-– 16 –
-
-8823 – 7015
-
-(Option D continued)
-11.
+(e) Construct code that creates an instance of a fire-type monster called Flamey with
+40 health points. [2]
 
 The Monster class contains the method attack(Monster defender). This is used when
 a monster attacks another monster (the defender).
@@ -183,15 +129,14 @@ points if its health variable is greater than zero
 y sets the defending monster’s health variable to zero if it is less than zero
 y outputs the defending monster’s name followed by “must leave the game” if its health
 variable is zero.
-(a)
 
-Construct the method attack(Monster defender), using any existing static
-methods in the Monster class that might be useful.
+11.
 
-(b)
+(a) Construct the method attack(Monster defender), using any existing static
+methods in the Monster class that might be useful.
 
-Outline two differences between the FireMonster class and an instance of
-FireMonster.[4]
+(b) Outline two differences between the FireMonster class and an instance of
+FireMonster.[4]
 
 The programmer has created a class named Arena to model the place in which the
 monsters will battle.
@@ -223,48 +168,29 @@ output("IT IS A DRAW!");
 public static void output(String message) {
 System.out.println(message);
 }
-}
+} [4]
 
-(Option D continues on the following page)
-
-[4]
-
-– 17 –
-
-8823 – 7015
-
-(Option D, question 11 continued)
-(c)
-
-Construct a simple UML class diagram showing the relationships between FireMonster,
-Monster and Arena. You do not need to include variables and methods.
-[2]
+(c) Construct a simple UML class diagram showing the relationships between FireMonster,
+Monster and Arena. You do not need to include variables and methods. [2]
 
 The method addMonster(Monster M) does the following:
 y If the monster array is not full and M is not in the array, it adds M to the array and
 increases the variable monsterCount.
 y Otherwise, a message is output stating the reason why.
 
+(d) Construct the method addMonster(Monster M).[5]
+
+(e) Outline two disadvantages of using object-oriented programming (OOP) in the
+development of software. [4]
+
 12.
 
-(d)
-
-Construct the method addMonster(Monster M).[5]
-
-(e)
-
-Outline two disadvantages of using object-oriented programming (OOP) in the
-development of software.
-
-[4]
-
-(a)	Define the term polymorphism.[2]
+(a)	Define the term polymorphism.[2]
 The method removeMonster(Monster M) in the Arena class removes Monster M from
 the array without leaving any gaps. It also updates the monsterCount variable. You may
 assume that Monster M already exists in the Arena.
-(b)
 
-Construct the method removeMonster(Monster M)[6]
+(b) Construct the method removeMonster(Monster M)[6]
 
 Monsters have three special abilities that may be used on other monsters:
 y The ability “Heal”, which can be used on another monster
@@ -274,41 +200,11 @@ y An ability specific to the monster (eg, only instances of Squishy have the abi
 The methods ability1(Monster defender), ability2(Monster defender) and
 ability3(Monster defender) will be created to enable the monsters to perform their
 abilities. A class for each individual monster card, eg “Squishy”, will be created.
-(c)
 
-(i)	Define the term inheritance.[2]
-(ii)
+(c) (i)	Define the term inheritance.[2]
 
-Explain how inheritance and polymorphism could be used to maximize code
-reuse in these three methods.
-
-End of Option D
-
-
-[5]
-
-Disclaimer:
-Content used in IB assessments is taken from authentic, third-party sources. The views expressed within them belong to their
-individual authors and/or publishers and do not necessarily reflect the views of the IB.
-References:
-Figure 1.
-
-Department of Agriculture, Environment and Rural Affairs. EU Pet Travel Scheme - How to Complete Pet
-Passports. https://www.daera-ni.gov.uk/publications/eu-pet-travel-scheme-how-complete-pet-passports. Contains
-public sector information licensed under the Open Government Licence v3.0. Source adapted https://www.daerani.gov.uk/crown-copyright.
-
-Figure 2.
-
-Department of Agriculture, Environment and Rural Affairs. EU Pet Travel Scheme - How to Complete Pet
-Passports. https://www.daera-ni.gov.uk/publications/eu-pet-travel-scheme-how-complete-pet-passports. Contains
-public sector information licensed under the Open Government Licence v3.0. Source adapted https://www.daerani.gov.uk/crown-copyright.
-
-Figure 5.
-
-Wikipedia, n.d. California locations by crime rate. [online] Available at: https://en.wikipedia.org/wiki/California_
-locations_by_crime_rate [Accessed 11 January 2021] and Wikimedia Commons, 2008. Locator map of the Harbor
-Freeway in Los Angeles County, Southern California. [online] Available at: https://commons.wikimedia.org/wiki/
-File:Harbor_Freeway.svg [Accessed 11 January 2021]. Source adapted.
+(ii) Explain how inheritance and polymorphism could be used to maximize code
+reuse in these three methods. [5]
 
 Figure 6.
 
@@ -318,6 +214,3 @@ minka2507, 2019. [Fluffy]. [online] Available at: https://pixabay.com/photos/dog
 		3914556, 2013. [Snowy]. [online] Available at: https://pixabay.com/photos/puppy-dog-pet-animal-cutewhite-1903313/ [Accessed 11 January 2021]. Source adapted.
 		Pexels, 2014. [Brownie]. [online] Available at: https://pixabay.com/photos/animal-dog-pet-puppy-pug-1284307/
 [Accessed 11 January 2021]. Source adapted.
-All other texts, graphics and illustrations © International Baccalaureate Organization 2023
-
-

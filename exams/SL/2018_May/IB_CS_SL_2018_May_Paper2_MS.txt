@@ -1,9 +1,7 @@
-Option D — Object-oriented programming
+Option D - Object-oriented programming
 10.
 
-(a)
-
-public;
+(a) public;
 Allows access to variables from outside of the class/unlimited access;
 protected;
 Allows access to variable from within the package (project) in which they are
@@ -16,9 +14,7 @@ objects);
 
 Note:
 • Accept at most one example pertaining to methods.
-• Do not accept two examples pertaining to the same modifier.
-
-[4]
+• Do not accept two examples pertaining to the same modifier. [4]
 
 The OOP feature shown in the constructors (accept the 2 signatures) is
 overloading (accept polymorphism);
@@ -26,27 +22,16 @@ The constructor methods have a different number / type of parameters / different
 parameters;
 The method calling the constructor / compiler will determine which of these
 methods is selected;
-By matching up with the parameters;
+By matching up with the parameters; [4]
 
-[4]
+(c) Silver; [1]
 
-(c)
+(d) Through the use of the (appropriate) array index / appropriate code description;
 
-Silver;
-
-[1]
-
-(d)
-
-Through the use of the (appropriate) array index / appropriate code description;
-
-(b)
-
-Example:
+(b) Example:
 Individual object = allVisits[individual object’s location]
-(e)
 
-[1]
+(e) [1]
 
 public boolean isGold()
 {
@@ -56,23 +41,15 @@ return (statusNow.equals("Gold"); // allows =
 Award marks as follows:
 Signature;
 Correct comparison (allow use of getStatusNow());
-Return (that matches the signature – allow FT);
+Return (that matches the signature - allow FT);
 Note:
 • Allow the equivalent use of IF/THEN statements.
 • Do not accept parameters to be passed.
-• Do not allow the use of totalPoints.
-
-[3]
-
-– 20 –
+• Do not allow the use of totalPoints. [3]
 
 11.
 
-(a)
-
-M18/4/COMSC/SP2/ENG/TZ0/XX/M
-
-Award [1] for three compartments, [1] for correct + and –, and [1] for correct
+(a) Award [1] for three compartments, [1] for correct + and -, and [1] for correct
 contents.
 Visits
 - hotelCode: String
@@ -80,33 +57,17 @@ Visits
 + Visits(String, int)
 + getDays():int
 
-(b)
-
-(c)
+(b) (c)
 
 Note:
-• allow variations in the format, but must use + / –
-• accept additional getters/setters, but the given content must be present.
+• allow variations in the format, but must use + / -
+• accept additional getters/setters, but the given content must be present. [3]
 
-[3]
+(i) m102; [1]
 
-(i)
+(ii) 0; [1]
 
-m102;
-
-[1]
-
-(ii)
-
-0;
-
-[1]
-
-(iii)
-
-6;
-
-[1]
+(iii) 6; [1]
 
 Example 1:
 public int calculateTotalPoints()
@@ -135,17 +96,9 @@ totalDays = totalDays + allVisits[x].getDays();
 }
 totalPoints = totalDays * 1000 + bonusPoints;
 return totalPoints;
-}
+} [5]
 
-[5]
-
-– 21 –
-
-(d)
-
-M18/4/COMSC/SP2/ENG/TZ0/XX/M
-
-public int daysMissing()
+(d) public int daysMissing()
 {
 int pointsNeeded = 0;
 int points;
@@ -179,18 +132,15 @@ Returning calculated number; // allow even if negative or if incorrect or withou
 if else clause;
 Returning 0 // when the points needed would have been negative / when
 required points have already been gained;
-(e)
 
-A generic class / Status / Point / Bronze class can be used as a superclass;
+(e) A generic class / Status / Point / Bronze class can be used as a superclass;
 Sub-classes can then be created (2 or 3) for the individual statuses;
 Containing elements specific to them / overriding superclass methods;
 And inheriting methods/variables required by all status levels from the
 superclass;
 Do not award more than [2] for a generic response.
 
-(f)
-
-[4]
+(f) [4]
 
 (In the Points class) statusNow = statusNextYear;
 bonusPoints set to 0 (accept reset bonusPoints);
@@ -201,11 +151,7 @@ Note: Do not accept “array allVisits reinitialised to empty”.
 
 [3 max]
 
-– 22 –
-
 12.
-
-M18/4/COMSC/SP2/ENG/TZ0/XX/M
 
 Award up to [ 7 max]. Note there are 9 marking points.
 An array of objects / 2 parallel arrays would be created / any other appropriate
@@ -225,5 +171,3 @@ Note:
 description.
 
 [7 max]
-
-
