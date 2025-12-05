@@ -1,11 +1,10 @@
 // State management
 const state = {
   exams: [],
-  questions: [], // Array of { number, text, subQuestions: [{letter, text, marks, isCoding}], code }
+  questions: [],
   currentQuestion: null,
   currentSubQuestion: null,
-  answers: {}, // keyed by "questionNumber-letter"
-  theme: 'dark',
+  answers: {},
   examCode: '',
 };
 
@@ -13,39 +12,17 @@ let codeAnswerEditor = null;
 let examCodeEditor = null;
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
   initEditors();
   wireEvents();
   loadManifest();
 });
 
-// ============== THEME ==============
-function initTheme() {
-  const stored = localStorage.getItem('ibp2-theme') || 'dark';
-  applyTheme(stored);
-}
-
-function applyTheme(theme) {
-  state.theme = theme;
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('ibp2-theme', theme);
-  
-  const icon = document.querySelector('.theme-icon');
-  if (icon) icon.textContent = theme === 'dark' ? '☀' : '◐';
-  
-  const cmTheme = theme === 'dark' ? 'dracula' : 'default';
-  if (examCodeEditor) examCodeEditor.setOption('theme', cmTheme);
-  if (codeAnswerEditor) codeAnswerEditor.setOption('theme', cmTheme);
-}
-
 // ============== EDITORS ==============
 function initEditors() {
-  const cmTheme = state.theme === 'dark' ? 'dracula' : 'default';
-  
   // Exam code editor (read-only)
   examCodeEditor = CodeMirror.fromTextArea(document.getElementById('examCode'), {
     mode: 'text/x-java',
-    theme: cmTheme,
+    theme: 'default',
     lineNumbers: true,
     readOnly: true,
     tabSize: 4,
@@ -56,7 +33,7 @@ function initEditors() {
   // Answer code editor
   codeAnswerEditor = CodeMirror.fromTextArea(document.getElementById('codeAnswer'), {
     mode: 'text/x-java',
-    theme: cmTheme,
+    theme: 'default',
     lineNumbers: true,
     tabSize: 4,
     indentUnit: 4,
@@ -72,10 +49,6 @@ function initEditors() {
 
 // ============== EVENTS ==============
 function wireEvents() {
-  document.getElementById('themeToggle').addEventListener('click', () => {
-    applyTheme(state.theme === 'dark' ? 'light' : 'dark');
-  });
-  
   document.getElementById('copyCode').addEventListener('click', () => {
     copyToClipboard(examCodeEditor.getValue());
   });
@@ -83,6 +56,10 @@ function wireEvents() {
   document.getElementById('clearAnswer').addEventListener('click', clearCurrentAnswer);
   
   document.getElementById('revealMS').addEventListener('click', toggleMarkScheme);
+  
+  // Hide theme toggle since we're using clean white
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) themeBtn.style.display = 'none';
 }
 
 function clearCurrentAnswer() {
@@ -91,7 +68,7 @@ function clearCurrentAnswer() {
   const key = `${state.currentQuestion.number}-${state.currentSubQuestion.letter}`;
   
   if (state.currentSubQuestion.isCoding) {
-    codeAnswerEditor.setValue(state.currentSubQuestion.starterCode || '');
+    codeAnswerEditor.setValue(state.currentSubQuestion.starterCode || '// Write your code here\n\n');
     state.answers[key] = state.currentSubQuestion.starterCode || '';
   } else {
     document.getElementById('textAnswer').value = '';
@@ -102,15 +79,12 @@ function clearCurrentAnswer() {
 function toggleMarkScheme() {
   const content = document.getElementById('markSchemeContent');
   const btn = document.getElementById('revealMS');
-  const icon = btn.querySelector('.reveal-icon');
   
   if (content.classList.contains('hidden')) {
     content.classList.remove('hidden');
-    icon.textContent = '▼';
-    btn.querySelector('span:last-child') && (btn.innerHTML = '<span class="reveal-icon">▼</span> Hide Mark Scheme');
+    btn.innerHTML = '<span class="reveal-icon">▼</span> Hide Mark Scheme';
   } else {
     content.classList.add('hidden');
-    icon.textContent = '▶';
     btn.innerHTML = '<span class="reveal-icon">▶</span> Click to Reveal Mark Scheme';
   }
 }
@@ -123,7 +97,7 @@ async function loadManifest() {
     state.exams = exams;
     populateExamSelect(exams);
     if (exams.length) {
-      document.getElementById('examSelect').value = exams[exams.length - 1].id; // Start with newest
+      document.getElementById('examSelect').value = exams[exams.length - 1].id;
       await loadExam(exams[exams.length - 1].id);
     }
   } catch (err) {
@@ -172,7 +146,7 @@ function parseExam(qpText, msText) {
   const optionDText = extractOptionD(qpText);
   const optionDMS = extractOptionD(msText);
   
-  // Extract all Java code from the exam
+  // Extract all Java code from the exam - improved extraction
   state.examCode = extractAllJavaCode(optionDText);
   
   // Parse questions and sub-questions
@@ -190,7 +164,7 @@ function parseExam(qpText, msText) {
   
   // Build final questions array
   state.questions = rawQuestions
-    .filter(q => parseInt(q.number, 10) >= 10) // Option D starts at Q10
+    .filter(q => parseInt(q.number, 10) >= 10)
     .map(q => {
       const subQuestions = parseSubQuestions(q.text, false).map(sub => {
         const msKey = `${q.number}-${sub.letter}`;
@@ -200,7 +174,7 @@ function parseExam(qpText, msText) {
           markScheme: ms?.text || 'Mark scheme not available.',
           marks: ms?.marks || sub.marks,
           isCoding: detectCodingQuestion(sub.text),
-          starterCode: extractMethodSignature(sub.text, state.examCode),
+          starterCode: extractStarterCode(sub.text, state.examCode),
         };
       });
       
@@ -225,35 +199,61 @@ function extractAllJavaCode(text) {
   const lines = text.split(/\r?\n/);
   const codeBlocks = [];
   let currentBlock = [];
-  let inCode = false;
+  let braceDepth = 0;
+  let inClass = false;
   
-  const codeIndicators = [
-    /^\s*(public|private|protected|class|interface|enum|import|package)\b/,
-    /^\s*(static|void|int|double|boolean|String|char|float|long)\b/,
-    /^\s*(if|else|for|while|do|switch|case|return|new|try|catch)\b/,
-    /^\s*\/\//,
-    /^\s*\/\*/,
-    /^\s*\*/,
-    /[{};]\s*$/,
-    /^\s*[-+]\s+\w+.*:\s*\w+/,  // UML-like: - attributeName: Type
-  ];
-  
-  for (const line of lines) {
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     const trimmed = line.trim();
-    const isCodeLine = codeIndicators.some(re => re.test(line)) || 
-                       (inCode && (trimmed === '' || trimmed === '}' || trimmed === '{'));
     
-    if (isCodeLine && trimmed.length > 0) {
-      inCode = true;
-      currentBlock.push(line);
-    } else if (inCode && trimmed === '') {
-      currentBlock.push('');
-    } else {
-      if (currentBlock.length > 3) {
+    // Detect start of a Java class or significant code block
+    if (/^public\s+class\s+\w+/.test(trimmed) || 
+        /^class\s+\w+/.test(trimmed) ||
+        /^public\s+interface\s+\w+/.test(trimmed)) {
+      if (currentBlock.length > 0 && braceDepth === 0) {
         codeBlocks.push(currentBlock.join('\n'));
+        currentBlock = [];
       }
+      inClass = true;
+    }
+    
+    // Count braces to track block depth
+    const openBraces = (line.match(/{/g) || []).length;
+    const closeBraces = (line.match(/}/g) || []).length;
+    
+    // Determine if this looks like code
+    const isCodeLine = 
+      /^\s*(public|private|protected|class|interface|static|void|int|double|boolean|String|char|float|long|new|return|if|else|for|while|try|catch|throw|import|package)\b/.test(line) ||
+      /^\s*\/\//.test(line) ||  // Comment
+      /^\s*\/\*/.test(line) ||  // Block comment start
+      /^\s*\*/.test(line) ||    // Block comment middle
+      /^\s*{/.test(trimmed) ||
+      /^\s*}/.test(trimmed) ||
+      /;\s*$/.test(trimmed) ||
+      (inClass && braceDepth > 0) ||
+      /^\s*\w+\s*\(.*\)/.test(line) || // Method calls
+      /^\s*\w+\[\]/.test(line); // Arrays
+    
+    if (isCodeLine || (inClass && braceDepth > 0)) {
+      currentBlock.push(line);
+      braceDepth += openBraces - closeBraces;
+      
+      if (braceDepth <= 0 && inClass && currentBlock.length > 0) {
+        codeBlocks.push(currentBlock.join('\n'));
+        currentBlock = [];
+        inClass = false;
+        braceDepth = 0;
+      }
+    } else if (currentBlock.length > 0 && trimmed === '') {
+      // Allow empty lines within code blocks
+      if (braceDepth > 0) {
+        currentBlock.push(line);
+      }
+    } else if (currentBlock.length > 5 && braceDepth === 0) {
+      // Save block if substantial
+      codeBlocks.push(currentBlock.join('\n'));
       currentBlock = [];
-      inCode = false;
+      inClass = false;
     }
   }
   
@@ -261,15 +261,101 @@ function extractAllJavaCode(text) {
     codeBlocks.push(currentBlock.join('\n'));
   }
   
-  // Return the longest meaningful code block
-  if (codeBlocks.length === 0) return '// No Java code provided in this exam.';
+  // If we found actual Java classes, use them
+  const javaClasses = codeBlocks.filter(block => 
+    /class\s+\w+/.test(block) && block.includes('{')
+  );
   
-  // Combine all substantial code blocks
-  const combined = codeBlocks
-    .filter(block => block.split('\n').length > 2)
-    .join('\n\n');
+  if (javaClasses.length > 0) {
+    return javaClasses.join('\n\n');
+  }
   
-  return combined || '// No Java code provided in this exam.';
+  // Fall back to UML-style if no Java classes found
+  // Convert UML notation to Java class skeleton
+  const umlBlock = extractUMLAsJava(text);
+  if (umlBlock) {
+    return umlBlock;
+  }
+  
+  // Last resort - return any code we found
+  if (codeBlocks.length > 0) {
+    return codeBlocks.join('\n\n');
+  }
+  
+  return '// No Java code provided in this exam.\n// Refer to the question text for class specifications.';
+}
+
+function extractUMLAsJava(text) {
+  const lines = text.split(/\r?\n/);
+  let className = '';
+  const attributes = [];
+  const methods = [];
+  
+  for (const line of lines) {
+    // Look for class name (usually appears before attributes)
+    if (/^[A-Z][a-zA-Z]*$/.test(line.trim()) && !className) {
+      className = line.trim();
+      continue;
+    }
+    
+    // UML attribute: - attributeName: Type
+    const attrMatch = line.match(/^[-+]\s*(\w+)\s*:\s*(\w+)/);
+    if (attrMatch) {
+      const [, name, type] = attrMatch;
+      const javaType = convertUMLType(type);
+      attributes.push({ name, type: javaType, visibility: line.trim().startsWith('-') ? 'private' : 'public' });
+      continue;
+    }
+    
+    // UML method: + methodName()
+    const methodMatch = line.match(/^[+]\s*(\w+.*\(.*\))/);
+    if (methodMatch) {
+      methods.push(methodMatch[1]);
+    }
+  }
+  
+  if (!className || attributes.length === 0) {
+    return null;
+  }
+  
+  // Build Java class
+  let java = `public class ${className} {\n`;
+  java += `    // Instance variables\n`;
+  
+  for (const attr of attributes) {
+    java += `    ${attr.visibility} ${attr.type} ${attr.name};\n`;
+  }
+  
+  java += `\n    // Default constructor\n`;
+  java += `    public ${className}() {\n`;
+  java += `        // Initialize default values\n`;
+  java += `    }\n`;
+  
+  java += `\n    // Accessor and mutator methods\n`;
+  for (const attr of attributes) {
+    const capName = attr.name.charAt(0).toUpperCase() + attr.name.slice(1);
+    java += `    public ${attr.type} get${capName}() {\n`;
+    java += `        return this.${attr.name};\n`;
+    java += `    }\n\n`;
+    java += `    public void set${capName}(${attr.type} ${attr.name}) {\n`;
+    java += `        this.${attr.name} = ${attr.name};\n`;
+    java += `    }\n\n`;
+  }
+  
+  java += `}\n`;
+  
+  return java;
+}
+
+function convertUMLType(umlType) {
+  const typeMap = {
+    'integer': 'int',
+    'real': 'double',
+    'boolean': 'boolean',
+    'String': 'String',
+    'char': 'char',
+  };
+  return typeMap[umlType.toLowerCase()] || umlType;
 }
 
 function splitMainQuestions(text) {
@@ -277,7 +363,6 @@ function splitMainQuestions(text) {
   const questions = [];
   let current = null;
   
-  // Match lines that start with a number followed by period (e.g., "10.", "11.")
   const mainQPattern = /^(\d{1,2})\.\s*$/;
   
   for (const line of lines) {
@@ -303,9 +388,7 @@ function parseSubQuestions(text, isMarkScheme) {
   const subs = [];
   let current = null;
   
-  // Match (a), (b), (c), etc.
   const subPattern = /^\(([a-z])\)\s*/i;
-  // Match marks like [2], [3 max], [8 max]
   const marksPattern = /\[(\d+)(?:\s*max)?\]/;
   
   for (const line of lines) {
@@ -333,35 +416,37 @@ function parseSubQuestions(text, isMarkScheme) {
 
 function detectCodingQuestion(text) {
   const codingKeywords = [
-    /\bconstruct\b.*\bcode\b/i,
-    /\bconstruct\b.*\bmethod\b/i,
-    /\bwrite\b.*\bcode\b/i,
-    /\bwrite\b.*\bmethod\b/i,
+    /\bconstruct\b.*\b(code|method|class)\b/i,
+    /\bwrite\b.*\b(code|method)\b/i,
     /\bcreate\b.*\bmethod\b/i,
     /\bimplement\b/i,
-    /\bclass\b.*\bcode\b/i,
   ];
   return codingKeywords.some(re => re.test(text));
 }
 
-function extractMethodSignature(questionText, examCode) {
-  // Try to extract a relevant method signature for coding questions
-  const methodMatch = questionText.match(/\b(get|set|find|calculate|add|remove|check|is|has)\w*\s*\(/i);
+function extractStarterCode(questionText, examCode) {
+  // Try to find a method name mentioned in the question
+  const methodMatch = questionText.match(/method\s+(\w+)\s*\(/i);
   if (methodMatch) {
-    const methodName = methodMatch[0].replace('(', '').trim();
-    // Search exam code for this method
-    const codeLines = examCode.split('\n');
-    for (let i = 0; i < codeLines.length; i++) {
-      if (codeLines[i].includes(methodName)) {
-        // Return surrounding context
-        const start = Math.max(0, i - 2);
-        const end = Math.min(codeLines.length, i + 5);
-        return codeLines.slice(start, end).join('\n');
-      }
+    const methodName = methodMatch[1];
+    return `// Construct the ${methodName}() method\n\npublic void ${methodName}() {\n    // Your code here\n    \n}\n`;
+  }
+  
+  // Check if it's asking for a class
+  const classMatch = questionText.match(/class\s+(\w+)/i);
+  if (classMatch) {
+    const className = classMatch[1];
+    return `public class ${className} {\n    // Your code here\n    \n}\n`;
+  }
+  
+  // Check for accessor/getter
+  if (/accessor|get\w+\(\)/i.test(questionText)) {
+    const getterMatch = questionText.match(/get(\w+)\(\)/i);
+    if (getterMatch) {
+      return `public String get${getterMatch[1]}() {\n    // Your code here\n    return null;\n}\n`;
     }
   }
   
-  // Default starter for coding questions
   return '// Write your code here\n\n';
 }
 
@@ -374,7 +459,6 @@ function renderQuestionList() {
     const questionDiv = document.createElement('div');
     questionDiv.className = 'question-item';
     
-    // Main question header (collapsible)
     const header = document.createElement('button');
     header.className = 'question-header';
     header.innerHTML = `
@@ -383,7 +467,6 @@ function renderQuestionList() {
     `;
     header.addEventListener('click', () => toggleQuestionExpand(questionDiv, q));
     
-    // Sub-questions container
     const subContainer = document.createElement('div');
     subContainer.className = 'sub-questions hidden';
     
@@ -392,7 +475,7 @@ function renderQuestionList() {
       subBtn.className = 'sub-question-btn';
       subBtn.innerHTML = `
         <span class="sub-letter">(${sub.letter})</span>
-        <span class="sub-preview">${truncate(sub.text, 60)}</span>
+        <span class="sub-preview">${truncate(sub.text, 50)}</span>
         ${sub.marks ? `<span class="sub-marks">[${sub.marks}]</span>` : ''}
         ${sub.isCoding ? '<span class="code-badge">CODE</span>' : ''}
       `;
@@ -414,7 +497,6 @@ function toggleQuestionExpand(questionDiv, q) {
   const expandIcon = questionDiv.querySelector('.q-expand');
   const isExpanded = !subContainer.classList.contains('hidden');
   
-  // Close all others
   document.querySelectorAll('.sub-questions').forEach(el => el.classList.add('hidden'));
   document.querySelectorAll('.q-expand').forEach(el => el.textContent = '▶');
   document.querySelectorAll('.question-item').forEach(el => el.classList.remove('expanded'));
@@ -427,18 +509,14 @@ function toggleQuestionExpand(questionDiv, q) {
 }
 
 function selectSubQuestion(question, subQuestion, btnElement) {
-  // Save current answer
   saveCurrentAnswer();
   
-  // Update state
   state.currentQuestion = question;
   state.currentSubQuestion = subQuestion;
   
-  // Update UI active states
   document.querySelectorAll('.sub-question-btn').forEach(btn => btn.classList.remove('active'));
   btnElement.classList.add('active');
   
-  // Show answer panel
   renderAnswerPanel();
 }
 
@@ -454,20 +532,16 @@ function renderAnswerPanel() {
   
   const key = `${q.number}-${sub.letter}`;
   
-  // Update title
   document.getElementById('answerTitle').textContent = `Question ${q.number}(${sub.letter})`;
   
-  // Show question text
   document.getElementById('questionDisplay').innerHTML = `
     <div class="question-text-display">
       <p>${escapeHtml(sub.text).replace(/\n/g, '<br>')}</p>
     </div>
   `;
   
-  // Show answer section
   document.getElementById('answerSection').classList.remove('hidden');
   
-  // Toggle between text and code input
   const textWrap = document.getElementById('textAnswerWrap');
   const codeWrap = document.getElementById('codeAnswerWrap');
   
@@ -475,11 +549,10 @@ function renderAnswerPanel() {
     textWrap.classList.add('hidden');
     codeWrap.classList.remove('hidden');
     
-    const savedAnswer = state.answers[key] ?? sub.starterCode ?? '';
+    const savedAnswer = state.answers[key] ?? sub.starterCode ?? '// Write your code here\n\n';
     codeAnswerEditor.setValue(savedAnswer);
     setTimeout(() => codeAnswerEditor.refresh(), 10);
     
-    // Listen for changes
     codeAnswerEditor.off('change');
     codeAnswerEditor.on('change', () => {
       state.answers[key] = codeAnswerEditor.getValue();
@@ -495,15 +568,14 @@ function renderAnswerPanel() {
     };
   }
   
-  // Show mark scheme section (hidden by default)
+  // Show mark scheme section but keep it hidden by default
   const msSection = document.getElementById('markSchemeSection');
   msSection.classList.remove('hidden');
   
-  // Reset reveal state
+  // ALWAYS hide mark scheme content by default
   document.getElementById('markSchemeContent').classList.add('hidden');
   document.getElementById('revealMS').innerHTML = '<span class="reveal-icon">▶</span> Click to Reveal Mark Scheme';
   
-  // Set mark scheme content
   document.getElementById('marksAvailable').textContent = sub.marks ? `${sub.marks} marks` : '';
   document.getElementById('markSchemeText').innerHTML = formatMarkScheme(sub.markScheme);
   document.getElementById('guidanceText').innerHTML = generateGuidance(sub);
@@ -519,26 +591,22 @@ function generateGuidance(sub) {
   const tips = [];
   
   if (sub.isCoding) {
-    tips.push('✓ Check your method signature matches the requirements');
-    tips.push('✓ Ensure proper use of access modifiers (public/private)');
-    tips.push('✓ Remember to use correct Java syntax for loops and conditions');
-    tips.push('✓ Consider edge cases like null values or empty arrays');
+    tips.push('✓ Check method signature matches requirements');
+    tips.push('✓ Use correct access modifiers (public/private)');
+    tips.push('✓ Remember proper Java syntax');
+    tips.push('✓ Consider edge cases');
   } else {
-    tips.push('✓ Look for command terms: "outline" = brief description, "describe" = detailed');
-    tips.push('✓ "State" questions need concise, factual answers');
-    tips.push('✓ "Explain" requires reasons or justifications');
-    tips.push('✓ Use technical terminology from the IB CS syllabus');
+    tips.push('✓ "Outline" = brief description');
+    tips.push('✓ "Describe" = detailed explanation');
+    tips.push('✓ "State" = concise, factual answer');
+    tips.push('✓ "Explain" = give reasons');
   }
   
-  // Add specific guidance based on content
   if (sub.text.toLowerCase().includes('inherit')) {
-    tips.push('💡 Inheritance: remember "extends" keyword and parent-child relationship');
+    tips.push('💡 Inheritance: use "extends" keyword');
   }
   if (sub.text.toLowerCase().includes('encapsul')) {
-    tips.push('💡 Encapsulation: private attributes + public getters/setters');
-  }
-  if (sub.text.toLowerCase().includes('polymorphism')) {
-    tips.push('💡 Polymorphism: same method name, different implementations');
+    tips.push('💡 Encapsulation: private fields + public getters/setters');
   }
   if (sub.text.toLowerCase().includes('constructor')) {
     tips.push('💡 Constructor: same name as class, no return type');
@@ -550,7 +618,7 @@ function generateGuidance(sub) {
 function clearAnswerPanel() {
   document.getElementById('answerTitle').textContent = 'Select a question';
   document.getElementById('questionDisplay').innerHTML = `
-    <p class="placeholder-text">Click on a sub-question (a), (b), (c)... from the left panel to begin.</p>
+    <p class="placeholder-text">Click a sub-question (a), (b), (c)... from the left panel to begin.</p>
   `;
   document.getElementById('answerSection').classList.add('hidden');
   document.getElementById('markSchemeSection').classList.add('hidden');
@@ -571,8 +639,7 @@ function saveCurrentAnswer() {
 // ============== UTILITIES ==============
 function truncate(text, len) {
   const clean = text.replace(/\s+/g, ' ').trim();
-  const firstLine = clean.split('\n')[0];
-  return firstLine.length > len ? firstLine.slice(0, len) + '…' : firstLine;
+  return clean.length > len ? clean.slice(0, len) + '…' : clean;
 }
 
 function escapeHtml(str) {
